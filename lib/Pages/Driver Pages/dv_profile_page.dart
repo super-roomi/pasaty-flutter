@@ -140,37 +140,47 @@ class _DvProfilePageState extends State<DvProfilePage> {
             ),
           ),
 
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey, width: 1),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                spacing: 30,
-                children: [
-                  Icon(Icons.settings_outlined, size: 26),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Settings",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey, width: 1),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 22.0,
+                  vertical: 20.0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 14.0),
+                      child: Icon(Icons.settings_outlined, size: 26),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Settings",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            "Manage Personal Information",
+                            style: TextStyle(height: 0.8),
+                          ),
+                        ],
                       ),
-                      Text(
-                        "Manage Personal Information",
-                        style: TextStyle(height: 0.8),
-                      ),
-                    ],
-                  ),
-                  Icon(Icons.arrow_forward_ios_sharp),
-                ],
+                    ),
+                    Icon(Icons.arrow_forward_ios_sharp),
+                  ],
+                ),
               ),
             ),
           ),

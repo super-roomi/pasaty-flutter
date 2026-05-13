@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mockup/Colors/AppColors.dart';
 import 'package:mockup/Pages/Parent%20Pages/pr_main_page.dart';
 import 'package:mockup/Pages/Driver%20Pages/dv_profile_page.dart';
+import 'package:mockup/Pages/Parent%20Pages/pr_payment_page.dart';
 import 'package:mockup/Pages/Parent%20Pages/pr_profile_page.dart';
 import 'package:mockup/Pages/Parent%20Pages/pr_schedule_page.dart';
 
@@ -16,8 +18,8 @@ class _PrMainShellState extends State<PrMainShell> {
 
   final List<Widget> _pages = [
     PrMainPage(),
-    PrSchedulePage(),
-    PrProfilePage()
+    PrPaymentPage(),
+    PrProfilePage(),
   ];
 
   @override
@@ -32,18 +34,28 @@ class _PrMainShellState extends State<PrMainShell> {
           ],
         ),
       ),
-        bottomNavigationBar:
-        BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (index) => {(setState(() => _currentIndex = index))},
-          items:
-          [
-            BottomNavigationBarItem(icon: Icon(Icons.directions_bus_filled_outlined), label: "Status"),
-            BottomNavigationBarItem(icon: Icon(Icons.calendar_month_outlined), label: "Schedule"),
-            BottomNavigationBarItem(icon: Icon(Icons.person_2_outlined), label: "Profile")
-          ],
-        ),
-        body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        // selectedItemColor: AppColors.deepNavy,
+        // unselectedItemColor: AppColors.deepNavy,
+
+        currentIndex: _currentIndex,
+        onTap: (index) => {(setState(() => _currentIndex = index))},
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.directions_bus_filled_outlined),
+            label: "Status",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.attach_money),
+            label: "Payments",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_2_outlined),
+            label: "Profile",
+          ),
+        ],
+      ),
+      body: _pages[_currentIndex],
     );
   }
 }

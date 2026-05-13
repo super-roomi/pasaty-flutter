@@ -11,7 +11,7 @@ class PrMainPage extends StatefulWidget {
 class _PrMainPageState extends State<PrMainPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return ListView(children: [
       PrStatusWidget(),
     ],);
   }
