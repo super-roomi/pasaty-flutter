@@ -40,7 +40,6 @@ class _PrStatusWidgetState extends State<PrStatusWidget> {
                         "Arriving Soon",
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),
                       ),
@@ -50,7 +49,7 @@ class _PrStatusWidgetState extends State<PrStatusWidget> {
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(50),
-                      color: Colors.grey,
+                      color: AppColors.warningYellow,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(6.5),
@@ -84,7 +83,6 @@ class _PrStatusWidgetState extends State<PrStatusWidget> {
                         "About 6mins till arrival",
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),
                       ),
