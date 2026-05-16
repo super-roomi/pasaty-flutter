@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mockup/Colors/AppColors.dart';
 
-class DvDeliveryCard extends StatefulWidget {
-  const DvDeliveryCard({super.key});
+import '../../Colors/AppColors.dart';
 
-  @override
-  State<DvDeliveryCard> createState() => _DvDeliveryCardState();
-}
+class DvDeliveryWidgetPassive extends StatelessWidget {
+  const DvDeliveryWidgetPassive({super.key});
 
-class _DvDeliveryCardState extends State<DvDeliveryCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
