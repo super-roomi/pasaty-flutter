@@ -33,7 +33,7 @@ class _PrBoardingWidgetState extends State<PrBoardingWidget> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Boarding Status", style: TextStyle(fontSize: 18)),
+                      Text("Boarding Status", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                       Icon(Icons.group),
                     ],
                   ),
@@ -67,7 +67,6 @@ class _PrBoardingWidgetState extends State<PrBoardingWidget> {
                                   "Rima Antab",
                                   style: TextStyle(
                                     fontSize: 18,
-                                    fontWeight: FontWeight.bold,
                                   ),
                                   textAlign: TextAlign.left,
                                 ),
@@ -113,10 +112,9 @@ class _PrBoardingWidgetState extends State<PrBoardingWidget> {
                               child: Container(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "Samer Antab",
+                                  "Mohammed Antab",
                                   style: TextStyle(
                                     fontSize: 18,
-                                    fontWeight: FontWeight.bold,
                                   ),
                                   textAlign: TextAlign.left,
                                 ),
