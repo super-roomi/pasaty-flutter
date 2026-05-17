@@ -12,10 +12,10 @@ class StatusPage extends StatefulWidget {
 }
 
 class _StatusPageState extends State<StatusPage> {
-  bool _drivingIsStarted = true;
+  bool _drivingIsStarted = false;
 
   void _onDrivingStarted() {
-    setState(() => _drivingIsStarted = false);
+    setState(() => _drivingIsStarted = !_drivingIsStarted);
   }
 
   @override
@@ -23,7 +23,7 @@ class _StatusPageState extends State<StatusPage> {
     return AnimatedSwitcher(duration: Duration(milliseconds: 300),
       child: _drivingIsStarted
           ? ListView(key: ValueKey(true),children: [DvDeliveryWidgetActive(onStart: _onDrivingStarted), DvBroadcastStatus()],)
-          : ListView(key: ValueKey(false), children: [DvDeliveryWidgetPassive()],),
+          : ListView(key: ValueKey(false), children: [DvDeliveryWidgetPassive(onStart: _onDrivingStarted)],),
     );
   }
 }
