@@ -16,7 +16,7 @@ class PrContactWidget extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(color: AppColors.borderGray),
             borderRadius: BorderRadius.circular(20),
-            color: Color(0xFFFFFEFD4)
+            color: Color(0xfffffefd4)
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),

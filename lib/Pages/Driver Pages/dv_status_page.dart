@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mockup/Widgets/Driver%20Widgets/dv_broadcast_status.dart';
 import 'package:mockup/Widgets/Driver%20Widgets/dv_delivery_widget_active.dart';
 import 'package:mockup/Widgets/Driver%20Widgets/dv_delivery_widget_passive.dart';
-import 'package:mockup/Widgets/Driver%20Widgets/dv_student_card.dart';
 
 class StatusPage extends StatefulWidget {
   const StatusPage({super.key});

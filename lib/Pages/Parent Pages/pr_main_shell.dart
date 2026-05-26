@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mockup/Colors/AppColors.dart';
 import 'package:mockup/Pages/Parent%20Pages/pr_status_page.dart';
-import 'package:mockup/Pages/Driver%20Pages/dv_profile_page.dart';
 import 'package:mockup/Pages/Parent%20Pages/pr_payment_page.dart';
 import 'package:mockup/Pages/Parent%20Pages/pr_profile_page.dart';
-import 'package:mockup/Pages/Parent%20Pages/pr_schedule_page.dart';
 
 class PrMainShell extends StatefulWidget {
   const PrMainShell({super.key});

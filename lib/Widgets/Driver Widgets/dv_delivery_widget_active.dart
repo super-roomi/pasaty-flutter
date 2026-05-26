@@ -43,7 +43,7 @@ class _DvDeliveryWidgetActiveState extends State<DvDeliveryWidgetActive> {
             ],
           ),
           Text(
-            "00:42:27",
+            "00:00:00",
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,

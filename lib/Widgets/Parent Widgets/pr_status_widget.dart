@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mockup/Colors/AppColors.dart';
+import 'package:mockup/test.dart';
 
 class PrStatusWidget extends StatefulWidget {
   const PrStatusWidget({super.key});
@@ -45,23 +46,23 @@ class _PrStatusWidgetState extends State<PrStatusWidget> {
                       ),
                     ],
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(50),
-                      color: AppColors.warningYellow,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(6.5),
-                      child: Text(
-                        "60-Meter Road",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     border: Border.all(color: Colors.grey),
+                  //     borderRadius: BorderRadius.circular(50),
+                  //     color: AppColors.warningYellow,
+                  //   ),
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(6.5),
+                  //     child: Text(
+                  //       "60-Meter Road",
+                  //       style: TextStyle(
+                  //         color: Colors.white,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ), //Contains Status & Text Location
               Padding(
@@ -90,6 +91,7 @@ class _PrStatusWidgetState extends State<PrStatusWidget> {
                   ),
                 ),
               ),
+              Test()
             ],
           ),
         ),

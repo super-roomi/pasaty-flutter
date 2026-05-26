@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../Colors/AppColors.dart';
 
 class DvDeliveryWidgetPassive extends StatefulWidget {
   final VoidCallback onStart;
-  DvDeliveryWidgetPassive({super.key, required this.onStart});
+  const DvDeliveryWidgetPassive({super.key, required this.onStart});
 
   @override
   State<DvDeliveryWidgetPassive> createState() =>

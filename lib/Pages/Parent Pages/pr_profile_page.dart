@@ -8,8 +8,8 @@ class PrProfilePage extends StatefulWidget {
 }
 
 class _PrProfilePageState extends State<PrProfilePage> {
-  String StudentName = "Jasim Jaffar";
-  String SchoolName = "Smart Private School";
+  String studentName = "Jasim Jaffar";
+  String schoolName = "Smart Private School";
 
   @override
   Widget build(BuildContext context) {
