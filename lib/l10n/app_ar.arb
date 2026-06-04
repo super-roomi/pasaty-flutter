@@ -1,0 +1,18 @@
+{
+  "@@locale": "ar",
+
+  "phoneNumber": "رقم الهاتف",
+  "@phoneNumber": {
+    "description": "for the phone number in the login page"
+  },
+
+  "role": "الدور",
+  "@role": {
+    "description": "For the role dropdown"
+  },
+
+  "logIn": "تسجيل الدخول",
+  "@logIn": {
+    "description": "For the log in button"
+  }
+}

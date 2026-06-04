@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mockup/Pages/Common/cm_login_page.dart';
 import 'package:flutter/services.dart';
+import 'l10n/app_localizations.dart';
+import 'l10n/l10n.dart';
 
 import 'Colors/AppColors.dart';
 
@@ -10,13 +12,27 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  Locale _locale = const Locale('en'); // default locale
+
+  void _changeLocale(Locale newLocale) {
+    setState(() => _locale = newLocale);
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: _locale,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: L10n.all,
       home: CmLoginPage(),
       theme: ThemeData(
       useMaterial3: true,

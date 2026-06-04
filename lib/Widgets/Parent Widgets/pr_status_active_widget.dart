@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mockup/Colors/AppColors.dart';
 import 'package:mockup/test.dart';
 
-class PrStatusWidget extends StatefulWidget {
-  const PrStatusWidget({super.key});
+class PrStatusActiveWidget extends StatefulWidget {
+  const PrStatusActiveWidget({super.key});
 
   @override
-  State<PrStatusWidget> createState() => _PrStatusWidgetState();
+  State<PrStatusActiveWidget> createState() => _PrStatusActiveWidgetState();
 }
 
-class _PrStatusWidgetState extends State<PrStatusWidget> {
+class _PrStatusActiveWidgetState extends State<PrStatusActiveWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -1,0 +1,18 @@
+{
+  "@@locale": "en",
+
+  "phoneNumber": "Phone Number",
+  "@phoneNumber": {
+    "description": "for the phone number in the login page"
+  },
+
+  "role": "Role",
+  "@role": {
+    "description": "For the role dropdown"
+  },
+
+  "logIn": "Login",
+  "@logIn": {
+    "description": "For the log in button"
+  }
+}

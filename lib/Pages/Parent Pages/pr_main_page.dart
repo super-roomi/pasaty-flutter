@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mockup/Widgets/Parent%20Widgets/pr_status_page_passive.dart';
 import 'package:mockup/Widgets/Parent%20Widgets/pr_boarding_widget.dart';
 import 'package:mockup/Widgets/Parent%20Widgets/pr_contact_widget.dart';
-import 'package:mockup/Widgets/Parent%20Widgets/pr_status_widget.dart';
+import 'package:mockup/Widgets/Parent%20Widgets/pr_status_active_widget.dart';
 
 class PrMainPage extends StatefulWidget {
   const PrMainPage({super.key});
@@ -11,12 +12,20 @@ class PrMainPage extends StatefulWidget {
 }
 
 class _PrMainPageState extends State<PrMainPage> {
+  List<Widget> ActiveSession = [
+    PrStatusActiveWidget(),
+    PrBoardingWidget(),
+    PrContactWidget(),
+  ];
+
+  List<Widget> inactiveSession = [
+    PrStatusPagePassive()
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      PrStatusWidget(),
-      PrBoardingWidget(),
-      PrContactWidget()
-    ],);
+    return ListView(
+      children: inactiveSession,
+    );
   }
 }
