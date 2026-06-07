@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 class PrSchedulePage extends StatefulWidget {
   const PrSchedulePage({super.key});
 
@@ -10,6 +12,8 @@ class PrSchedulePage extends StatefulWidget {
 class _PrSchedulePageState extends State<PrSchedulePage> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey, width: 1),
@@ -26,15 +30,12 @@ class _PrSchedulePageState extends State<PrSchedulePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Settings",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    l10n.settings,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    "Manage Personal Information",
+                    l10n.managePersonalInformation,
                     style: TextStyle(height: 0.8),
                   ),
                 ],

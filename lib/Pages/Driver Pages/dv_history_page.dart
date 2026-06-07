@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 class DvHistoryPage extends StatefulWidget {
   const DvHistoryPage({super.key});
 
@@ -10,6 +12,7 @@ class DvHistoryPage extends StatefulWidget {
 class _DvHistoryPageState extends State<DvHistoryPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: const Text("History"));
+    final l10n = AppLocalizations.of(context)!;
+    return Center(child: Text(l10n.history));
   }
 }

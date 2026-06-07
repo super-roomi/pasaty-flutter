@@ -19,10 +19,20 @@ class _StatusPageState extends State<StatusPage> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSwitcher(duration: Duration(milliseconds: 300),
+    return AnimatedSwitcher(
+      duration: Duration(milliseconds: 300),
       child: _drivingIsStarted
-          ? ListView(key: ValueKey(true),children: [DvDeliveryWidgetActive(onStart: _onDrivingStarted), DvBroadcastStatus()],)
-          : ListView(key: ValueKey(false), children: [DvDeliveryWidgetPassive(onStart: _onDrivingStarted)],),
+          ? ListView(
+              key: ValueKey(true),
+              children: [
+                DvDeliveryWidgetActive(onStart: _onDrivingStarted),
+                DvBroadcastStatus(),
+              ],
+            )
+          : ListView(
+              key: ValueKey(false),
+              children: [DvDeliveryWidgetPassive(onStart: _onDrivingStarted)],
+            ),
     );
   }
 }

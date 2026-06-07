@@ -12,12 +12,12 @@ class ApiService {
     final response = await http.post(
       uri,
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'phone': phone}),   // serialize to JSON
+      body: jsonEncode({'phone': phone}), // serialize to JSON
     );
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      return data['message'];               // whatever your backend returns
+      return data['message']; // whatever your backend returns
     } else {
       throw Exception('Server error: ${response.statusCode}');
     }

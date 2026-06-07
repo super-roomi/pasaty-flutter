@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:mockup/Pages/Parent%20Pages/pr_settings_page.dart';
+import '../../l10n/app_localizations.dart';
+
 class DvProfilePage extends StatefulWidget {
-  const DvProfilePage({super.key});
+  const DvProfilePage({super.key, required this.onLocaleChange});
+  final void Function(Locale) onLocaleChange;
 
   @override
   State<DvProfilePage> createState() => _DvProfilePageState();
@@ -10,6 +14,8 @@ class DvProfilePage extends StatefulWidget {
 class _DvProfilePageState extends State<DvProfilePage> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Column(
         children: [
@@ -89,9 +95,9 @@ class _DvProfilePageState extends State<DvProfilePage> {
                     ),
                     child: Column(
                       children: [
-                        Text("GRADE"),
+                        Text(l10n.grade.toUpperCase()),
                         Text(
-                          "4th Grade",
+                          l10n.fourthGrade,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -124,7 +130,10 @@ class _DvProfilePageState extends State<DvProfilePage> {
                     ),
                     child: Column(
                       children: [
-                        Text("BUS ID", style: TextStyle(fontSize: 15)),
+                        Text(
+                          l10n.busId.toUpperCase(),
+                          style: TextStyle(fontSize: 15),
+                        ),
                         Text(
                           "SPS-7",
                           style: TextStyle(
@@ -140,46 +149,55 @@ class _DvProfilePageState extends State<DvProfilePage> {
             ),
           ),
 
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey, width: 1),
-                borderRadius: BorderRadius.circular(20),
+          GestureDetector(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    PrSettingsPage(onLocaleChange: widget.onLocaleChange),
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 22.0,
-                  vertical: 20.0,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey, width: 1),
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 14.0),
-                      child: Icon(Icons.settings_outlined, size: 26),
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Settings",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            "Manage Personal Information",
-                            style: TextStyle(height: 0.8),
-                          ),
-                        ],
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 22.0,
+                    vertical: 20.0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 14.0),
+                        child: Icon(Icons.settings_outlined, size: 26),
                       ),
-                    ),
-                    Icon(Icons.arrow_forward_ios_sharp),
-                  ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              l10n.settings,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              l10n.managePersonalInformation,
+                              style: TextStyle(height: 0.8),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Icon(Icons.arrow_forward_ios_sharp),
+                    ],
+                  ),
                 ),
               ),
             ),

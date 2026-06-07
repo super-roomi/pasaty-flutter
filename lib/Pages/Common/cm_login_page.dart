@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mockup/Pages/Parent%20Pages/pr_main_shell.dart';
 import 'package:mockup/Pages/Driver%20Pages/dv_main_shell.dart';
 
+import '../../l10n/app_localizations.dart';
 
 class CmLoginPage extends StatefulWidget {
-  const CmLoginPage({super.key});
+  final void Function(Locale) onLocaleChange;
+  const CmLoginPage({super.key, required this.onLocaleChange});
 
   @override
   State<CmLoginPage> createState() => _CmLoginPageState();
@@ -12,9 +14,19 @@ class CmLoginPage extends StatefulWidget {
 
 class _CmLoginPageState extends State<CmLoginPage> {
   String roleSelected = "";
+  static const String driverRole = 'driver';
+  static const String parentRole = 'parent';
+  static const String staffRole = 'staff';
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final roles = {
+      driverRole: l10n.driverRole,
+      parentRole: l10n.parentRole,
+      staffRole: l10n.staffRole,
+    };
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -38,23 +50,32 @@ class _CmLoginPageState extends State<CmLoginPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 15),
                       child: Text(
-                        "Welcome to Pasaty!",
-                        style: TextStyle(fontSize: 28, color: Colors.white),
+                        l10n.welcomeToPasaty,
+                        style: TextStyle(
+                          fontSize: 28,
+                          color: Colors.white,
+                          fontFamily: 'NotoSansArabic',
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Phone Number:",
-                          style: TextStyle(color: Colors.white),
+                          l10n.phoneNumber,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'NotoSansArabic',
+                            fontWeight: FontWeight.bold,
+                          ),
                           textAlign: TextAlign.left,
                         ),
                         SizedBox(
                           width: 350,
                           child: TextField(
                             decoration: InputDecoration(
-                              hintText: "07XX XXX XXXX",
+                              hintText: l10n.phoneNumberHint,
                               prefixIcon: Icon(Icons.phone_android),
                               // border: OutlineInputBorder(),
                             ),
@@ -67,20 +88,36 @@ class _CmLoginPageState extends State<CmLoginPage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Role:", style: TextStyle(color: Colors.white),),
+                        Text(
+                          l10n.role,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'NotoSansArabic',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                         SizedBox(
                           width: 350,
                           child: DropdownButtonFormField<String>(
-                            items: ["Driver", "Parent", "Staff"]
+                            items: roles.entries
                                 .map(
-                                  (e) => DropdownMenuItem(value: e, child: Text(e)),
+                                  (entry) => DropdownMenuItem(
+                                    value: entry.key,
+                                    child: Text(
+                                      entry.value,
+                                      style: TextStyle(
+                                        fontFamily: 'NotoSansArabic',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
                                 )
                                 .toList(),
                             onChanged: (value) {
                               roleSelected = value!;
                             },
                             decoration: InputDecoration(
-                              hintText: "Select Role",
+                              hintText: l10n.selectRole,
                               prefixIcon: Icon(Icons.person),
                               // border: OutlineInputBorder()
                             ),
@@ -90,29 +127,35 @@ class _CmLoginPageState extends State<CmLoginPage> {
                     ),
 
                     SizedBox(
-                      width: 104,
+                      width: 180,
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
-                          if (roleSelected == "Driver") {
+                          if (roleSelected == driverRole) {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DvMainShell(),
+                                builder: (context) => DvMainShell(
+                                  onLocaleChange: widget.onLocaleChange,
+                                ),
                               ),
                             );
-                          } else if (roleSelected == "Parent") {
+                          } else if (roleSelected == parentRole) {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => PrMainShell(),
+                                builder: (context) => PrMainShell(
+                                  onLocaleChange: widget.onLocaleChange,
+                                ),
                               ),
                             );
-                          } else if (roleSelected == "Staff") {
+                          } else if (roleSelected == staffRole) {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DvMainShell(),
+                                builder: (context) => DvMainShell(
+                                  onLocaleChange: widget.onLocaleChange,
+                                ),
                               ),
                             );
                           }
@@ -123,8 +166,18 @@ class _CmLoginPageState extends State<CmLoginPage> {
                           ),
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [Text("Login"), Icon(Icons.arrow_forward)],
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          spacing: 8,
+                          children: [
+                            Text(
+                              l10n.logIn,
+                              style: TextStyle(
+                                fontFamily: 'NotoSansArabic',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Icon(Icons.arrow_forward),
+                          ],
                         ),
                       ),
                     ),

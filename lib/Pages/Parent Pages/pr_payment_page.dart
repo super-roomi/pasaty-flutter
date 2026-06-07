@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 class PrPaymentPage extends StatelessWidget {
   const PrPaymentPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
       children: [
         Padding(
@@ -30,13 +34,17 @@ class PrPaymentPage extends StatelessWidget {
                   ),
                   Container(
                     alignment: Alignment.centerLeft,
-                      child: Row(
-                        spacing: 10,
-                        children: [
-                          Text("Pay your bus fees with Qi", style: TextStyle(fontSize: 18),),
-                          Icon(Icons.arrow_forward_ios, size: 18,)
-                        ],
-                      ))
+                    child: Row(
+                      spacing: 10,
+                      children: [
+                        Text(
+                          l10n.payBusFeesWithQi,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Icon(Icons.arrow_forward_ios, size: 18),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

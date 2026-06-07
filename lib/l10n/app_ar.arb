@@ -1,18 +1,78 @@
 {
   "@@locale": "ar",
-
+  "appTitle": "متتبع الحافلة",
+  "welcomeToPasaty": "مرحباً بك في باصاتي!",
   "phoneNumber": "رقم الهاتف",
-  "@phoneNumber": {
-    "description": "for the phone number in the login page"
-  },
-
+  "phoneNumberHint": "07XX XXX XXXX",
   "role": "الدور",
-  "@role": {
-    "description": "For the role dropdown"
-  },
-
+  "selectRole": "اختر الدور",
+  "driverRole": "سائق",
+  "parentRole": "ولي أمر",
+  "staffRole": "موظف",
   "logIn": "تسجيل الدخول",
-  "@logIn": {
-    "description": "For the log in button"
-  }
+  "status": "الحالة",
+  "payments": "المدفوعات",
+  "profile": "الملف الشخصي",
+  "history": "السجل",
+  "settings": "الإعدادات",
+  "language": "اللغة",
+  "englishLanguage": "الإنجليزية",
+  "arabicLanguage": "العربية",
+  "managePersonalInformation": "إدارة المعلومات الشخصية",
+  "grade": "الصف",
+  "fourthGrade": "الصف الرابع",
+  "busRoute": "مسار الحافلة",
+  "busId": "معرف الحافلة",
+  "payBusFeesWithQi": "ادفع رسوم الحافلة عبر كي",
+  "noActiveTrips": "لا توجد رحلات نشطة",
+  "noActiveTripsMessage": "الحافلة متوقفة حالياً في المرآب. سنبلغك فور بدء المسار التالي.",
+  "boardingStatus": "حالة الصعود",
+  "boarded": "صعد",
+  "contactDriver": "التواصل مع السائق",
+  "contactDriverDescription": "قلق بشأن التأخير؟ تريد الاطمئنان على ريما ومحمد؟",
+  "callSamer": "اتصل بسامر",
+  "currentStatus": "الحالة الحالية",
+  "arrivingSoon": "سيصل قريباً",
+  "timeLeft": "الوقت المتبقي",
+  "aboutSixMinutesTillArrival": "حوالي 6 دقائق حتى الوصول",
+  "test": "اختبار",
+  "activeDeliverySession": "جلسة توصيل نشطة",
+  "endSession": "إنهاء الجلسة",
+  "endSessionDialogTitle": "هل أنت متأكد؟",
+  "endSessionDialogMessage": "يرجى تأكيد رغبتك في إنهاء رحلة.",
+  "cancel": "إلغاء",
+  "ok": "موافق",
+  "busNumber": "الحافلة رقم {number}",
+  "@busNumber": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "totalStops": "إجمالي المحطات",
+  "totalStopsCount": "{count}",
+  "@totalStopsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "approxDuration": "المدة التقريبية",
+  "durationMinutes": "{minutes} دقيقة",
+  "@durationMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "startSession": "بدء الرحلة",
+  "readyToGo": "جاهز للانطلاق؟",
+  "confirmStudentsOnBoard": "يرجى تأكيد أن جميع الطلاب الحاضرين صعدوا إلى الحافلة.",
+  "broadcastUpdates": "إرسال التحديثات",
+  "majorDelay": "تأخير كبير 15 دقيقة+",
+  "minorDelay": "تأخير بسيط 5 دقائق+",
+  "onSchedule": "في الموعد"
 }

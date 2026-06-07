@@ -1,18 +1,78 @@
 {
   "@@locale": "en",
-
+  "appTitle": "Bus Tracker",
+  "welcomeToPasaty": "Welcome to Pasaty!",
   "phoneNumber": "Phone Number",
-  "@phoneNumber": {
-    "description": "for the phone number in the login page"
-  },
-
+  "phoneNumberHint": "07XX XXX XXXX",
   "role": "Role",
-  "@role": {
-    "description": "For the role dropdown"
-  },
-
+  "selectRole": "Select Role",
+  "driverRole": "Driver",
+  "parentRole": "Parent",
+  "staffRole": "Staff",
   "logIn": "Login",
-  "@logIn": {
-    "description": "For the log in button"
-  }
+  "status": "Status",
+  "payments": "Payments",
+  "profile": "Profile",
+  "history": "History",
+  "settings": "Settings",
+  "language": "Language",
+  "englishLanguage": "English",
+  "arabicLanguage": "Arabic",
+  "managePersonalInformation": "Manage Personal Information",
+  "grade": "Grade",
+  "fourthGrade": "4th Grade",
+  "busRoute": "Bus Route",
+  "busId": "Bus ID",
+  "payBusFeesWithQi": "Pay your bus fees with Qi",
+  "noActiveTrips": "No Active Trips",
+  "noActiveTripsMessage": "The bus is currently resting at the depot. We'll notify you as soon as the next route begins.",
+  "boardingStatus": "Boarding Status",
+  "boarded": "Boarded",
+  "contactDriver": "Contact Driver",
+  "contactDriverDescription": "Worried about delays? Checking on Rima and Mohammed?",
+  "callSamer": "Call Samer",
+  "currentStatus": "Current Status",
+  "arrivingSoon": "Arriving Soon",
+  "timeLeft": "Time Left",
+  "aboutSixMinutesTillArrival": "About 6 mins till arrival",
+  "test": "Test",
+  "activeDeliverySession": "Active Delivery Session",
+  "endSession": "End Session",
+  "endSessionDialogTitle": "Are you sure?",
+  "endSessionDialogMessage": "Please confirm you want to end your session.",
+  "cancel": "Cancel",
+  "ok": "OK",
+  "busNumber": "Bus #{number}",
+  "@busNumber": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "totalStops": "Total Stops",
+  "totalStopsCount": "{count}",
+  "@totalStopsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "approxDuration": "Approx. Duration",
+  "durationMinutes": "{minutes} minutes",
+  "@durationMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "startSession": "Start Session",
+  "readyToGo": "Ready to Go?",
+  "confirmStudentsOnBoard": "Please confirm that all present students are on board.",
+  "broadcastUpdates": "Broadcast Updates",
+  "majorDelay": "Major Delay 15m+",
+  "minorDelay": "Minor Delay 5m+",
+  "onSchedule": "On Schedule"
 }

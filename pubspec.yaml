@@ -31,3 +31,11 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/qi-card-seeklogo.png
+  fonts:
+    - family: NotoSansArabic
+      fonts:
+        - asset: assets/NotoSansArabic-Regular.ttf
+        - asset: assets/NotoSansArabic-Regular.ttf
+          weight: 700
+        - asset: assets/NotoSansArabic-Regular.ttf
+          style: italic

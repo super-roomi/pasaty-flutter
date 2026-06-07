@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mockup/Colors/AppColors.dart';
+import 'package:mockup/Colors/app_colors.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class DvDeliveryWidgetActive extends StatefulWidget {
-
   //--------------------Manage state for showing passive vs active states-------
   final VoidCallback onStart; //changes state in parent dv_status_page
   const DvDeliveryWidgetActive({super.key, required this.onStart});
   //----------------------------------------------------------------------------
-
-
 
   @override
   State<DvDeliveryWidgetActive> createState() => _DvDeliveryWidgetActiveState();
@@ -17,6 +16,8 @@ class DvDeliveryWidgetActive extends StatefulWidget {
 class _DvDeliveryWidgetActiveState extends State<DvDeliveryWidgetActive> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
@@ -36,7 +37,7 @@ class _DvDeliveryWidgetActiveState extends State<DvDeliveryWidgetActive> {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
-                  "ACTIVE DELIVERY SESSION",
+                  l10n.activeDeliverySession.toUpperCase(),
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
@@ -55,21 +56,21 @@ class _DvDeliveryWidgetActiveState extends State<DvDeliveryWidgetActive> {
             onPressed: () => showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: Text('Are your sure?'),
-                content: Text('Please confirm you want to end your session.'),
+                title: Text(l10n.endSessionDialogTitle),
+                content: Text(l10n.endSessionDialogMessage),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(
                       context,
                     ), //cancels operation, nothing happens
-                    child: Text('Cancel'),
+                    child: Text(l10n.cancel, style: TextStyle(color: Colors.red),),
                   ),
                   TextButton(
                     onPressed: () {
                       Navigator.pop(context);
                       widget.onStart();
                     }, //Closes the page, updates onStart
-                    child: Text('OK'),
+                    child: Text(l10n.ok),
                   ),
                 ],
               ),
@@ -82,7 +83,10 @@ class _DvDeliveryWidgetActiveState extends State<DvDeliveryWidgetActive> {
               ),
             ),
             icon: Icon(Icons.stop_circle_outlined, color: Colors.white),
-            label: Text("END SESSION", style: TextStyle(color: Colors.white)),
+            label: Text(
+              l10n.endSession.toUpperCase(),
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mockup/Colors/AppColors.dart';
+import 'package:mockup/Colors/app_colors.dart';
 import 'package:mockup/test.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class PrStatusActiveWidget extends StatefulWidget {
   const PrStatusActiveWidget({super.key});
@@ -12,6 +14,8 @@ class PrStatusActiveWidget extends StatefulWidget {
 class _PrStatusActiveWidgetState extends State<PrStatusActiveWidget> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
       children: [
         Container(
@@ -31,18 +35,15 @@ class _PrStatusActiveWidgetState extends State<PrStatusActiveWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "CURRENT STATUS",
+                        l10n.currentStatus.toUpperCase(),
                         style: TextStyle(
                           color: AppColors.mutedText,
                           fontSize: 18,
                         ),
                       ),
                       Text(
-                        "Arriving Soon",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                        ),
+                        l10n.arrivingSoon,
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ],
                   ),
@@ -73,7 +74,7 @@ class _PrStatusActiveWidgetState extends State<PrStatusActiveWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "TIME LEFT",
+                        l10n.timeLeft.toUpperCase(),
                         style: TextStyle(
                           color: AppColors.mutedText,
                           fontSize: 18,
@@ -81,17 +82,14 @@ class _PrStatusActiveWidgetState extends State<PrStatusActiveWidget> {
                         textAlign: TextAlign.start,
                       ),
                       Text(
-                        "About 6mins till arrival",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                        ),
+                        l10n.aboutSixMinutesTillArrival,
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ],
                   ),
                 ),
               ),
-              Test()
+              //Test(),
             ],
           ),
         ),

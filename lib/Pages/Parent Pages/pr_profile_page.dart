@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mockup/Pages/Parent%20Pages/pr_settings_page.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class PrProfilePage extends StatefulWidget {
-  const PrProfilePage({super.key});
+  const PrProfilePage({super.key, required this.onLocaleChange});
+  final void Function(Locale) onLocaleChange;
 
   @override
   State<PrProfilePage> createState() => _PrProfilePageState();
@@ -13,6 +17,8 @@ class _PrProfilePageState extends State<PrProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Column(
         children: [
@@ -92,9 +98,9 @@ class _PrProfilePageState extends State<PrProfilePage> {
                     ),
                     child: Column(
                       children: [
-                        Text("GRADE"),
+                        Text(l10n.grade.toUpperCase()),
                         Text(
-                          "4th Grade",
+                          l10n.fourthGrade,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -127,7 +133,10 @@ class _PrProfilePageState extends State<PrProfilePage> {
                     ),
                     child: Column(
                       children: [
-                        Text("BUS ROUTE", style: TextStyle(fontSize: 15)),
+                        Text(
+                          l10n.busRoute.toUpperCase(),
+                          style: TextStyle(fontSize: 15),
+                        ),
                         Text(
                           "#22",
                           style: TextStyle(
@@ -143,7 +152,13 @@ class _PrProfilePageState extends State<PrProfilePage> {
             ),
           ),
           GestureDetector(
-            onTap: () => {},
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    PrSettingsPage(onLocaleChange: widget.onLocaleChange),
+              ),
+            ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
               child: Container(
@@ -168,7 +183,7 @@ class _PrProfilePageState extends State<PrProfilePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Settings",
+                            l10n.settings,
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -176,7 +191,7 @@ class _PrProfilePageState extends State<PrProfilePage> {
                             textAlign: TextAlign.center,
                           ),
                           Text(
-                            "Manage Personal Information",
+                            l10n.managePersonalInformation,
                             style: TextStyle(height: 0.8),
                           ),
                         ],

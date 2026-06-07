@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mockup/Colors/AppColors.dart';
+import 'package:mockup/Colors/app_colors.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class PrBoardingWidget extends StatefulWidget {
   const PrBoardingWidget({super.key});
@@ -11,6 +13,8 @@ class PrBoardingWidget extends StatefulWidget {
 class _PrBoardingWidgetState extends State<PrBoardingWidget> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Container(
@@ -33,7 +37,13 @@ class _PrBoardingWidgetState extends State<PrBoardingWidget> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Boarding Status", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      Text(
+                        l10n.boardingStatus,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       Icon(Icons.group),
                     ],
                   ),
@@ -65,25 +75,26 @@ class _PrBoardingWidgetState extends State<PrBoardingWidget> {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   "Rima Antab",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  ),
+                                  style: TextStyle(fontSize: 18),
                                   textAlign: TextAlign.left,
                                 ),
                               ),
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Color(0xFFBEFFDC),
-                                  borderRadius: BorderRadius.circular(15)
+                                color: Color(0xFFBEFFDC),
+                                borderRadius: BorderRadius.circular(15),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0,
+                                  vertical: 5.0,
+                                ),
                                 child: Row(
                                   spacing: 3,
                                   children: [
-                                    Icon(Icons.check_circle_outline, size: 16,),
-                                    Text("BOARDED"),
+                                    Icon(Icons.check_circle_outline, size: 16),
+                                    Text(l10n.boarded.toUpperCase()),
                                   ],
                                 ),
                               ),
@@ -113,9 +124,7 @@ class _PrBoardingWidgetState extends State<PrBoardingWidget> {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   "Mohammed Antab",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  ),
+                                  style: TextStyle(fontSize: 18),
                                   textAlign: TextAlign.left,
                                 ),
                               ),
@@ -123,15 +132,18 @@ class _PrBoardingWidgetState extends State<PrBoardingWidget> {
                             Container(
                               decoration: BoxDecoration(
                                 color: Color(0xFFBEFFDC),
-                                borderRadius: BorderRadius.circular(15)
+                                borderRadius: BorderRadius.circular(15),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0,
+                                  vertical: 5.0,
+                                ),
                                 child: Row(
                                   spacing: 3,
                                   children: [
-                                    Icon(Icons.check_circle_outline, size: 16,),
-                                    Text("BOARDED"),
+                                    Icon(Icons.check_circle_outline, size: 16),
+                                    Text(l10n.boarded.toUpperCase()),
                                   ],
                                 ),
                               ),
