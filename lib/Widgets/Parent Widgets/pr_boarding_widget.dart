@@ -74,7 +74,7 @@ class _PrBoardingWidgetState extends State<PrBoardingWidget> {
                               child: Container(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "Rima Antab",
+                                  l10n.rimaAhmed,
                                   style: TextStyle(fontSize: 18),
                                   textAlign: TextAlign.left,
                                 ),
@@ -123,7 +123,7 @@ class _PrBoardingWidgetState extends State<PrBoardingWidget> {
                               child: Container(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "Mohammed Antab",
+                                  l10n.mohammedAhmed,
                                   style: TextStyle(fontSize: 18),
                                   textAlign: TextAlign.left,
                                 ),

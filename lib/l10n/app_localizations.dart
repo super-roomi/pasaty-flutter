@@ -98,6 +98,18 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
+  /// No description provided for @rimaAhmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Rima Ahmed'**
+  String get rimaAhmed;
+
+  /// No description provided for @mohammedAhmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Mohammed Ahmed'**
+  String get mohammedAhmed;
+
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:

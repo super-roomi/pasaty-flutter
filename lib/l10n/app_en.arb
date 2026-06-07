@@ -1,5 +1,7 @@
 {
   "@@locale": "en",
+  "rimaAhmed": "Rima Ahmed",
+  "mohammedAhmed": "Mohammed Ahmed",
   "appTitle": "Bus Tracker",
   "welcomeToPasaty": "Welcome to Pasaty!",
   "phoneNumber": "Phone Number",
