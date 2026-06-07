@@ -12,6 +12,8 @@ class PrMainPage extends StatefulWidget {
 }
 
 class _PrMainPageState extends State<PrMainPage> {
+  String _selectedMode = 'Passive';
+
   List<Widget> activeSession = [
     PrStatusActiveWidget(),
     PrBoardingWidget(),
@@ -22,6 +24,26 @@ class _PrMainPageState extends State<PrMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: inactiveSession);
+    return Column(
+      children: [
+        DropdownButton<String>(
+          value: _selectedMode,
+          items: const [
+            DropdownMenuItem(value: 'Passive', child: Text('Passive')),
+            DropdownMenuItem(value: 'Active', child: Text('Active')),
+          ],
+          onChanged: (String? newValue) {
+            if (newValue != null) {
+              setState(() => _selectedMode = newValue);
+            }
+          },
+        ),
+        Expanded(
+          child: _selectedMode == 'Passive'
+              ? ListView(children: inactiveSession)
+              : ListView(children: activeSession),
+        ),
+      ],
+    );
   }
 }
