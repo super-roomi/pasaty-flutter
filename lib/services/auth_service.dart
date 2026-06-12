@@ -15,6 +15,11 @@ class AuthException implements Exception {
   String toString() => message;
 }
 
+/// Talks to the backend's /v1/auth/* routes.
+///
+/// POST /v1/auth/register is intentionally NOT implemented here: accounts
+/// are created by admins through the web dashboard only. The app can only
+/// log existing users in.
 class AuthService {
   static String get _baseUrl => ApiConfig.baseUrl;
 
