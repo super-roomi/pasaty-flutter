@@ -16,7 +16,7 @@ class AuthException implements Exception {
 }
 
 class AuthService {
-  static const String _baseUrl = ApiConfig.baseUrl;
+  static String get _baseUrl => ApiConfig.baseUrl;
 
   /// Logs in with phone + password and stores the session.
   ///

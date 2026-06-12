@@ -33,7 +33,7 @@ class Profile {
 
 /// Client for the /v1/protected/* routes, which require a Bearer token.
 class ProtectedService {
-  static const String _baseUrl = ApiConfig.baseUrl;
+  static String get _baseUrl => ApiConfig.baseUrl;
 
   static Future<Profile> getProfile() async {
     final response = await _authorizedGet('/v1/protected/profile');
