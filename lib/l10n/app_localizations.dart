@@ -170,6 +170,42 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get logIn;
 
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get passwordHint;
+
+  /// No description provided for @invalidCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid phone number or password'**
+  String get invalidCredentials;
+
+  /// No description provided for @connectionError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not connect to the server. Please try again.'**
+  String get connectionError;
+
+  /// No description provided for @loginFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Login failed. Please try again.'**
+  String get loginFailed;
+
+  /// No description provided for @unsupportedRole.
+  ///
+  /// In en, this message translates to:
+  /// **'This account type is not supported in the app'**
+  String get unsupportedRole;
+
   /// No description provided for @status.
   ///
   /// In en, this message translates to:

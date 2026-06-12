@@ -45,6 +45,24 @@ class AppLocalizationsAr extends AppLocalizations {
   String get logIn => 'تسجيل الدخول';
 
   @override
+  String get password => 'كلمة المرور';
+
+  @override
+  String get passwordHint => 'أدخل كلمة المرور';
+
+  @override
+  String get invalidCredentials => 'رقم الهاتف أو كلمة المرور غير صحيحة';
+
+  @override
+  String get connectionError => 'تعذر الاتصال بالخادم. حاول مرة أخرى.';
+
+  @override
+  String get loginFailed => 'فشل تسجيل الدخول. حاول مرة أخرى.';
+
+  @override
+  String get unsupportedRole => 'نوع هذا الحساب غير مدعوم في التطبيق';
+
+  @override
   String get status => 'الحالة';
 
   @override

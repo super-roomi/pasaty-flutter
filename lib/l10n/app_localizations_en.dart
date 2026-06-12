@@ -45,6 +45,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get logIn => 'Login';
 
   @override
+  String get password => 'Password';
+
+  @override
+  String get passwordHint => 'Enter your password';
+
+  @override
+  String get invalidCredentials => 'Invalid phone number or password';
+
+  @override
+  String get connectionError =>
+      'Could not connect to the server. Please try again.';
+
+  @override
+  String get loginFailed => 'Login failed. Please try again.';
+
+  @override
+  String get unsupportedRole => 'This account type is not supported in the app';
+
+  @override
   String get status => 'Status';
 
   @override
