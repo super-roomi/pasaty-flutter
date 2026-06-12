@@ -5,6 +5,7 @@ import 'package:mockup/services/auth_service.dart';
 import 'package:mockup/services/auth_session.dart';
 
 import '../../l10n/app_localizations.dart';
+import '../../test.dart';
 
 class CmLoginPage extends StatefulWidget {
   final void Function(Locale) onLocaleChange;
