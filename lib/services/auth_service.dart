@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'dart:io' show Platform;
 
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:http/http.dart' as http;
 
+import 'api_config.dart';
 import 'auth_session.dart';
 
 class AuthException implements Exception {
@@ -17,13 +16,7 @@ class AuthException implements Exception {
 }
 
 class AuthService {
-  // The Android emulator can't reach the host machine through 127.0.0.1
-  // (that's the emulator itself); 10.0.2.2 is its alias for the host.
-  // For a real device, use your machine's LAN IP, e.g. http://192.168.1.x:3000
-  static String get _baseUrl {
-    if (!kIsWeb && Platform.isAndroid) return 'http://10.0.2.2:3000';
-    return 'http://127.0.0.1:3000';
-  }
+  static const String _baseUrl = ApiConfig.baseUrl;
 
   /// Logs in with phone + password and stores the session.
   ///
