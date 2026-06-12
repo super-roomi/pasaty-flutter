@@ -45,6 +45,35 @@ class AppLocalizationsEn extends AppLocalizations {
   String get logIn => 'Login';
 
   @override
+  String get logOut => 'Log Out';
+
+  @override
+  String get signOutOfYourAccount => 'Sign out of your account';
+
+  @override
+  String get logOutDialogMessage =>
+      'Please confirm you want to log out of your account.';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get passwordHint => 'Enter your password';
+
+  @override
+  String get invalidCredentials => 'Invalid phone number or password';
+
+  @override
+  String get connectionError =>
+      'Could not connect to the server. Please try again.';
+
+  @override
+  String get loginFailed => 'Login failed. Please try again.';
+
+  @override
+  String get unsupportedRole => 'This account type is not supported in the app';
+
+  @override
   String get status => 'Status';
 
   @override

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:mockup/Pages/Parent%20Pages/pr_settings_page.dart';
+import 'package:mockup/Widgets/Common%20Widgets/cm_logout_tile.dart';
+import 'package:mockup/services/auth_session.dart';
+import 'package:mockup/services/protected_service.dart';
 import '../../l10n/app_localizations.dart';
 
 class DvProfilePage extends StatefulWidget {
@@ -12,6 +15,23 @@ class DvProfilePage extends StatefulWidget {
 }
 
 class _DvProfilePageState extends State<DvProfilePage> {
+  Profile? _profile;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadProfile();
+  }
+
+  Future<void> _loadProfile() async {
+    try {
+      final profile = await ProtectedService.getProfile();
+      if (mounted) setState(() => _profile = profile);
+    } catch (_) {
+      // Keep showing the session/placeholder name if the request fails.
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -47,7 +67,9 @@ class _DvProfilePageState extends State<DvProfilePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Samy Abbas",
+                          _profile?.name ??
+                              AuthSession.instance.user?.name ??
+                              "Samy Abbas",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 24,
@@ -202,6 +224,8 @@ class _DvProfilePageState extends State<DvProfilePage> {
               ),
             ),
           ),
+
+          CmLogoutTile(onLocaleChange: widget.onLocaleChange),
         ],
       ),
     );

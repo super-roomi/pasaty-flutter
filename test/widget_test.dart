@@ -8,7 +8,7 @@ void main() {
 
     expect(find.text('Welcome to Pasaty!'), findsOneWidget);
     expect(find.text('Phone Number'), findsOneWidget);
-    expect(find.text('Role'), findsOneWidget);
+    expect(find.text('Password'), findsOneWidget);
     expect(find.text('Login'), findsOneWidget);
   });
 }

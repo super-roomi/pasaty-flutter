@@ -45,6 +45,34 @@ class AppLocalizationsAr extends AppLocalizations {
   String get logIn => 'تسجيل الدخول';
 
   @override
+  String get logOut => 'تسجيل الخروج';
+
+  @override
+  String get signOutOfYourAccount => 'الخروج من حسابك';
+
+  @override
+  String get logOutDialogMessage =>
+      'يرجى تأكيد رغبتك في تسجيل الخروج من حسابك.';
+
+  @override
+  String get password => 'كلمة المرور';
+
+  @override
+  String get passwordHint => 'أدخل كلمة المرور';
+
+  @override
+  String get invalidCredentials => 'رقم الهاتف أو كلمة المرور غير صحيحة';
+
+  @override
+  String get connectionError => 'تعذر الاتصال بالخادم. حاول مرة أخرى.';
+
+  @override
+  String get loginFailed => 'فشل تسجيل الدخول. حاول مرة أخرى.';
+
+  @override
+  String get unsupportedRole => 'نوع هذا الحساب غير مدعوم في التطبيق';
+
+  @override
   String get status => 'الحالة';
 
   @override
