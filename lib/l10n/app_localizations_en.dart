@@ -45,6 +45,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get logIn => 'Login';
 
   @override
+  String get logOut => 'Log Out';
+
+  @override
+  String get signOutOfYourAccount => 'Sign out of your account';
+
+  @override
+  String get logOutDialogMessage =>
+      'Please confirm you want to log out of your account.';
+
+  @override
   String get password => 'Password';
 
   @override

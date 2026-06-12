@@ -62,4 +62,21 @@ void main() {
     await waitFor(tester, find.byType(DvMainShell));
     expect(find.byType(DvMainShell), findsOneWidget);
   });
+
+  testWidgets('logging out from the profile page returns to the login screen',
+      (tester) async {
+    await login(tester, '07787654321', 'password123');
+    await waitFor(tester, find.byType(DvMainShell));
+
+    await tester.tap(find.text('Profile'));
+    await waitFor(tester, find.text('Log Out'));
+    await tester.tap(find.text('Log Out'));
+
+    // Confirmation dialog: the confirm action is also labelled "Log Out".
+    await waitFor(tester, find.text('Are you sure?'));
+    await tester.tap(find.text('Log Out').last);
+
+    await waitFor(tester, find.text('Welcome to Pasaty!'));
+    expect(find.text('Welcome to Pasaty!'), findsOneWidget);
+  });
 }

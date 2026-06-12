@@ -170,6 +170,24 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get logIn;
 
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Out'**
+  String get logOut;
+
+  /// No description provided for @signOutOfYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out of your account'**
+  String get signOutOfYourAccount;
+
+  /// No description provided for @logOutDialogMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm you want to log out of your account.'**
+  String get logOutDialogMessage;
+
   /// No description provided for @password.
   ///
   /// In en, this message translates to:

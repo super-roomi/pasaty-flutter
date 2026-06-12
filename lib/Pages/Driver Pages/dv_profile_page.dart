@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:mockup/Pages/Parent%20Pages/pr_settings_page.dart';
+import 'package:mockup/Widgets/Common%20Widgets/cm_logout_tile.dart';
 import 'package:mockup/services/auth_session.dart';
 import 'package:mockup/services/protected_service.dart';
 import '../../l10n/app_localizations.dart';
@@ -223,6 +224,8 @@ class _DvProfilePageState extends State<DvProfilePage> {
               ),
             ),
           ),
+
+          CmLogoutTile(onLocaleChange: widget.onLocaleChange),
         ],
       ),
     );

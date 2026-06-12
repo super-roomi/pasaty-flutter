@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mockup/Pages/Parent%20Pages/pr_settings_page.dart';
+import 'package:mockup/Widgets/Common%20Widgets/cm_logout_tile.dart';
 import 'package:mockup/services/auth_session.dart';
 import 'package:mockup/services/protected_service.dart';
 
@@ -229,6 +230,8 @@ class _PrProfilePageState extends State<PrProfilePage> {
               ),
             ),
           ),
+
+          CmLogoutTile(onLocaleChange: widget.onLocaleChange),
         ],
       ),
     );
