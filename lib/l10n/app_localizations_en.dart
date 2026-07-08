@@ -15,10 +15,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mohammedAhmed => 'Mohammed Ahmed';
 
   @override
-  String get appTitle => 'Bus Tracker';
+  String get appTitle => 'Masar Alburhan';
 
   @override
-  String get welcomeToPasaty => 'Welcome to Pasaty!';
+  String get welcomeToPasaty => 'Welcome to Masar Alburhan!';
 
   @override
   String get phoneNumber => 'Phone Number';
@@ -214,4 +214,128 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onSchedule => 'On Schedule';
+
+  @override
+  String get morningRun => 'Morning run';
+
+  @override
+  String get afternoonRun => 'Afternoon run';
+
+  @override
+  String get currentRunLabel => 'Current run';
+
+  @override
+  String get noRunScheduled => 'No run scheduled right now';
+
+  @override
+  String get runWindowsInfo =>
+      'Morning run: 6:00 – 9:00 AM\nAfternoon run: 1:00 – 4:00 PM';
+
+  @override
+  String get attendanceTitle => 'Attendance';
+
+  @override
+  String get attendanceHint =>
+      'Tap a student when they board the bus — swipe left to mark them absent.';
+
+  @override
+  String get startDropoffs => 'Start drop-offs';
+
+  @override
+  String get nextPickup => 'Next pickup';
+
+  @override
+  String pickupRemaining(int count) {
+    return '$count students to pick up';
+  }
+
+  @override
+  String get allPickedUp => 'All students have been picked up';
+
+  @override
+  String get nextDropoff => 'Next drop-off';
+
+  @override
+  String dropoffRemaining(int count) {
+    return '$count students still on the bus';
+  }
+
+  @override
+  String get upNext => 'Up next';
+
+  @override
+  String get allDroppedOff => 'All students have been dropped off';
+
+  @override
+  String get backToAttendance => 'Back to attendance';
+
+  @override
+  String get myRoute => 'My route';
+
+  @override
+  String get noRoutesAssigned => 'No route is assigned to you yet';
+
+  @override
+  String get studentsTitle => 'Students';
+
+  @override
+  String get board => 'Board';
+
+  @override
+  String get dropoff => 'Drop off';
+
+  @override
+  String get absent => 'Absent';
+
+  @override
+  String get completeRun => 'Complete run';
+
+  @override
+  String get completeRunDialogMessage =>
+      'This finalizes today\'s statuses for every student. Continue?';
+
+  @override
+  String get runCompleted => 'Run completed';
+
+  @override
+  String get summaryTotal => 'Total students';
+
+  @override
+  String get summaryArrived => 'Arrived at school';
+
+  @override
+  String get summaryDroppedOff => 'Dropped off home';
+
+  @override
+  String get summaryAbsent => 'Absent';
+
+  @override
+  String get summaryDuration => 'Trip duration';
+
+  @override
+  String get statusWaiting => 'Waiting';
+
+  @override
+  String get statusBoarded => 'Boarded';
+
+  @override
+  String get statusArrived => 'Arrived';
+
+  @override
+  String get statusAbsent => 'Absent';
+
+  @override
+  String get statusDroppedOff => 'Dropped off';
+
+  @override
+  String get waitingForDriver => 'Waiting for the driver to start the run';
+
+  @override
+  String get noStudentsLinked => 'No students are linked to your account';
+
+  @override
+  String get actionFailed => 'Action failed';
+
+  @override
+  String get retry => 'Retry';
 }

@@ -1,11 +1,11 @@
 {
-    "name": "mockup",
-    "short_name": "mockup",
+    "name": "Masar Alburhan",
+    "short_name": "Masar",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Masar Alburhan – school bus tracking.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

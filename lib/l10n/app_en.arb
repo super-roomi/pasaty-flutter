@@ -2,8 +2,8 @@
   "@@locale": "en",
   "rimaAhmed": "Rima Ahmed",
   "mohammedAhmed": "Mohammed Ahmed",
-  "appTitle": "Bus Tracker",
-  "welcomeToPasaty": "Welcome to Pasaty!",
+  "appTitle": "Masar Alburhan",
+  "welcomeToPasaty": "Welcome to Masar Alburhan!",
   "phoneNumber": "Phone Number",
   "phoneNumberHint": "07XX XXX XXXX",
   "role": "Role",
@@ -85,5 +85,58 @@
   "broadcastUpdates": "Broadcast Updates",
   "majorDelay": "Major Delay 15m+",
   "minorDelay": "Minor Delay 5m+",
-  "onSchedule": "On Schedule"
+  "onSchedule": "On Schedule",
+  "morningRun": "Morning run",
+  "afternoonRun": "Afternoon run",
+  "currentRunLabel": "Current run",
+  "noRunScheduled": "No run scheduled right now",
+  "runWindowsInfo": "Morning run: 6:00 – 9:00 AM\nAfternoon run: 1:00 – 4:00 PM",
+  "attendanceTitle": "Attendance",
+  "attendanceHint": "Tap a student when they board the bus — swipe left to mark them absent.",
+  "startDropoffs": "Start drop-offs",
+  "nextPickup": "Next pickup",
+  "pickupRemaining": "{count} students to pick up",
+  "@pickupRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "allPickedUp": "All students have been picked up",
+  "nextDropoff": "Next drop-off",
+  "dropoffRemaining": "{count} students still on the bus",
+  "@dropoffRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "upNext": "Up next",
+  "allDroppedOff": "All students have been dropped off",
+  "backToAttendance": "Back to attendance",
+  "myRoute": "My route",
+  "noRoutesAssigned": "No route is assigned to you yet",
+  "studentsTitle": "Students",
+  "board": "Board",
+  "dropoff": "Drop off",
+  "absent": "Absent",
+  "completeRun": "Complete run",
+  "completeRunDialogMessage": "This finalizes today's statuses for every student. Continue?",
+  "runCompleted": "Run completed",
+  "summaryTotal": "Total students",
+  "summaryArrived": "Arrived at school",
+  "summaryDroppedOff": "Dropped off home",
+  "summaryAbsent": "Absent",
+  "summaryDuration": "Trip duration",
+  "statusWaiting": "Waiting",
+  "statusBoarded": "Boarded",
+  "statusArrived": "Arrived",
+  "statusAbsent": "Absent",
+  "statusDroppedOff": "Dropped off",
+  "waitingForDriver": "Waiting for the driver to start the run",
+  "noStudentsLinked": "No students are linked to your account",
+  "actionFailed": "Action failed",
+  "retry": "Retry"
 }

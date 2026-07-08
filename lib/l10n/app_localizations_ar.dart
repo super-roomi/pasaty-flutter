@@ -15,10 +15,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get mohammedAhmed => 'محمد أحمد';
 
   @override
-  String get appTitle => 'متتبع الحافلة';
+  String get appTitle => 'مسار البرهان';
 
   @override
-  String get welcomeToPasaty => 'مرحباً بك في باصاتي!';
+  String get welcomeToPasaty => 'مرحباً بك في مسار البرهان!';
 
   @override
   String get phoneNumber => 'رقم الهاتف';
@@ -212,4 +212,128 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get onSchedule => 'في الموعد';
+
+  @override
+  String get morningRun => 'الرحلة الصباحية';
+
+  @override
+  String get afternoonRun => 'رحلة العودة';
+
+  @override
+  String get currentRunLabel => 'الرحلة الحالية';
+
+  @override
+  String get noRunScheduled => 'لا توجد رحلة مجدولة الآن';
+
+  @override
+  String get runWindowsInfo =>
+      'الرحلة الصباحية: 6:00 – 9:00 صباحًا\nرحلة العودة: 1:00 – 4:00 عصرًا';
+
+  @override
+  String get attendanceTitle => 'تسجيل الحضور';
+
+  @override
+  String get attendanceHint =>
+      'اضغط على الطالب عند صعوده إلى الباص — أو اسحب لليمين لتسجيله غائبًا.';
+
+  @override
+  String get startDropoffs => 'بدء التوصيل';
+
+  @override
+  String get nextPickup => 'الصعود التالي';
+
+  @override
+  String pickupRemaining(int count) {
+    return '$count طلاب بانتظار الصعود';
+  }
+
+  @override
+  String get allPickedUp => 'تم صعود جميع الطلاب';
+
+  @override
+  String get nextDropoff => 'التوصيل التالي';
+
+  @override
+  String dropoffRemaining(int count) {
+    return '$count طلاب ما زالوا في الباص';
+  }
+
+  @override
+  String get upNext => 'التالي';
+
+  @override
+  String get allDroppedOff => 'تم توصيل جميع الطلاب';
+
+  @override
+  String get backToAttendance => 'العودة إلى تسجيل الحضور';
+
+  @override
+  String get myRoute => 'خطي';
+
+  @override
+  String get noRoutesAssigned => 'لا يوجد خط مخصص لك بعد';
+
+  @override
+  String get studentsTitle => 'الطلاب';
+
+  @override
+  String get board => 'صعود';
+
+  @override
+  String get dropoff => 'نزول';
+
+  @override
+  String get absent => 'غائب';
+
+  @override
+  String get completeRun => 'إنهاء الرحلة';
+
+  @override
+  String get completeRunDialogMessage =>
+      'سيتم اعتماد حالات جميع الطلاب لهذا اليوم. هل تريد المتابعة؟';
+
+  @override
+  String get runCompleted => 'اكتملت الرحلة';
+
+  @override
+  String get summaryTotal => 'مجموع الطلاب';
+
+  @override
+  String get summaryArrived => 'وصلوا إلى المدرسة';
+
+  @override
+  String get summaryDroppedOff => 'تم إيصالهم إلى المنزل';
+
+  @override
+  String get summaryAbsent => 'غائبون';
+
+  @override
+  String get summaryDuration => 'مدة الرحلة';
+
+  @override
+  String get statusWaiting => 'بالانتظار';
+
+  @override
+  String get statusBoarded => 'صعد';
+
+  @override
+  String get statusArrived => 'وصل';
+
+  @override
+  String get statusAbsent => 'غائب';
+
+  @override
+  String get statusDroppedOff => 'نزل';
+
+  @override
+  String get waitingForDriver => 'بانتظار بدء السائق للرحلة';
+
+  @override
+  String get noStudentsLinked => 'لا يوجد طلاب مرتبطون بحسابك';
+
+  @override
+  String get actionFailed => 'فشل الإجراء';
+
+  @override
+  String get retry => 'إعادة المحاولة';
 }
