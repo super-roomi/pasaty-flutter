@@ -5,7 +5,6 @@ import 'package:mockup/services/auth_service.dart';
 import 'package:mockup/services/auth_session.dart';
 
 import '../../l10n/app_localizations.dart';
-import '../../test.dart';
 
 class CmLoginPage extends StatefulWidget {
   final void Function(Locale) onLocaleChange;
@@ -79,7 +78,8 @@ class _CmLoginPageState extends State<CmLoginPage> {
       setState(() {
         _isLoading = false;
         _errorText = switch (e.statusCode) {
-          401 => l10n.invalidCredentials,
+          // 401 => l10n.invalidCredentials,
+          401 => e.message,
           400 => e.message,
           _ => l10n.loginFailed,
         };
@@ -93,18 +93,89 @@ class _CmLoginPageState extends State<CmLoginPage> {
     }
   }
 
+  /// Compact EN | AR switch. Selecting a language applies it app-wide via
+  /// [CmLoginPage.onLocaleChange], which also persists the choice.
+  Widget _languageToggle(BuildContext context) {
+    final current = Localizations.localeOf(context).languageCode;
+
+    const navy = Color(0xFF1A2B48);
+
+    Widget option(String code, String flag, String label) {
+      final selected = current == code;
+      return TextButton(
+        onPressed: selected
+            ? null
+            : () => widget.onLocaleChange(Locale(code)),
+        style: TextButton.styleFrom(
+          minimumSize: const Size(0, 30),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          foregroundColor: navy,
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: selected ? navy : Colors.transparent,
+              width: 1.5,
+            ),
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
+        child: Text(
+          '$flag $label',
+          style: TextStyle(
+            fontFamily: 'NotoSansArabic',
+            fontWeight: selected ? FontWeight.bold : FontWeight.w500,
+          ),
+        ),
+      );
+    }
+
+    final l10n = AppLocalizations.of(context)!;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        option('en', '🇬🇧', l10n.englishLanguage),
+        const SizedBox(width: 8),
+        option('ar', '🇮🇶', l10n.arabicLanguage),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
-      body: Center(
+      body: SafeArea(
+        bottom: false,
         child: Column(
           children: [
-            Image.asset('assets/images/logo.png'),
+            // Language picker — choice persists after login and across restarts.
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8, right: 12),
+                child: _languageToggle(context),
+              ),
+            ),
+            // Logo — given breathing room so it reads as the brand mark.
+            Expanded(
+              flex: 2,
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 40,
+                    vertical: 16,
+                  ),
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
             //Container wrapping a Column Containing Text & Fields
             Expanded(
-              flex: 1,
+              flex: 3,
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -121,6 +192,7 @@ class _CmLoginPageState extends State<CmLoginPage> {
                       padding: const EdgeInsets.only(top: 15),
                       child: Text(
                         l10n.welcomeToPasaty,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 28,
                           color: Colors.white,

@@ -4,7 +4,7 @@
     <!-- usesCleartextTraffic allows plain http:// to the dev backend.
          Remove once the backend is served over https. -->
     <application
-        android:label="mockup"
+        android:label="Masar Alburhan"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">

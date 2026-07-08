@@ -2,8 +2,8 @@
   "@@locale": "ar",
   "rimaAhmed": "ريما أحمد",
   "mohammedAhmed": "محمد أحمد",
-  "appTitle": "متتبع الحافلة",
-  "welcomeToPasaty": "مرحباً بك في باصاتي!",
+  "appTitle": "مسار البرهان",
+  "welcomeToPasaty": "مرحباً بك في مسار البرهان!",
   "phoneNumber": "رقم الهاتف",
   "phoneNumberHint": "07XX XXX XXXX",
   "role": "الدور",
@@ -85,5 +85,58 @@
   "broadcastUpdates": "إرسال التحديثات",
   "majorDelay": "تأخير كبير 15 دقيقة+",
   "minorDelay": "تأخير بسيط 5 دقائق+",
-  "onSchedule": "في الموعد"
+  "onSchedule": "في الموعد",
+  "morningRun": "الرحلة الصباحية",
+  "afternoonRun": "رحلة العودة",
+  "currentRunLabel": "الرحلة الحالية",
+  "noRunScheduled": "لا توجد رحلة مجدولة الآن",
+  "runWindowsInfo": "الرحلة الصباحية: 6:00 – 9:00 صباحًا\nرحلة العودة: 1:00 – 4:00 عصرًا",
+  "attendanceTitle": "تسجيل الحضور",
+  "attendanceHint": "اضغط على الطالب عند صعوده إلى الباص — أو اسحب لليمين لتسجيله غائبًا.",
+  "startDropoffs": "بدء التوصيل",
+  "nextPickup": "الصعود التالي",
+  "pickupRemaining": "{count} طلاب بانتظار الصعود",
+  "@pickupRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "allPickedUp": "تم صعود جميع الطلاب",
+  "nextDropoff": "التوصيل التالي",
+  "dropoffRemaining": "{count} طلاب ما زالوا في الباص",
+  "@dropoffRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "upNext": "التالي",
+  "allDroppedOff": "تم توصيل جميع الطلاب",
+  "backToAttendance": "العودة إلى تسجيل الحضور",
+  "myRoute": "خطي",
+  "noRoutesAssigned": "لا يوجد خط مخصص لك بعد",
+  "studentsTitle": "الطلاب",
+  "board": "صعود",
+  "dropoff": "نزول",
+  "absent": "غائب",
+  "completeRun": "إنهاء الرحلة",
+  "completeRunDialogMessage": "سيتم اعتماد حالات جميع الطلاب لهذا اليوم. هل تريد المتابعة؟",
+  "runCompleted": "اكتملت الرحلة",
+  "summaryTotal": "مجموع الطلاب",
+  "summaryArrived": "وصلوا إلى المدرسة",
+  "summaryDroppedOff": "تم إيصالهم إلى المنزل",
+  "summaryAbsent": "غائبون",
+  "summaryDuration": "مدة الرحلة",
+  "statusWaiting": "بالانتظار",
+  "statusBoarded": "صعد",
+  "statusArrived": "وصل",
+  "statusAbsent": "غائب",
+  "statusDroppedOff": "نزل",
+  "waitingForDriver": "بانتظار بدء السائق للرحلة",
+  "noStudentsLinked": "لا يوجد طلاب مرتبطون بحسابك",
+  "actionFailed": "فشل الإجراء",
+  "retry": "إعادة المحاولة"
 }

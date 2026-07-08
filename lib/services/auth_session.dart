@@ -8,16 +8,21 @@ class UserRole {
 
 class AuthUser {
   final int id;
-  final String name;
+  final String firstName;
+  final String lastName;
   final String phone;
   final String role;
 
   const AuthUser({
     required this.id,
-    required this.name,
+    required this.firstName,
+    required this.lastName,
     required this.phone,
     required this.role,
   });
+
+  String get name =>
+      lastName.isEmpty ? firstName : '$firstName $lastName';
 }
 
 /// In-memory session holding the tokens returned by the backend.

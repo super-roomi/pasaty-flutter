@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mockup/Pages/Common/cm_login_page.dart';
+import 'package:mockup/services/locale_prefs.dart';
 import 'package:flutter/services.dart';
 import 'l10n/app_localizations.dart';
 import 'l10n/l10n.dart';
 
 import 'Colors/app_colors.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MyApp());
+  final savedLocale = await LocalePrefs.load();
+  runApp(MyApp(initialLocale: savedLocale));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  final Locale? initialLocale;
+  const MyApp({super.key, this.initialLocale});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -21,15 +24,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
-  Locale _locale = const Locale('en'); // default locale
+  late Locale _locale =
+      widget.initialLocale ?? const Locale('en'); // saved or default
 
   void _changeLocale(Locale newLocale) {
     setState(() => _locale = newLocale);
+    LocalePrefs.save(newLocale); // persist across restarts
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
       locale: _locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: L10n.all,

@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 import 'api_config.dart';
 import 'auth_session.dart';
+import 'socket_service.dart';
 
 class AuthException implements Exception {
   final String message;
@@ -49,9 +50,11 @@ class AuthService {
     final payload = _decodeJwtPayload(accessToken);
     final userJson = body['user'] as Map<String, dynamic>;
 
+    // Login responds with {id, Fname, Lname, phone} (authController.js).
     final user = AuthUser(
       id: userJson['id'] as int,
-      name: userJson['name'] as String,
+      firstName: (userJson['Fname'] ?? '') as String,
+      lastName: (userJson['Lname'] ?? '') as String,
       phone: userJson['phone'] as String,
       role: (payload['role'] ?? '') as String,
     );
@@ -99,6 +102,7 @@ class AuthService {
         headers: {'Cookie': ?cookie},
       );
     } finally {
+      SocketService.instance.disconnect();
       session.clear();
     }
   }

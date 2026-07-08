@@ -113,13 +113,13 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Bus Tracker'**
+  /// **'Masar Alburhan'**
   String get appTitle;
 
   /// No description provided for @welcomeToPasaty.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to Pasaty!'**
+  /// **'Welcome to Masar Alburhan!'**
   String get welcomeToPasaty;
 
   /// No description provided for @phoneNumber.
@@ -487,6 +487,240 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'On Schedule'**
   String get onSchedule;
+
+  /// No description provided for @morningRun.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning run'**
+  String get morningRun;
+
+  /// No description provided for @afternoonRun.
+  ///
+  /// In en, this message translates to:
+  /// **'Afternoon run'**
+  String get afternoonRun;
+
+  /// No description provided for @currentRunLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Current run'**
+  String get currentRunLabel;
+
+  /// No description provided for @noRunScheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'No run scheduled right now'**
+  String get noRunScheduled;
+
+  /// No description provided for @runWindowsInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning run: 6:00 – 9:00 AM\nAfternoon run: 1:00 – 4:00 PM'**
+  String get runWindowsInfo;
+
+  /// No description provided for @attendanceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Attendance'**
+  String get attendanceTitle;
+
+  /// No description provided for @attendanceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a student when they board the bus — swipe left to mark them absent.'**
+  String get attendanceHint;
+
+  /// No description provided for @startDropoffs.
+  ///
+  /// In en, this message translates to:
+  /// **'Start drop-offs'**
+  String get startDropoffs;
+
+  /// No description provided for @nextPickup.
+  ///
+  /// In en, this message translates to:
+  /// **'Next pickup'**
+  String get nextPickup;
+
+  /// No description provided for @pickupRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} students to pick up'**
+  String pickupRemaining(int count);
+
+  /// No description provided for @allPickedUp.
+  ///
+  /// In en, this message translates to:
+  /// **'All students have been picked up'**
+  String get allPickedUp;
+
+  /// No description provided for @nextDropoff.
+  ///
+  /// In en, this message translates to:
+  /// **'Next drop-off'**
+  String get nextDropoff;
+
+  /// No description provided for @dropoffRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} students still on the bus'**
+  String dropoffRemaining(int count);
+
+  /// No description provided for @upNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Up next'**
+  String get upNext;
+
+  /// No description provided for @allDroppedOff.
+  ///
+  /// In en, this message translates to:
+  /// **'All students have been dropped off'**
+  String get allDroppedOff;
+
+  /// No description provided for @backToAttendance.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to attendance'**
+  String get backToAttendance;
+
+  /// No description provided for @myRoute.
+  ///
+  /// In en, this message translates to:
+  /// **'My route'**
+  String get myRoute;
+
+  /// No description provided for @noRoutesAssigned.
+  ///
+  /// In en, this message translates to:
+  /// **'No route is assigned to you yet'**
+  String get noRoutesAssigned;
+
+  /// No description provided for @studentsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Students'**
+  String get studentsTitle;
+
+  /// No description provided for @board.
+  ///
+  /// In en, this message translates to:
+  /// **'Board'**
+  String get board;
+
+  /// No description provided for @dropoff.
+  ///
+  /// In en, this message translates to:
+  /// **'Drop off'**
+  String get dropoff;
+
+  /// No description provided for @absent.
+  ///
+  /// In en, this message translates to:
+  /// **'Absent'**
+  String get absent;
+
+  /// No description provided for @completeRun.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete run'**
+  String get completeRun;
+
+  /// No description provided for @completeRunDialogMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This finalizes today\'s statuses for every student. Continue?'**
+  String get completeRunDialogMessage;
+
+  /// No description provided for @runCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Run completed'**
+  String get runCompleted;
+
+  /// No description provided for @summaryTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total students'**
+  String get summaryTotal;
+
+  /// No description provided for @summaryArrived.
+  ///
+  /// In en, this message translates to:
+  /// **'Arrived at school'**
+  String get summaryArrived;
+
+  /// No description provided for @summaryDroppedOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Dropped off home'**
+  String get summaryDroppedOff;
+
+  /// No description provided for @summaryAbsent.
+  ///
+  /// In en, this message translates to:
+  /// **'Absent'**
+  String get summaryAbsent;
+
+  /// No description provided for @summaryDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip duration'**
+  String get summaryDuration;
+
+  /// No description provided for @statusWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting'**
+  String get statusWaiting;
+
+  /// No description provided for @statusBoarded.
+  ///
+  /// In en, this message translates to:
+  /// **'Boarded'**
+  String get statusBoarded;
+
+  /// No description provided for @statusArrived.
+  ///
+  /// In en, this message translates to:
+  /// **'Arrived'**
+  String get statusArrived;
+
+  /// No description provided for @statusAbsent.
+  ///
+  /// In en, this message translates to:
+  /// **'Absent'**
+  String get statusAbsent;
+
+  /// No description provided for @statusDroppedOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Dropped off'**
+  String get statusDroppedOff;
+
+  /// No description provided for @waitingForDriver.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for the driver to start the run'**
+  String get waitingForDriver;
+
+  /// No description provided for @noStudentsLinked.
+  ///
+  /// In en, this message translates to:
+  /// **'No students are linked to your account'**
+  String get noStudentsLinked;
+
+  /// No description provided for @actionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Action failed'**
+  String get actionFailed;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
 }
 
 class _AppLocalizationsDelegate

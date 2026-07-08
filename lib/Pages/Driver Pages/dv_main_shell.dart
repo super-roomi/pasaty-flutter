@@ -16,14 +16,18 @@ class DvMainShell extends StatefulWidget {
 class _DvMainShellState extends State<DvMainShell> {
   int _currentIndex = 0;
 
+  // Built once and shown through an IndexedStack so tab switches keep each
+  // page's state alive — an active run on StatusPage must survive visiting
+  // History or Profile.
+  late final List<Widget> _pages = [
+    const StatusPage(),
+    const DvHistoryPage(),
+    DvProfilePage(onLocaleChange: widget.onLocaleChange),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final pages = [
-      StatusPage(),
-      DvHistoryPage(),
-      DvProfilePage(onLocaleChange: widget.onLocaleChange),
-    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -53,7 +57,7 @@ class _DvMainShellState extends State<DvMainShell> {
           ),
         ],
       ),
-      body: pages[_currentIndex],
+      body: IndexedStack(index: _currentIndex, children: _pages),
     );
   }
 }
