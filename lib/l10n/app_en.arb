@@ -80,8 +80,6 @@
   "busId": "Bus ID",
   "notAssigned": "Not assigned",
   "tripProgress": "Trip progress",
-  "etaBusArriving": "Bus arriving now",
-  "etaHomeArriving": "Arriving home now",
   "etaWaiting": "Waiting for update",
   "stepHome": "Home",
   "stepOnBus": "On the bus",

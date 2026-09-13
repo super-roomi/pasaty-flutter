@@ -118,22 +118,32 @@ void main() {
       expect(find.text('until home'), findsOneWidget);
     });
 
-    testWidgets('the stop being reached reads as arriving', (tester) async {
+    testWidgets('a stop under a minute away still shows a number', (
+      tester,
+    ) async {
       await _pump(
         tester,
         afternoon: true,
         eta: _eta(arrival: const Duration(seconds: 20)),
       );
-      expect(find.text('Arriving home now'), findsOneWidget);
+      // The figure is the thing a parent is looking for; it must not be
+      // swapped for prose exactly when the bus is closest.
+      expect(find.text('1'), findsOneWidget);
+      expect(find.text('min'), findsOneWidget);
     });
 
-    testWidgets('an overdue estimate still reads as arriving', (tester) async {
+    testWidgets('an overdue estimate holds at one, never negative', (
+      tester,
+    ) async {
       await _pump(
         tester,
         afternoon: true,
         eta: _eta(arrival: const Duration(minutes: -4)),
       );
-      expect(find.text('Arriving home now'), findsOneWidget);
+      // ceil() on a past arrival is negative, so without the floor this read
+      // "-4 min".
+      expect(find.text('1'), findsOneWidget);
+      expect(find.text('-4'), findsNothing);
     });
 
     testWidgets('a shaky estimate is marked with ~ rather than hidden', (

@@ -194,12 +194,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tripProgress => 'Trip progress';
 
   @override
-  String get etaBusArriving => 'Bus arriving now';
-
-  @override
-  String get etaHomeArriving => 'Arriving home now';
-
-  @override
   String get etaWaiting => 'Waiting for update';
 
   @override

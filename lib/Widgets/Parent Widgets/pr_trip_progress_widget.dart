@@ -201,13 +201,20 @@ class PrTripProgressWidget extends StatelessWidget {
 
     final seconds = eta.arrival.difference(clock.now()).inSeconds;
 
-    // The stop is essentially reached — a countdown would be noise to someone
-    // already at the door.
-    if (seconds < 60) {
-      return _line(afternoon ? l10n.etaHomeArriving : l10n.etaBusArriving);
-    }
-
-    return _figure(context, l10n, minutes: (seconds / 60).ceil(), eta: eta);
+    // A number at all times, never an "arriving now" line: the figure is what
+    // a parent is looking for, and swapping it for prose right as the bus
+    // gets close takes it away at the moment it matters most.
+    //
+    // Floored at 1. ceil() on an overdue estimate returns a negative, so a bus
+    // two minutes past its prediction would read "-2 min"; it holds at 1 until
+    // a fresh broadcast moves the arrival, or the 90s staleness cutoff takes
+    // the countdown away entirely.
+    return _figure(
+      context,
+      l10n,
+      minutes: (seconds / 60).ceil().clamp(1, 999),
+      eta: eta,
+    );
   }
 
   /// The headline: a large minute number with unit, the phase subtitle, the

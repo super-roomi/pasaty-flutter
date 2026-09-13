@@ -80,8 +80,6 @@
   "busId": "معرف الحافلة",
   "notAssigned": "غير محدد",
   "tripProgress": "تقدّم الرحلة",
-  "etaBusArriving": "الحافلة تصل الآن",
-  "etaHomeArriving": "يصل إلى المنزل الآن",
   "etaWaiting": "بانتظار التحديث",
   "stepHome": "المنزل",
   "stepOnBus": "في الحافلة",

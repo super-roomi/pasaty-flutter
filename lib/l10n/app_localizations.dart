@@ -434,18 +434,6 @@ abstract class AppLocalizations {
   /// **'Trip progress'**
   String get tripProgress;
 
-  /// No description provided for @etaBusArriving.
-  ///
-  /// In en, this message translates to:
-  /// **'Bus arriving now'**
-  String get etaBusArriving;
-
-  /// No description provided for @etaHomeArriving.
-  ///
-  /// In en, this message translates to:
-  /// **'Arriving home now'**
-  String get etaHomeArriving;
-
   /// No description provided for @etaWaiting.
   ///
   /// In en, this message translates to:

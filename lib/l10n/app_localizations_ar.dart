@@ -191,12 +191,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get tripProgress => 'تقدّم الرحلة';
 
   @override
-  String get etaBusArriving => 'الحافلة تصل الآن';
-
-  @override
-  String get etaHomeArriving => 'يصل إلى المنزل الآن';
-
-  @override
   String get etaWaiting => 'بانتظار التحديث';
 
   @override

@@ -85,9 +85,9 @@ void main() {
       ),
     );
 
-    // The bus has just left the school: the nearest stop is seconds away, so
-    // a countdown would be noise.
-    expect(find.text('Arriving home now'), findsOneWidget);
+    // The bus has just left the school, so the nearest stop is seconds away.
+    // That still reads as a number rather than prose.
+    expect(find.text('1'), findsOneWidget);
 
     // Push the arrival out and the same payload reads as a single figure with
     // its distance.

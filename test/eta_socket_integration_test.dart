@@ -125,12 +125,12 @@ void main() {
     );
     await tester.pump();
 
-    // The bus is at the school, so the nearest stop is seconds away and the
-    // card correctly says so rather than inventing a range.
-    expect(find.text('Arriving home now'), findsOneWidget);
+    // The bus is at the school, so the nearest stop is seconds away — shown
+    // as a floored figure rather than prose.
+    expect(find.text('1'), findsOneWidget);
 
     // Exactly one estimate for the pair, not one per child.
-    expect(find.byIcon(Icons.schedule), findsOneWidget);
+    expect(find.byIcon(Icons.near_me_outlined), findsOneWidget);
 
     debugPrint(
       'rendered one estimate covering meran (${meran.metersAway}m) '
