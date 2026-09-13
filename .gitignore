@@ -33,6 +33,10 @@ migrate_working_dir/
 /build/
 /coverage/
 
+# Golden-test failure artifacts. Written by `flutter test` on a mismatch and
+# regenerated every run; the masters under test/goldens/ are the tracked ones.
+/test/failures/
+
 # Symbolication related
 app.*.symbols
 
@@ -43,3 +47,14 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Release signing — the upload keystore and its passwords must never be
+# committed. Losing the keystore means the Play listing can never be updated,
+# so keep an offline backup outside the repo.
+/android/key.properties
+*.jks
+*.keystore
+
+# Build-time config: backend URL + Mapbox public token. Not committed —
+# the token is billable to the account and should stay URL-restricted.
+dart_defines.json

@@ -39,12 +39,19 @@ class Student {
   final String firstName;
   final String status;
   final int? routeId;
+  final int? schoolId;
+
+  /// Joined from the `school` table by the backend. Null only when the child
+  /// has no school assigned.
+  final String? schoolName;
 
   const Student({
     required this.id,
     required this.firstName,
     required this.status,
     this.routeId,
+    this.schoolId,
+    this.schoolName,
   });
 
   factory Student.fromJson(Map<String, dynamic> json) {
@@ -53,6 +60,8 @@ class Student {
       firstName: (json['first_name'] ?? '') as String,
       status: (json['status'] ?? '') as String,
       routeId: json['routeid'] as int?,
+      schoolId: json['schoolid'] as int?,
+      schoolName: json['school_name'] as String?,
     );
   }
 }
@@ -61,12 +70,62 @@ class Student {
 class DriverRoute {
   final int id;
   final String name;
+  final int? schoolId;
 
-  const DriverRoute({required this.id, required this.name});
+  /// Joined from the `school` table by the backend.
+  final String? schoolName;
+
+  const DriverRoute({
+    required this.id,
+    required this.name,
+    this.schoolId,
+    this.schoolName,
+  });
 
   factory DriverRoute.fromJson(Map<String, dynamic> json) {
-    return DriverRoute(id: json['id'] as int, name: json['name'] as String);
+    return DriverRoute(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      schoolId: json['schoolid'] as int?,
+      schoolName: json['school_name'] as String?,
+    );
   }
+}
+
+/// Today's attendance for one child, from GET /v1/protected/attendance/:id.
+///
+/// The backend stores the two phases side by side. The afternoon column only
+/// becomes non-null once the afternoon run touches the row, so a non-null
+/// afternoon status is what tells us which phase reflects "now".
+class StudentAttendance {
+  /// The attendance row's own id. Live `attendance:updated` events are keyed
+  /// by this, so it has to be captured here too: a parent who opens the app
+  /// mid-run never sees a roster broadcast, and without this id every
+  /// subsequent per-student update has nothing to match against.
+  final int attendanceId;
+
+  final int studentId;
+  final String? morningStatus;
+  final String? afternoonStatus;
+
+  const StudentAttendance({
+    required this.attendanceId,
+    required this.studentId,
+    this.morningStatus,
+    this.afternoonStatus,
+  });
+
+  factory StudentAttendance.fromJson(Map<String, dynamic> json) {
+    return StudentAttendance(
+      attendanceId: json['id'] as int,
+      studentId: json['studentid'] as int,
+      morningStatus: json['morning_status'] as String?,
+      afternoonStatus: json['afternoon_status'] as String?,
+    );
+  }
+
+  String get currentPhase => afternoonStatus != null ? 'afternoon' : 'morning';
+  String? get currentStatus => afternoonStatus ?? morningStatus;
 }
 
 /// Client for the /v1/protected/* routes, which require a Bearer token.
@@ -90,6 +149,23 @@ class ProtectedService {
     }
   }
 
+  /// Parent role only. Today's attendance for one of the parent's children.
+  ///
+  /// Returns null when no run has touched the child today (the backend
+  /// answers 404). Without this the app is push-only: a parent who opens it
+  /// after the driver already started sees nothing until the next broadcast.
+  static Future<StudentAttendance?> getStudentAttendance(int studentId) async {
+    try {
+      final body = await ApiClient.get('/v1/protected/attendance/$studentId');
+      return StudentAttendance.fromJson(
+        body['attendance'] as Map<String, dynamic>,
+      );
+    } on ApiException catch (e) {
+      if (e.statusCode == 404) return null;
+      rethrow;
+    }
+  }
+
   /// Driver role only. 404 (no routes assigned) comes back as [].
   static Future<List<DriverRoute>> getMyRoutes() async {
     try {
@@ -101,5 +177,16 @@ class ProtectedService {
       if (e.statusCode == 404) return const [];
       rethrow;
     }
+  }
+
+  /// Permanently deletes the signed-in user's own account.
+  ///
+  /// Takes no id — the backend deletes whoever the access token belongs to,
+  /// so there is nothing here that could delete the wrong account.
+  ///
+  /// Throws [ApiException] on failure; the caller must not sign the user out
+  /// unless this returns, or a failed delete would look like it worked.
+  static Future<void> deleteAccount() async {
+    await ApiClient.delete('/v1/protected/');
   }
 }

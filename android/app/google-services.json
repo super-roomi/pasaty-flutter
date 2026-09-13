@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "601614256782",
+    "project_id": "pasaty-b6671",
+    "storage_bucket": "pasaty-b6671.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601614256782:android:980733290b261188aa17df",
+        "android_client_info": {
+          "package_name": "iq.masaralburhan.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoALzJH2lYlAvIJ9wZKklbdYumRnn13WI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

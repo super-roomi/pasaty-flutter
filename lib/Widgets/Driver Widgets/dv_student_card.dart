@@ -26,10 +26,10 @@ class DvStudentCard extends StatelessWidget {
     required this.onAbsent,
   });
 
-  static const _boardedFill = Color(0xFFE6F7EE);
-  static const _boardedEdge = Color(0xFF3CB371);
-  static const _absentFill = Color(0xFFFBEAEA);
-  static const _waitingFill = Color(0xFFF2F0F3);
+  static const _boardedFill = AppColors.successTint;
+  static const _boardedEdge = AppColors.successGreen;
+  static const _absentFill = AppColors.dangerTint;
+  static const _waitingFill = AppColors.surfaceMuted;
 
   @override
   Widget build(BuildContext context) {
@@ -67,27 +67,26 @@ class DvStudentCard extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(AppRadius.control),
             onTap: busy || boarded ? null : onBoard,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 250),
               curve: Curves.easeOut,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               decoration: BoxDecoration(
                 color: boarded
                     ? _boardedFill
                     : absent
-                        ? _absentFill
-                        : _waitingFill,
+                    ? _absentFill
+                    : _waitingFill,
                 border: Border.all(
                   color: boarded
                       ? _boardedEdge
                       : absent
-                          ? AppColors.dangerRed
-                          : AppColors.borderGray,
+                      ? AppColors.dangerRed
+                      : AppColors.borderGray,
                 ),
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(AppRadius.control),
               ),
               child: Row(
                 children: [
@@ -106,7 +105,9 @@ class DvStudentCard extends StatelessWidget {
                         Text(
                           student.firstName,
                           style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         AnimatedSwitcher(
                           duration: const Duration(milliseconds: 200),
@@ -118,8 +119,8 @@ class DvStudentCard extends StatelessWidget {
                               color: boarded
                                   ? _boardedEdge
                                   : absent
-                                      ? AppColors.dangerRed
-                                      : Colors.grey,
+                                  ? AppColors.dangerRed
+                                  : Colors.grey,
                             ),
                           ),
                         ),
@@ -140,6 +141,7 @@ class DvStudentCard extends StatelessWidget {
                       active: boarded,
                       color: _boardedEdge,
                       icon: Icons.check,
+                      label: l10n.board,
                       onTap: boarded ? null : onBoard,
                     ),
                     const SizedBox(width: 8),
@@ -147,6 +149,7 @@ class DvStudentCard extends StatelessWidget {
                       active: absent,
                       color: AppColors.dangerRed,
                       icon: Icons.person_off_outlined,
+                      label: l10n.absent,
                       onTap: absent ? null : onAbsent,
                     ),
                   ],
@@ -160,29 +163,47 @@ class DvStudentCard extends StatelessWidget {
   }
 
   /// Round check / absent toggle that fills with its color when active.
+  ///
+  /// 48x48 to clear the WCAG/Material minimum touch target — the visible
+  /// circle is smaller (42dp) so the extra tap area is invisible padding,
+  /// not a bigger button.
   Widget _statusToggle({
     required bool active,
     required Color color,
     required IconData icon,
+    required String label,
     required VoidCallback? onTap,
   }) {
-    return InkWell(
-      customBorder: const CircleBorder(),
-      onTap: onTap,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
-        curve: Curves.easeOut,
-        width: 42,
-        height: 42,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: active ? color : Colors.transparent,
-          border: Border.all(color: active ? color : Colors.grey, width: 1.5),
-        ),
-        child: Icon(
-          icon,
-          size: 22,
-          color: active ? Colors.white : Colors.grey,
+    return Semantics(
+      button: true,
+      label: label,
+      selected: active,
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: onTap,
+        child: Container(
+          width: 48,
+          height: 48,
+          alignment: Alignment.center,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 250),
+            curve: Curves.easeOut,
+            width: 42,
+            height: 42,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: active ? color : Colors.transparent,
+              border: Border.all(
+                color: active ? color : Colors.grey,
+                width: 1.5,
+              ),
+            ),
+            child: Icon(
+              icon,
+              size: 22,
+              color: active ? Colors.white : Colors.grey,
+            ),
+          ),
         ),
       ),
     );
@@ -200,7 +221,7 @@ class DvStudentCard extends StatelessWidget {
       alignment: alignment,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppRadius.control),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -210,7 +231,9 @@ class DvStudentCard extends StatelessWidget {
           Text(
             label,
             style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold),
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),

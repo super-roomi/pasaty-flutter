@@ -6,7 +6,7 @@ void main() {
   testWidgets('shows localized login screen', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
-    expect(find.text('Welcome to Pasaty!'), findsOneWidget);
+    expect(find.text('Welcome to Masar Alburhan!'), findsOneWidget);
     expect(find.text('Phone Number'), findsOneWidget);
     expect(find.text('Password'), findsOneWidget);
     expect(find.text('Login'), findsOneWidget);

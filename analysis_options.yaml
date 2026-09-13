@@ -9,6 +9,14 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  exclude:
+    # Build output, not source. The Swift Package Manager checkout under
+    # build/macos/SourcePackages contains the Firebase plugins' own Dart
+    # tests, which are written against a different mockito version and
+    # report ~170 errors that have nothing to do with this app.
+    - build/**
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`

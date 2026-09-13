@@ -1,13 +1,38 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Required to fetch data from the internet. -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- usesCleartextTraffic allows plain http:// to the dev backend.
-         Remove once the backend is served over https. -->
+    <!-- Driver position on the in-run route map. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Keeps reporting while the screen is locked during a run, via a
+         foreground service with a persistent notification. Deliberately NOT
+         ACCESS_BACKGROUND_LOCATION: a foreground service counts as "in use",
+         needs no extra grant, and is far easier to justify in Play review. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Android 13+ requires this at runtime for FCM tray notifications. A
+         parent who declines simply gets none; the socket layer still shows
+         live state while the app is open, so nothing breaks. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!--
+      Backup is off because the refresh token lives in flutter_secure_storage,
+      which on Android is an encrypted SharedPreferences file. Auto Backup would
+      copy that file to the user's Google Drive while the KeyStore key that
+      decrypts it — hardware-bound and non-exportable — stays behind. The copy is
+      useless to the user (it restores as an undecryptable blob) and is a
+      long-lived credential for a children's-safety app sitting in cloud storage.
+      Nothing else here is worth preserving: everything but the chosen language
+      comes from the backend on next login.
+    -->
     <application
         android:label="Masar Alburhan"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true">
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -35,6 +60,19 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <!-- FCM tray appearance. Without these Android falls back to the
+             adaptive launcher icon, which it masks to a featureless white
+             square. No default_notification_channel_id is declared on
+             purpose: naming a channel the app never creates means Android 8+
+             silently drops every notification, and the SDK's own fallback
+             channel is correct here. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/notification_accent" />
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
@@ -45,13 +83,6 @@
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
-        </intent>
-    </queries>
-
-    <queries>
-        <intent>
-            <action android:name="android.intent.action.DIAL" />
-            <data android:scheme="tel" />
         </intent>
     </queries>
 </manifest>

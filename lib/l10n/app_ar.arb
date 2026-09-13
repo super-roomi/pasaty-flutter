@@ -1,16 +1,9 @@
 {
   "@@locale": "ar",
-  "rimaAhmed": "ريما أحمد",
-  "mohammedAhmed": "محمد أحمد",
   "appTitle": "مسار البرهان",
   "welcomeToPasaty": "مرحباً بك في مسار البرهان!",
   "phoneNumber": "رقم الهاتف",
   "phoneNumberHint": "07XX XXX XXXX",
-  "role": "الدور",
-  "selectRole": "اختر الدور",
-  "driverRole": "سائق",
-  "parentRole": "ولي أمر",
-  "staffRole": "موظف",
   "logIn": "تسجيل الدخول",
   "logOut": "تسجيل الخروج",
   "signOutOfYourAccount": "الخروج من حسابك",
@@ -18,11 +11,57 @@
   "password": "كلمة المرور",
   "passwordHint": "أدخل كلمة المرور",
   "invalidCredentials": "رقم الهاتف أو كلمة المرور غير صحيحة",
-  "connectionError": "تعذر الاتصال بالخادم. حاول مرة أخرى.",
-  "loginFailed": "فشل تسجيل الدخول. حاول مرة أخرى.",
+  "connectionError": "تعذّر الاتصال بالخادم. تحقّق من اتصالك بالإنترنت.",
   "unsupportedRole": "نوع هذا الحساب غير مدعوم في التطبيق",
+  "greetingMorning": "صباح الخير",
+  "greetingAfternoon": "مساء الخير",
+  "greetingEvening": "مساء الخير",
+  "todayAtAGlance": "اليوم",
+  "runPending": "لم يبدأ",
+  "nextRunIn": "يبدأ خلال {time}",
+  "@nextRunIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hoursMinutesShort": "{h} س {m} د",
+  "@hoursMinutesShort": {
+    "placeholders": {
+      "h": {
+        "type": "int"
+      },
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesShort": "{m} د",
+  "@minutesShort": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "noRunsToday": "لم تُسجَّل أي رحلة اليوم بعد",
+  "errorUnexpectedResponse": "أرسل الخادم استجابة غير متوقعة. حاول مرة أخرى.",
+  "errorSessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى.",
+  "errorNotAllowed": "ليست لديك صلاحية للقيام بذلك.",
+  "errorNotFound": "تعذر العثور على ما تبحث عنه.",
+  "errorConflict": "لا يمكن تنفيذ ذلك الآن. حدّث الصفحة وحاول مرة أخرى.",
+  "errorServer": "حدثت مشكلة في الخادم. حاول مرة أخرى بعد قليل.",
+  "errorUnknown": "حدث خطأ ما. حاول مرة أخرى.",
+  "signInSubtitle": "سجّل الدخول لمتابعة رحلة طفلك المدرسية.",
+  "enterPhoneNumber": "أدخل رقم الهاتف",
+  "enterPassword": "أدخل كلمة المرور",
+  "showPassword": "إظهار كلمة المرور",
+  "hidePassword": "إخفاء كلمة المرور",
+  "accountsManagedBySchool": "تُنشأ الحسابات لك من قِبل مسار البرهان. تواصل معنا إذا لم تتمكن من تسجيل الدخول.",
+  "signingIn": "جارٍ تسجيل الدخول…",
   "status": "الحالة",
-  "payments": "المدفوعات",
+  "liveUpdatesPaused": "التحديثات المباشرة متوقفة — قد تكون هذه المعلومات قديمة",
   "profile": "الملف الشخصي",
   "history": "السجل",
   "settings": "الإعدادات",
@@ -30,58 +69,65 @@
   "englishLanguage": "الإنجليزية",
   "arabicLanguage": "العربية",
   "managePersonalInformation": "إدارة المعلومات الشخصية",
-  "grade": "الصف",
-  "fourthGrade": "الصف الرابع",
+  "privacyPolicy": "سياسة الخصوصية",
+  "privacyPolicyDescription": "كيف نجمع بياناتك ونستخدمها ونحميها",
+  "couldNotOpenLink": "تعذّر فتح الرابط",
+  "deleteAccount": "حذف الحساب",
+  "deleteAccountDescription": "إزالة حسابك وبياناتك نهائيًا",
+  "deleteAccountDialogTitle": "حذف حسابك؟",
+  "deleteAccountDialogMessage": "سيؤدي هذا إلى إزالة حسابك والبيانات المرتبطة به نهائيًا، ولا يمكن التراجع عن ذلك.",
   "busRoute": "مسار الحافلة",
   "busId": "معرف الحافلة",
-  "payBusFeesWithQi": "ادفع رسوم الحافلة عبر كي",
-  "noActiveTrips": "لا توجد رحلات نشطة",
-  "noActiveTripsMessage": "الحافلة متوقفة حالياً في المرآب. سنبلغك فور بدء المسار التالي.",
-  "boardingStatus": "حالة الصعود",
-  "boarded": "صعد",
-  "contactDriver": "التواصل مع السائق",
-  "contactDriverDescription": "قلق بشأن التأخير؟ تريد الاطمئنان على ريما ومحمد؟",
-  "callSamer": "اتصل بسامر",
-  "currentStatus": "الحالة الحالية",
-  "arrivingSoon": "سيصل قريباً",
-  "timeLeft": "الوقت المتبقي",
-  "aboutSixMinutesTillArrival": "حوالي 6 دقائق حتى الوصول",
-  "test": "اختبار",
-  "activeDeliverySession": "جلسة توصيل نشطة",
-  "endSession": "إنهاء الجلسة",
-  "endSessionDialogTitle": "هل أنت متأكد؟",
-  "endSessionDialogMessage": "يرجى تأكيد رغبتك في إنهاء رحلة.",
-  "cancel": "إلغاء",
-  "ok": "موافق",
-  "busNumber": "الحافلة رقم {number}",
-  "@busNumber": {
+  "notAssigned": "غير محدد",
+  "tripProgress": "تقدّم الرحلة",
+  "etaBusArriving": "الحافلة تصل الآن",
+  "etaHomeArriving": "يصل إلى المنزل الآن",
+  "etaWaiting": "بانتظار التحديث",
+  "stepHome": "المنزل",
+  "stepOnBus": "في الحافلة",
+  "stepSchool": "المدرسة",
+  "atHome": "في المنزل",
+  "onBus": "في الحافلة",
+  "inSchool": "في المدرسة",
+  "undo": "تراجع",
+  "markedAbsent": "تم تسجيل {name} غائبًا",
+  "@markedAbsent": {
     "placeholders": {
-      "number": {
+      "name": {
         "type": "String"
       }
     }
   },
-  "totalStops": "إجمالي المحطات",
-  "totalStopsCount": "{count}",
-  "@totalStopsCount": {
+  "pastTrips": "الرحلات السابقة",
+  "noPastTrips": "لا توجد رحلات مسجلة في هذه الفترة",
+  "historyIncomplete": "تعذّر تحميل {count} من الأيام — اسحب للتحديث للمحاولة مرة أخرى",
+  "@historyIncomplete": {
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
-  "approxDuration": "المدة التقريبية",
-  "durationMinutes": "{minutes} دقيقة",
-  "@durationMinutes": {
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
+  "present": "حاضر",
+  "noRunRecorded": "لم تُسجَّل رحلة",
+  "tripDetails": "تفاصيل الرحلة",
+  "parentLabel": "ولي الأمر",
+  "pickDate": "اختر تاريخاً",
+  "loadEarlier": "تحميل أيام أسبق",
+  "noTripOnDate": "لم تُسجَّل رحلة في هذا التاريخ",
+  "allHome": "الجميع في المنزل",
+  "noActiveTripsMessage": "لا توجد رحلة جارية حالياً. سيظهر تقدّم الرحلة هنا فور بدء السائق للمسار.",
+  "studentStatus": "حالة الطلاب",
+  "account": "الحساب",
+  "support": "الدعم",
+  "contactUs": "تواصل معنا",
+  "contactUsDescription": "لديك سؤال عن الرحلة؟ راسلنا على واتساب.",
+  "contactViaWhatsapp": "تواصل معنا عبر واتساب",
+  "couldNotOpenWhatsapp": "تعذّر فتح واتساب",
+  "endSessionDialogTitle": "هل أنت متأكد؟",
+  "cancel": "إلغاء",
+  "ok": "موافق",
   "startSession": "بدء الرحلة",
-  "readyToGo": "جاهز للانطلاق؟",
-  "confirmStudentsOnBoard": "يرجى تأكيد أن جميع الطلاب الحاضرين صعدوا إلى الحافلة.",
   "broadcastUpdates": "إرسال التحديثات",
   "majorDelay": "تأخير كبير 15 دقيقة+",
   "minorDelay": "تأخير بسيط 5 دقائق+",
@@ -90,9 +136,9 @@
   "afternoonRun": "رحلة العودة",
   "currentRunLabel": "الرحلة الحالية",
   "noRunScheduled": "لا توجد رحلة مجدولة الآن",
-  "runWindowsInfo": "الرحلة الصباحية: 6:00 – 9:00 صباحًا\nرحلة العودة: 1:00 – 4:00 عصرًا",
+  "runWindowsInfo": "الرحلة الصباحية: 6:00 - 9:00 صباحًا\nرحلة العودة: 1:00 - 4:00 عصرًا",
   "attendanceTitle": "تسجيل الحضور",
-  "attendanceHint": "اضغط على الطالب عند صعوده إلى الباص — أو اسحب لليمين لتسجيله غائبًا.",
+  "attendanceHint": "اضغط على الطالب عند صعوده إلى الباص، أو اسحب لليمين لتسجيله غائبًا.",
   "startDropoffs": "بدء التوصيل",
   "nextPickup": "الصعود التالي",
   "pickupRemaining": "{count} طلاب بانتظار الصعود",
@@ -116,6 +162,23 @@
   "upNext": "التالي",
   "allDroppedOff": "تم توصيل جميع الطلاب",
   "backToAttendance": "العودة إلى تسجيل الحضور",
+  "routeMap": "خريطة المسار",
+  "centreOnMe": "توسيط على موقعي",
+  "fitRoute": "عرض المسار كاملاً",
+  "mapNotConfigured": "الخريطة غير مهيأة في هذه النسخة",
+  "noRouteGeometry": "لا توجد بيانات خريطة لهذا المسار بعد",
+  "trackingNotificationTitle": "رحلة جارية",
+  "trackingNotificationText": "تتم مشاركة موقع الحافلة حتى انتهاء الرحلة",
+  "locationDisabled": "خدمات الموقع غير مفعّلة",
+  "locationDenied": "تم رفض إذن الموقع",
+  "locationUnavailable": "الموقع غير متاح",
+  "locationNotReporting": "لا يصل الموقع إلى الخادم. تحقّق من اتصالك — لا يمكن رؤية الحافلة حاليًا.",
+  "locationDisclosureTitle": "مشاركة الموقع أثناء الرحلة",
+  "locationDisclosureMessage": "أثناء هذه الرحلة، يجمع مسار البرهان موقعك الدقيق ويرسله إلى خوادمنا لمتابعة الحافلة. يستمر الإرسال عندما يكون التطبيق في الخلفية أو تكون الشاشة مقفلة، ويتوقف عند انتهاء الرحلة.",
+  "continueLabel": "متابعة",
+  "back": "رجوع",
+  "resumeRun": "استئناف الرحلة",
+  "runInProgressNotice": "هناك رحلة جارية",
   "myRoute": "خطي",
   "noRoutesAssigned": "لا يوجد خط مخصص لك بعد",
   "studentsTitle": "الطلاب",
@@ -135,8 +198,85 @@
   "statusArrived": "وصل",
   "statusAbsent": "غائب",
   "statusDroppedOff": "نزل",
-  "waitingForDriver": "بانتظار بدء السائق للرحلة",
   "noStudentsLinked": "لا يوجد طلاب مرتبطون بحسابك",
-  "actionFailed": "فشل الإجراء",
-  "retry": "إعادة المحاولة"
+  "retry": "إعادة المحاولة",
+  "etaMinutesUnit": "دقيقة",
+  "etaUntilPickup": "حتى وصول الحافلة",
+  "etaUntilHome": "حتى الوصول إلى المنزل",
+  "etaArrivesBy": "يصل الساعة {time}",
+  "@etaArrivesBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "etaKm": "{km} كم",
+  "@etaKm": {
+    "placeholders": {
+      "km": {
+        "type": "String"
+      }
+    }
+  },
+  "etaMeters": "على بُعد {m} م",
+  "@etaMeters": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "etaStale": "آخر تقدير {m} دقيقة، لم يُحدَّث",
+  "@etaStale": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "allAtSchool": "الجميع في المدرسة",
+  "notifications": "الإشعارات",
+  "noNotifications": "لا توجد إشعارات بعد",
+  "clearAll": "مسح الكل",
+  "justNow": "الآن",
+  "minutesAgo": "قبل {count} دقيقة",
+  "hoursAgo": "قبل {count} ساعة",
+  "daysAgo": "قبل {count} يوم",
+  "openSettings": "فتح الإعدادات",
+  "locationBlockedTitle": "إذن الموقع مُعطَّل",
+  "locationBlockedMessage": "يحتاج مسار البرهان إلى موقعك للإبلاغ عن مكان الحافلة أثناء الرحلة. فعِّل إذن الموقع لهذا التطبيق من الإعدادات، ثم ابدأ الرحلة مرة أخرى.",
+  "locationReducedAccuracy": "خاصية الموقع الدقيق مُعطَّلة، لذا موقعك غير دقيق بما يكفي للإبلاغ عنه ولا تظهر الحافلة. فعِّل الموقع الدقيق لهذا التطبيق من الإعدادات.",
+
+  "notRidingToday": "لن يركب اليوم",
+  "driverNotRiding": "لن يركب اليوم",
+  "driverNotRidingNote": "أحد الوالدين ألغى ركوب {name} في رحلة هذا الصباح. لا تنتظر عند هذه المحطة.",
+  "driverSkipStop": "تخطَّ هذه المحطة",
+  "driverBoardAnyway": "حضر — أركبه",
+  "absencePickMorning": "أي صباح؟",
+  "absenceDayToday": "هذا الصباح",
+  "absenceDayTomorrow": "غداً",
+  "absenceTodayPassed": "انتهت رحلة هذا الصباح",
+  "absenceBookedOn": "تم الحجز — لن يتم اصطحاب {name} يوم {day}.",
+  "absenceConfirmDayMessage": "لن تتوقف الحافلة لـ {name} يوم {day}.",
+  "absenceBookedLabel": "محجوز",
+  "planAhead": "جدولة مسبقة",
+  "manageAbsence": "ركوب الحافلة",
+  "absenceConfirmTitle": "لن يركب اليوم؟",
+  "absenceConfirmAction": "نعم، تخطَّ اليوم",
+  "absenceRangeConfirmTitle": "تخطي هذه الأيام؟",
+  "absenceRangeConfirmMessage": "لن تتوقف الحافلة لـ {name} في الأيام التي اخترتها.",
+  "absenceBooked": "تم الحجز — لن يتم اصطحاب {name}.",
+  "absenceBookedLive": "تم — أُبلغ السائق.",
+  "absenceCancelled": "عاد {name} إلى الحافلة.",
+  "absenceAlreadyBoarded": "{name} على متن الحافلة بالفعل. اتصل بالسائق إذا احتجت إنزاله.",
+  "absenceRunFinished": "انتهت رحلة هذا الصباح.",
+  "absenceRunStarted": "بدأت رحلة هذا الصباح بالفعل. اتصل بالسائق.",
+  "absenceSkippedChip": "لن يركب",
+  "absencePickDays": "اختر الأيام",
+  "absenceUndo": "إعادته إلى الحافلة",
+  "absenceRangeTooLong": "اختر {count} يوماً كحد أقصى في المرة الواحدة.",
+  "absencePartlyBooked": "تم حجز {booked} من {total} صباحاً.",
+  "absenceMorningOnly": "الرحلات الصباحية فقط. إذا تغيّرت الخطة، يمكن للسائق اصطحاب {name} على أي حال.",
+  "absenceMorningsCount": "{count, plural, zero{لا صباحات} one{صباح واحد} two{صباحان} few{{count} صباحات} many{{count} صباحاً} other{{count} صباح}}"
 }

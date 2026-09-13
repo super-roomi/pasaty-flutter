@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>tel</string>
-    </array>
-
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -58,18 +53,54 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<!-- Portrait only. Every run screen is laid out for a phone held upright,
+	     and a driver who rotates the handset in a cradle would otherwise get a
+	     layout nobody designed. Matched by SystemChrome in main.dart so
+	     Android behaves the same way.
+
+	     There is deliberately no ~ipad variant: TARGETED_DEVICE_FAMILY is 1
+	     (iPhone only), so an iPad key would be dead configuration that quietly
+	     re-enables landscape if the family is ever widened. -->
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>While you are driving a run, Masar Alburhan uses your location to show your position on the route map and shares it with us so we can track the bus. This continues while the screen is locked, and stops as soon as the run ends.</string>
+	<!-- The app never asks for "Always": geolocator checks
+	     NSLocationWhenInUseUsageDescription first and short-circuits, so with
+	     both keys present it still calls requestWhenInUseAuthorization.
+	     This key exists only because the SDK references the Always API and
+	     App Store Connect rejects the upload without a matching purpose
+	     string (ITMS-90683). Keep the two descriptions consistent. -->
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>While you are driving a run, Masar Alburhan uses your location to show your position on the route map and shares it with us so we can track the bus. This continues while the screen is locked, and stops as soon as the run ends.</string>
+	<!-- Lets the app ask for full accuracy for the duration of a run when the
+	     driver has Precise Location switched off for it.
+
+	     Without this key the request throws and the run fails silently: iOS
+	     still reports "when in use" and still delivers fixes, but every one is
+	     hundreds of metres wide, the 200 m accuracy gate drops all of them,
+	     and nothing is ever sent while the screen shows a healthy run. The
+	     RunTracking key is matched by the purposeKey passed to
+	     requestTemporaryFullAccuracy in driver_location_reporter.dart. -->
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+	<dict>
+		<key>RunTracking</key>
+		<string>Exact location is needed so the school and parents can see where the bus is. Without it your position is too imprecise to report, and the bus will not appear on the route.</string>
+	</dict>
+	<!-- The app uses only HTTPS/TLS through OS-provided APIs, which is exempt
+	     under the export regulations. Declaring it here stops every upload
+	     pausing to ask the export-compliance question interactively. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<!-- Location updates continue while the screen is locked during a run.
+	     Paired with allowsBackgroundLocationUpdates in code; "When In Use"
+	     authorisation is sufficient for this and shows the blue status bar,
+	     so the driver always knows when they are being located. -->
+	<key>UIBackgroundModes</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>location</string>
 	</array>
 </dict>
 </plist>

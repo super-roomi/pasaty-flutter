@@ -1,16 +1,9 @@
 {
   "@@locale": "en",
-  "rimaAhmed": "Rima Ahmed",
-  "mohammedAhmed": "Mohammed Ahmed",
   "appTitle": "Masar Alburhan",
   "welcomeToPasaty": "Welcome to Masar Alburhan!",
   "phoneNumber": "Phone Number",
   "phoneNumberHint": "07XX XXX XXXX",
-  "role": "Role",
-  "selectRole": "Select Role",
-  "driverRole": "Driver",
-  "parentRole": "Parent",
-  "staffRole": "Staff",
   "logIn": "Login",
   "logOut": "Log Out",
   "signOutOfYourAccount": "Sign out of your account",
@@ -18,11 +11,57 @@
   "password": "Password",
   "passwordHint": "Enter your password",
   "invalidCredentials": "Invalid phone number or password",
-  "connectionError": "Could not connect to the server. Please try again.",
-  "loginFailed": "Login failed. Please try again.",
+  "connectionError": "Couldn't connect to the server. Check your internet connection.",
   "unsupportedRole": "This account type is not supported in the app",
+  "greetingMorning": "Good morning",
+  "greetingAfternoon": "Good afternoon",
+  "greetingEvening": "Good evening",
+  "todayAtAGlance": "Today",
+  "runPending": "Not yet",
+  "nextRunIn": "Starts in {time}",
+  "@nextRunIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "hoursMinutesShort": "{h}h {m}m",
+  "@hoursMinutesShort": {
+    "placeholders": {
+      "h": {
+        "type": "int"
+      },
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "minutesShort": "{m}m",
+  "@minutesShort": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "noRunsToday": "No runs recorded today yet",
+  "errorUnexpectedResponse": "The server sent an unexpected response. Please try again.",
+  "errorSessionExpired": "Your session has expired. Please sign in again.",
+  "errorNotAllowed": "You do not have permission to do that.",
+  "errorNotFound": "We could not find what you were looking for.",
+  "errorConflict": "That is not possible right now. Refresh and try again.",
+  "errorServer": "The server ran into a problem. Please try again shortly.",
+  "errorUnknown": "Something went wrong. Please try again.",
+  "signInSubtitle": "Sign in to follow your child's school run.",
+  "enterPhoneNumber": "Enter your phone number",
+  "enterPassword": "Enter your password",
+  "showPassword": "Show password",
+  "hidePassword": "Hide password",
+  "accountsManagedBySchool": "Accounts are created for you by Masar Alburhan. Contact us if you cannot sign in.",
+  "signingIn": "Signing in…",
   "status": "Status",
-  "payments": "Payments",
+  "liveUpdatesPaused": "Live updates paused — this may be out of date",
   "profile": "Profile",
   "history": "History",
   "settings": "Settings",
@@ -30,58 +69,65 @@
   "englishLanguage": "English",
   "arabicLanguage": "Arabic",
   "managePersonalInformation": "Manage Personal Information",
-  "grade": "Grade",
-  "fourthGrade": "4th Grade",
+  "privacyPolicy": "Privacy Policy",
+  "privacyPolicyDescription": "How we collect, use, and protect your data",
+  "couldNotOpenLink": "Could not open the link",
+  "deleteAccount": "Delete Account",
+  "deleteAccountDescription": "Permanently remove your account and data",
+  "deleteAccountDialogTitle": "Delete your account?",
+  "deleteAccountDialogMessage": "This permanently removes your account and the data linked to it. It cannot be undone.",
   "busRoute": "Bus Route",
   "busId": "Bus ID",
-  "payBusFeesWithQi": "Pay your bus fees with Qi",
-  "noActiveTrips": "No Active Trips",
-  "noActiveTripsMessage": "The bus is currently resting at the depot. We'll notify you as soon as the next route begins.",
-  "boardingStatus": "Boarding Status",
-  "boarded": "Boarded",
-  "contactDriver": "Contact Driver",
-  "contactDriverDescription": "Worried about delays? Checking on Rima and Mohammed?",
-  "callSamer": "Call Samer",
-  "currentStatus": "Current Status",
-  "arrivingSoon": "Arriving Soon",
-  "timeLeft": "Time Left",
-  "aboutSixMinutesTillArrival": "About 6 mins till arrival",
-  "test": "Test",
-  "activeDeliverySession": "Active Delivery Session",
-  "endSession": "End Session",
-  "endSessionDialogTitle": "Are you sure?",
-  "endSessionDialogMessage": "Please confirm you want to end your session.",
-  "cancel": "Cancel",
-  "ok": "OK",
-  "busNumber": "Bus #{number}",
-  "@busNumber": {
+  "notAssigned": "Not assigned",
+  "tripProgress": "Trip progress",
+  "etaBusArriving": "Bus arriving now",
+  "etaHomeArriving": "Arriving home now",
+  "etaWaiting": "Waiting for update",
+  "stepHome": "Home",
+  "stepOnBus": "On the bus",
+  "stepSchool": "School",
+  "atHome": "At home",
+  "onBus": "On bus",
+  "inSchool": "In school",
+  "undo": "Undo",
+  "markedAbsent": "{name} marked absent",
+  "@markedAbsent": {
     "placeholders": {
-      "number": {
+      "name": {
         "type": "String"
       }
     }
   },
-  "totalStops": "Total Stops",
-  "totalStopsCount": "{count}",
-  "@totalStopsCount": {
+  "pastTrips": "Past Trips",
+  "noPastTrips": "No trips recorded in this period",
+  "historyIncomplete": "{count} days could not be loaded — pull to refresh to try again",
+  "@historyIncomplete": {
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
-  "approxDuration": "Approx. Duration",
-  "durationMinutes": "{minutes} minutes",
-  "@durationMinutes": {
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
+  "present": "Present",
+  "noRunRecorded": "No run recorded",
+  "tripDetails": "Trip Details",
+  "parentLabel": "Parent",
+  "pickDate": "Pick a date",
+  "loadEarlier": "Load earlier days",
+  "noTripOnDate": "No trip was recorded on this date",
+  "allHome": "All home",
+  "noActiveTripsMessage": "There is no trip running right now. Live trip progress will appear here once the driver starts the route.",
+  "studentStatus": "Student Status",
+  "account": "Account",
+  "support": "Support",
+  "contactUs": "Contact us",
+  "contactUsDescription": "Questions about the trip? Message us on WhatsApp.",
+  "contactViaWhatsapp": "Contact us via WhatsApp",
+  "couldNotOpenWhatsapp": "Could not open WhatsApp",
+  "endSessionDialogTitle": "Are you sure?",
+  "cancel": "Cancel",
+  "ok": "OK",
   "startSession": "Start Session",
-  "readyToGo": "Ready to Go?",
-  "confirmStudentsOnBoard": "Please confirm that all present students are on board.",
   "broadcastUpdates": "Broadcast Updates",
   "majorDelay": "Major Delay 15m+",
   "minorDelay": "Minor Delay 5m+",
@@ -90,9 +136,9 @@
   "afternoonRun": "Afternoon run",
   "currentRunLabel": "Current run",
   "noRunScheduled": "No run scheduled right now",
-  "runWindowsInfo": "Morning run: 6:00 – 9:00 AM\nAfternoon run: 1:00 – 4:00 PM",
+  "runWindowsInfo": "Morning run: 6:00 - 9:00 AM\nAfternoon run: 1:00 - 4:00 PM",
   "attendanceTitle": "Attendance",
-  "attendanceHint": "Tap a student when they board the bus — swipe left to mark them absent.",
+  "attendanceHint": "Tap a student when they board the bus. Swipe left to mark them absent.",
   "startDropoffs": "Start drop-offs",
   "nextPickup": "Next pickup",
   "pickupRemaining": "{count} students to pick up",
@@ -116,6 +162,23 @@
   "upNext": "Up next",
   "allDroppedOff": "All students have been dropped off",
   "backToAttendance": "Back to attendance",
+  "routeMap": "Route map",
+  "centreOnMe": "Centre on me",
+  "fitRoute": "Fit route",
+  "mapNotConfigured": "Map is not configured for this build",
+  "noRouteGeometry": "This route has no map data yet",
+  "trackingNotificationTitle": "Run in progress",
+  "trackingNotificationText": "Sharing the bus location until the run ends",
+  "locationDisabled": "Location services are off",
+  "locationDenied": "Location permission denied",
+  "locationUnavailable": "Location unavailable",
+  "locationNotReporting": "Location is not reaching the server. Check your connection — the school cannot see the bus.",
+  "locationDisclosureTitle": "Location sharing during the run",
+  "locationDisclosureMessage": "While this run is active, Masar Alburhan collects and sends your precise location to our servers so we can monitor the bus. Reporting continues while the app is in the background or the screen is locked, and stops when the run ends.",
+  "continueLabel": "Continue",
+  "back": "Back",
+  "resumeRun": "Resume run",
+  "runInProgressNotice": "A run is in progress",
   "myRoute": "My route",
   "noRoutesAssigned": "No route is assigned to you yet",
   "studentsTitle": "Students",
@@ -135,8 +198,148 @@
   "statusArrived": "Arrived",
   "statusAbsent": "Absent",
   "statusDroppedOff": "Dropped off",
-  "waitingForDriver": "Waiting for the driver to start the run",
   "noStudentsLinked": "No students are linked to your account",
-  "actionFailed": "Action failed",
-  "retry": "Retry"
+  "retry": "Retry",
+  "etaMinutesUnit": "min",
+  "etaUntilPickup": "until pickup",
+  "etaUntilHome": "until home",
+  "etaArrivesBy": "Arrives by {time}",
+  "@etaArrivesBy": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "etaKm": "{km} km",
+  "@etaKm": {
+    "placeholders": {
+      "km": {
+        "type": "String"
+      }
+    }
+  },
+  "etaMeters": "{m} m away",
+  "@etaMeters": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "etaStale": "Last known {m} min, not updating",
+  "@etaStale": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "allAtSchool": "All at school",
+  "notifications": "Notifications",
+  "noNotifications": "No notifications yet",
+  "clearAll": "Clear all",
+  "justNow": "Just now",
+  "minutesAgo": "{count} min ago",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{count} h ago",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "daysAgo": "{count} d ago",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "openSettings": "Open Settings",
+  "locationBlockedTitle": "Location permission is turned off",
+  "locationBlockedMessage": "Masar Alburhan needs your location to report the bus position while a run is active. Turn on location access for this app in Settings, then start the run again.",
+  "locationReducedAccuracy": "Precise Location is off, so your position is too imprecise to report and the bus is not visible. Turn on Precise Location for this app in Settings.",
+
+  "notRidingToday": "Not riding today",
+  "driverNotRiding": "Not riding today",
+  "driverNotRidingNote": "A parent took {name} off this morning's run. Do not wait at this stop.",
+  "@driverNotRidingNote": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "driverSkipStop": "Skip this stop",
+  "driverBoardAnyway": "They turned up — board",
+  "absencePickMorning": "Which morning?",
+  "absenceDayToday": "This morning",
+  "absenceDayTomorrow": "Tomorrow",
+  "absenceTodayPassed": "This morning's run is over",
+  "absenceBookedOn": "Booked — {name} will not be collected on {day}.",
+  "@absenceBookedOn": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "day": { "type": "String" }
+    }
+  },
+  "absenceConfirmDayMessage": "The bus will not stop for {name} on {day}.",
+  "@absenceConfirmDayMessage": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "day": { "type": "String" }
+    }
+  },
+  "absenceBookedLabel": "Booked",
+  "planAhead": "Plan ahead",
+  "manageAbsence": "Bus attendance",
+  "absenceConfirmTitle": "Not riding today?",
+  "absenceConfirmAction": "Yes, skip today",
+  "absenceRangeConfirmTitle": "Skip these mornings?",
+  "absenceRangeConfirmMessage": "The bus will not stop for {name} on the days you picked.",
+  "@absenceRangeConfirmMessage": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "absenceBooked": "Booked — {name} will not be collected.",
+  "@absenceBooked": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "absenceBookedLive": "Done — the driver has been told.",
+  "absenceCancelled": "{name} is back on the bus.",
+  "@absenceCancelled": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "absenceAlreadyBoarded": "{name} is already on the bus. Call the driver if you need them taken off.",
+  "@absenceAlreadyBoarded": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "absenceRunFinished": "This morning's run has finished.",
+  "absenceRunStarted": "This morning's run has already started. Call the driver.",
+  "absenceSkippedChip": "Not riding",
+  "absencePickDays": "Choose days",
+  "absenceUndo": "Put back on the bus",
+  "absenceRangeTooLong": "Pick at most {count} days at a time.",
+  "@absenceRangeTooLong": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "absencePartlyBooked": "{booked} of {total} mornings booked.",
+  "@absencePartlyBooked": {
+    "placeholders": {
+      "booked": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "absenceMorningOnly": "Morning runs only. If plans change, the driver can still pick {name} up.",
+  "@absenceMorningOnly": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "absenceMorningsCount": "{count, plural, =1{1 morning} other{{count} mornings}}",
+  "@absenceMorningsCount": {
+    "placeholders": { "count": { "type": "int" } }
+  }
 }

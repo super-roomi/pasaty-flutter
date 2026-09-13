@@ -1,49 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:mockup/Widgets/Parent%20Widgets/pr_status_passive_widget.dart';
 import 'package:mockup/Widgets/Parent%20Widgets/pr_boarding_widget.dart';
 import 'package:mockup/Widgets/Parent%20Widgets/pr_contact_widget.dart';
-import 'package:mockup/Widgets/Parent%20Widgets/pr_status_active_widget.dart';
 
-class PrMainPage extends StatefulWidget {
+/// Parent home.
+///
+/// The boarding roster is always shown. [PrBoardingWidget] owns the page's
+/// single scroll view (so pull-to-refresh covers everything) and renders the
+/// contact card after the roster. When no run has started today it puts the
+/// passive banner above the roster rather than replacing it.
+///
+/// This replaced a manual Passive/Active dropdown that hid live status behind
+/// a control most parents never touched, and an "arriving soon / about 6 mins"
+/// card whose values were hardcoded rather than derived from the trip.
+class PrMainPage extends StatelessWidget {
   const PrMainPage({super.key});
 
   @override
-  State<PrMainPage> createState() => _PrMainPageState();
-}
-
-class _PrMainPageState extends State<PrMainPage> {
-  String _selectedMode = 'Passive';
-
-  List<Widget> activeSession = [
-    PrStatusActiveWidget(),
-    PrBoardingWidget(),
-    PrContactWidget(),
-  ];
-
-  List<Widget> inactiveSession = [PrStatusPagePassive()];
-
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DropdownButton<String>(
-          value: _selectedMode,
-          items: const [
-            DropdownMenuItem(value: 'Passive', child: Text('Passive')),
-            DropdownMenuItem(value: 'Active', child: Text('Active')),
-          ],
-          onChanged: (String? newValue) {
-            if (newValue != null) {
-              setState(() => _selectedMode = newValue);
-            }
-          },
-        ),
-        Expanded(
-          child: _selectedMode == 'Passive'
-              ? ListView(children: inactiveSession)
-              : ListView(children: activeSession),
-        ),
-      ],
-    );
+    return const PrBoardingWidget(trailing: PrContactWidget());
   }
 }

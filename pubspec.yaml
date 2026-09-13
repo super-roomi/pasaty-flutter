@@ -1,8 +1,8 @@
 name: mockup
-description: "A new Flutter project."
+description: "Masar Alburhan — school bus tracking for parents and drivers."
 
 
-version: 1.0.0+1
+version: 1.1.0+16
 
 environment:
   sdk: ^3.11.5
@@ -12,21 +12,32 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: any
+  intl: ^0.20.2
+  # Testable "now": the trip card derives its countdown and arrival clock from
+  # the current time, so goldens/tests freeze it with withClock.
+  clock: ^1.1.1
   url_launcher: ^6.3.0
-  intl_phone_field: ^3.2.0
 
-  cupertino_icons: ^1.0.8
   http: ^1.6.0
   socket_io_client: ^3.1.6
   shared_preferences: ^2.3.2
-
+  flutter_map: ^8.3.1
+  latlong2: ^0.10.1
+  geolocator: ^14.0.3
+  flutter_secure_storage: ^11.0.0
+  firebase_core: ^4.13.0
+  firebase_messaging: ^16.5.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # Direct dev dependency only so the iOS location tests can register the real
+  # GeolocatorApple implementation and assert on what reaches CoreLocation.
+  # The app itself uses it through package:geolocator.
+  geolocator_apple: ^2.3.14
   integration_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
 
 
 flutter:
@@ -34,12 +45,30 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/logo.png
-    - assets/images/qi-card-seeklogo.png
   fonts:
     - family: NotoSansArabic
       fonts:
         - asset: assets/NotoSansArabic-Regular.ttf
-        - asset: assets/NotoSansArabic-Regular.ttf
-          weight: 700
-        - asset: assets/NotoSansArabic-Regular.ttf
-          style: italic
+        # NOTE: weight 700 and italic previously pointed at the Regular file,
+        # so every FontWeight.bold in the app silently rendered as Regular and
+        # the whole type hierarchy flattened. Declaring only the face we
+        # actually ship lets the engine synthesize bold instead. Add
+        # NotoSansArabic-Bold.ttf and map it to `weight: 700` for real bold.
+
+# Regenerate with: dart run flutter_launcher_icons
+# Source is assets/images/app_icon.png: the bus mark cropped out of the full
+# logo, centred opaque on white at 1024x1024. The wordmark is deliberately
+# excluded - it is illegible at ~60px. Not listed under flutter/assets because
+# it is only read at build time, so it does not ship inside the app.
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  # iOS rejects icons containing an alpha channel; flatten onto white.
+  remove_alpha_ios: true
+  background_color_ios: "#FFFFFF"
+  # Android adaptive icon: the foreground is masked to a circle/squircle, so
+  # inset the artwork to keep it inside the safe zone.
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/app_icon.png"
+  adaptive_icon_foreground_inset: 18

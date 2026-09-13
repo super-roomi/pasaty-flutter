@@ -9,12 +9,6 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get rimaAhmed => 'ريما أحمد';
-
-  @override
-  String get mohammedAhmed => 'محمد أحمد';
-
-  @override
   String get appTitle => 'مسار البرهان';
 
   @override
@@ -25,21 +19,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get phoneNumberHint => '07XX XXX XXXX';
-
-  @override
-  String get role => 'الدور';
-
-  @override
-  String get selectRole => 'اختر الدور';
-
-  @override
-  String get driverRole => 'سائق';
-
-  @override
-  String get parentRole => 'ولي أمر';
-
-  @override
-  String get staffRole => 'موظف';
 
   @override
   String get logIn => 'تسجيل الدخول';
@@ -64,19 +43,97 @@ class AppLocalizationsAr extends AppLocalizations {
   String get invalidCredentials => 'رقم الهاتف أو كلمة المرور غير صحيحة';
 
   @override
-  String get connectionError => 'تعذر الاتصال بالخادم. حاول مرة أخرى.';
-
-  @override
-  String get loginFailed => 'فشل تسجيل الدخول. حاول مرة أخرى.';
+  String get connectionError =>
+      'تعذّر الاتصال بالخادم. تحقّق من اتصالك بالإنترنت.';
 
   @override
   String get unsupportedRole => 'نوع هذا الحساب غير مدعوم في التطبيق';
 
   @override
+  String get greetingMorning => 'صباح الخير';
+
+  @override
+  String get greetingAfternoon => 'مساء الخير';
+
+  @override
+  String get greetingEvening => 'مساء الخير';
+
+  @override
+  String get todayAtAGlance => 'اليوم';
+
+  @override
+  String get runPending => 'لم يبدأ';
+
+  @override
+  String nextRunIn(String time) {
+    return 'يبدأ خلال $time';
+  }
+
+  @override
+  String hoursMinutesShort(int h, int m) {
+    return '$h س $m د';
+  }
+
+  @override
+  String minutesShort(int m) {
+    return '$m د';
+  }
+
+  @override
+  String get noRunsToday => 'لم تُسجَّل أي رحلة اليوم بعد';
+
+  @override
+  String get errorUnexpectedResponse =>
+      'أرسل الخادم استجابة غير متوقعة. حاول مرة أخرى.';
+
+  @override
+  String get errorSessionExpired =>
+      'انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى.';
+
+  @override
+  String get errorNotAllowed => 'ليست لديك صلاحية للقيام بذلك.';
+
+  @override
+  String get errorNotFound => 'تعذر العثور على ما تبحث عنه.';
+
+  @override
+  String get errorConflict =>
+      'لا يمكن تنفيذ ذلك الآن. حدّث الصفحة وحاول مرة أخرى.';
+
+  @override
+  String get errorServer => 'حدثت مشكلة في الخادم. حاول مرة أخرى بعد قليل.';
+
+  @override
+  String get errorUnknown => 'حدث خطأ ما. حاول مرة أخرى.';
+
+  @override
+  String get signInSubtitle => 'سجّل الدخول لمتابعة رحلة طفلك المدرسية.';
+
+  @override
+  String get enterPhoneNumber => 'أدخل رقم الهاتف';
+
+  @override
+  String get enterPassword => 'أدخل كلمة المرور';
+
+  @override
+  String get showPassword => 'إظهار كلمة المرور';
+
+  @override
+  String get hidePassword => 'إخفاء كلمة المرور';
+
+  @override
+  String get accountsManagedBySchool =>
+      'تُنشأ الحسابات لك من قِبل مسار البرهان. تواصل معنا إذا لم تتمكن من تسجيل الدخول.';
+
+  @override
+  String get signingIn => 'جارٍ تسجيل الدخول…';
+
+  @override
   String get status => 'الحالة';
 
   @override
-  String get payments => 'المدفوعات';
+  String get liveUpdatesPaused =>
+      'التحديثات المباشرة متوقفة — قد تكون هذه المعلومات قديمة';
 
   @override
   String get profile => 'الملف الشخصي';
@@ -100,10 +157,26 @@ class AppLocalizationsAr extends AppLocalizations {
   String get managePersonalInformation => 'إدارة المعلومات الشخصية';
 
   @override
-  String get grade => 'الصف';
+  String get privacyPolicy => 'سياسة الخصوصية';
 
   @override
-  String get fourthGrade => 'الصف الرابع';
+  String get privacyPolicyDescription => 'كيف نجمع بياناتك ونستخدمها ونحميها';
+
+  @override
+  String get couldNotOpenLink => 'تعذّر فتح الرابط';
+
+  @override
+  String get deleteAccount => 'حذف الحساب';
+
+  @override
+  String get deleteAccountDescription => 'إزالة حسابك وبياناتك نهائيًا';
+
+  @override
+  String get deleteAccountDialogTitle => 'حذف حسابك؟';
+
+  @override
+  String get deleteAccountDialogMessage =>
+      'سيؤدي هذا إلى إزالة حسابك والبيانات المرتبطة به نهائيًا، ولا يمكن التراجع عن ذلك.';
 
   @override
   String get busRoute => 'مسار الحافلة';
@@ -112,57 +185,108 @@ class AppLocalizationsAr extends AppLocalizations {
   String get busId => 'معرف الحافلة';
 
   @override
-  String get payBusFeesWithQi => 'ادفع رسوم الحافلة عبر كي';
+  String get notAssigned => 'غير محدد';
 
   @override
-  String get noActiveTrips => 'لا توجد رحلات نشطة';
+  String get tripProgress => 'تقدّم الرحلة';
+
+  @override
+  String get etaBusArriving => 'الحافلة تصل الآن';
+
+  @override
+  String get etaHomeArriving => 'يصل إلى المنزل الآن';
+
+  @override
+  String get etaWaiting => 'بانتظار التحديث';
+
+  @override
+  String get stepHome => 'المنزل';
+
+  @override
+  String get stepOnBus => 'في الحافلة';
+
+  @override
+  String get stepSchool => 'المدرسة';
+
+  @override
+  String get atHome => 'في المنزل';
+
+  @override
+  String get onBus => 'في الحافلة';
+
+  @override
+  String get inSchool => 'في المدرسة';
+
+  @override
+  String get undo => 'تراجع';
+
+  @override
+  String markedAbsent(String name) {
+    return 'تم تسجيل $name غائبًا';
+  }
+
+  @override
+  String get pastTrips => 'الرحلات السابقة';
+
+  @override
+  String get noPastTrips => 'لا توجد رحلات مسجلة في هذه الفترة';
+
+  @override
+  String historyIncomplete(int count) {
+    return 'تعذّر تحميل $count من الأيام — اسحب للتحديث للمحاولة مرة أخرى';
+  }
+
+  @override
+  String get present => 'حاضر';
+
+  @override
+  String get noRunRecorded => 'لم تُسجَّل رحلة';
+
+  @override
+  String get tripDetails => 'تفاصيل الرحلة';
+
+  @override
+  String get parentLabel => 'ولي الأمر';
+
+  @override
+  String get pickDate => 'اختر تاريخاً';
+
+  @override
+  String get loadEarlier => 'تحميل أيام أسبق';
+
+  @override
+  String get noTripOnDate => 'لم تُسجَّل رحلة في هذا التاريخ';
+
+  @override
+  String get allHome => 'الجميع في المنزل';
 
   @override
   String get noActiveTripsMessage =>
-      'الحافلة متوقفة حالياً في المرآب. سنبلغك فور بدء المسار التالي.';
+      'لا توجد رحلة جارية حالياً. سيظهر تقدّم الرحلة هنا فور بدء السائق للمسار.';
 
   @override
-  String get boardingStatus => 'حالة الصعود';
+  String get studentStatus => 'حالة الطلاب';
 
   @override
-  String get boarded => 'صعد';
+  String get account => 'الحساب';
 
   @override
-  String get contactDriver => 'التواصل مع السائق';
+  String get support => 'الدعم';
 
   @override
-  String get contactDriverDescription =>
-      'قلق بشأن التأخير؟ تريد الاطمئنان على ريما ومحمد؟';
+  String get contactUs => 'تواصل معنا';
 
   @override
-  String get callSamer => 'اتصل بسامر';
+  String get contactUsDescription => 'لديك سؤال عن الرحلة؟ راسلنا على واتساب.';
 
   @override
-  String get currentStatus => 'الحالة الحالية';
+  String get contactViaWhatsapp => 'تواصل معنا عبر واتساب';
 
   @override
-  String get arrivingSoon => 'سيصل قريباً';
-
-  @override
-  String get timeLeft => 'الوقت المتبقي';
-
-  @override
-  String get aboutSixMinutesTillArrival => 'حوالي 6 دقائق حتى الوصول';
-
-  @override
-  String get test => 'اختبار';
-
-  @override
-  String get activeDeliverySession => 'جلسة توصيل نشطة';
-
-  @override
-  String get endSession => 'إنهاء الجلسة';
+  String get couldNotOpenWhatsapp => 'تعذّر فتح واتساب';
 
   @override
   String get endSessionDialogTitle => 'هل أنت متأكد؟';
-
-  @override
-  String get endSessionDialogMessage => 'يرجى تأكيد رغبتك في إنهاء رحلة.';
 
   @override
   String get cancel => 'إلغاء';
@@ -171,35 +295,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ok => 'موافق';
 
   @override
-  String busNumber(String number) {
-    return 'الحافلة رقم $number';
-  }
-
-  @override
-  String get totalStops => 'إجمالي المحطات';
-
-  @override
-  String totalStopsCount(int count) {
-    return '$count';
-  }
-
-  @override
-  String get approxDuration => 'المدة التقريبية';
-
-  @override
-  String durationMinutes(int minutes) {
-    return '$minutes دقيقة';
-  }
-
-  @override
   String get startSession => 'بدء الرحلة';
-
-  @override
-  String get readyToGo => 'جاهز للانطلاق؟';
-
-  @override
-  String get confirmStudentsOnBoard =>
-      'يرجى تأكيد أن جميع الطلاب الحاضرين صعدوا إلى الحافلة.';
 
   @override
   String get broadcastUpdates => 'إرسال التحديثات';
@@ -227,14 +323,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get runWindowsInfo =>
-      'الرحلة الصباحية: 6:00 – 9:00 صباحًا\nرحلة العودة: 1:00 – 4:00 عصرًا';
+      'الرحلة الصباحية: 6:00 - 9:00 صباحًا\nرحلة العودة: 1:00 - 4:00 عصرًا';
 
   @override
   String get attendanceTitle => 'تسجيل الحضور';
 
   @override
   String get attendanceHint =>
-      'اضغط على الطالب عند صعوده إلى الباص — أو اسحب لليمين لتسجيله غائبًا.';
+      'اضغط على الطالب عند صعوده إلى الباص، أو اسحب لليمين لتسجيله غائبًا.';
 
   @override
   String get startDropoffs => 'بدء التوصيل';
@@ -266,6 +362,60 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backToAttendance => 'العودة إلى تسجيل الحضور';
+
+  @override
+  String get routeMap => 'خريطة المسار';
+
+  @override
+  String get centreOnMe => 'توسيط على موقعي';
+
+  @override
+  String get fitRoute => 'عرض المسار كاملاً';
+
+  @override
+  String get mapNotConfigured => 'الخريطة غير مهيأة في هذه النسخة';
+
+  @override
+  String get noRouteGeometry => 'لا توجد بيانات خريطة لهذا المسار بعد';
+
+  @override
+  String get trackingNotificationTitle => 'رحلة جارية';
+
+  @override
+  String get trackingNotificationText =>
+      'تتم مشاركة موقع الحافلة حتى انتهاء الرحلة';
+
+  @override
+  String get locationDisabled => 'خدمات الموقع غير مفعّلة';
+
+  @override
+  String get locationDenied => 'تم رفض إذن الموقع';
+
+  @override
+  String get locationUnavailable => 'الموقع غير متاح';
+
+  @override
+  String get locationNotReporting =>
+      'لا يصل الموقع إلى الخادم. تحقّق من اتصالك — لا يمكن رؤية الحافلة حاليًا.';
+
+  @override
+  String get locationDisclosureTitle => 'مشاركة الموقع أثناء الرحلة';
+
+  @override
+  String get locationDisclosureMessage =>
+      'أثناء هذه الرحلة، يجمع مسار البرهان موقعك الدقيق ويرسله إلى خوادمنا لمتابعة الحافلة. يستمر الإرسال عندما يكون التطبيق في الخلفية أو تكون الشاشة مقفلة، ويتوقف عند انتهاء الرحلة.';
+
+  @override
+  String get continueLabel => 'متابعة';
+
+  @override
+  String get back => 'رجوع';
+
+  @override
+  String get resumeRun => 'استئناف الرحلة';
+
+  @override
+  String get runInProgressNotice => 'هناك رحلة جارية';
 
   @override
   String get myRoute => 'خطي';
@@ -326,14 +476,206 @@ class AppLocalizationsAr extends AppLocalizations {
   String get statusDroppedOff => 'نزل';
 
   @override
-  String get waitingForDriver => 'بانتظار بدء السائق للرحلة';
-
-  @override
   String get noStudentsLinked => 'لا يوجد طلاب مرتبطون بحسابك';
 
   @override
-  String get actionFailed => 'فشل الإجراء';
+  String get retry => 'إعادة المحاولة';
 
   @override
-  String get retry => 'إعادة المحاولة';
+  String get etaMinutesUnit => 'دقيقة';
+
+  @override
+  String get etaUntilPickup => 'حتى وصول الحافلة';
+
+  @override
+  String get etaUntilHome => 'حتى الوصول إلى المنزل';
+
+  @override
+  String etaArrivesBy(String time) {
+    return 'يصل الساعة $time';
+  }
+
+  @override
+  String etaKm(String km) {
+    return '$km كم';
+  }
+
+  @override
+  String etaMeters(int m) {
+    return 'على بُعد $m م';
+  }
+
+  @override
+  String etaStale(int m) {
+    return 'آخر تقدير $m دقيقة، لم يُحدَّث';
+  }
+
+  @override
+  String get allAtSchool => 'الجميع في المدرسة';
+
+  @override
+  String get notifications => 'الإشعارات';
+
+  @override
+  String get noNotifications => 'لا توجد إشعارات بعد';
+
+  @override
+  String get clearAll => 'مسح الكل';
+
+  @override
+  String get justNow => 'الآن';
+
+  @override
+  String minutesAgo(int count) {
+    return 'قبل $count دقيقة';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return 'قبل $count ساعة';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return 'قبل $count يوم';
+  }
+
+  @override
+  String get openSettings => 'فتح الإعدادات';
+
+  @override
+  String get locationBlockedTitle => 'إذن الموقع مُعطَّل';
+
+  @override
+  String get locationBlockedMessage =>
+      'يحتاج مسار البرهان إلى موقعك للإبلاغ عن مكان الحافلة أثناء الرحلة. فعِّل إذن الموقع لهذا التطبيق من الإعدادات، ثم ابدأ الرحلة مرة أخرى.';
+
+  @override
+  String get locationReducedAccuracy =>
+      'خاصية الموقع الدقيق مُعطَّلة، لذا موقعك غير دقيق بما يكفي للإبلاغ عنه ولا تظهر الحافلة. فعِّل الموقع الدقيق لهذا التطبيق من الإعدادات.';
+
+  @override
+  String get notRidingToday => 'لن يركب اليوم';
+
+  @override
+  String get driverNotRiding => 'لن يركب اليوم';
+
+  @override
+  String driverNotRidingNote(String name) {
+    return 'أحد الوالدين ألغى ركوب $name في رحلة هذا الصباح. لا تنتظر عند هذه المحطة.';
+  }
+
+  @override
+  String get driverSkipStop => 'تخطَّ هذه المحطة';
+
+  @override
+  String get driverBoardAnyway => 'حضر — أركبه';
+
+  @override
+  String get absencePickMorning => 'أي صباح؟';
+
+  @override
+  String get absenceDayToday => 'هذا الصباح';
+
+  @override
+  String get absenceDayTomorrow => 'غداً';
+
+  @override
+  String get absenceTodayPassed => 'انتهت رحلة هذا الصباح';
+
+  @override
+  String absenceBookedOn(String name, String day) {
+    return 'تم الحجز — لن يتم اصطحاب $name يوم $day.';
+  }
+
+  @override
+  String absenceConfirmDayMessage(String name, String day) {
+    return 'لن تتوقف الحافلة لـ $name يوم $day.';
+  }
+
+  @override
+  String get absenceBookedLabel => 'محجوز';
+
+  @override
+  String get planAhead => 'جدولة مسبقة';
+
+  @override
+  String get manageAbsence => 'ركوب الحافلة';
+
+  @override
+  String get absenceConfirmTitle => 'لن يركب اليوم؟';
+
+  @override
+  String get absenceConfirmAction => 'نعم، تخطَّ اليوم';
+
+  @override
+  String get absenceRangeConfirmTitle => 'تخطي هذه الأيام؟';
+
+  @override
+  String absenceRangeConfirmMessage(String name) {
+    return 'لن تتوقف الحافلة لـ $name في الأيام التي اخترتها.';
+  }
+
+  @override
+  String absenceBooked(String name) {
+    return 'تم الحجز — لن يتم اصطحاب $name.';
+  }
+
+  @override
+  String get absenceBookedLive => 'تم — أُبلغ السائق.';
+
+  @override
+  String absenceCancelled(String name) {
+    return 'عاد $name إلى الحافلة.';
+  }
+
+  @override
+  String absenceAlreadyBoarded(String name) {
+    return '$name على متن الحافلة بالفعل. اتصل بالسائق إذا احتجت إنزاله.';
+  }
+
+  @override
+  String get absenceRunFinished => 'انتهت رحلة هذا الصباح.';
+
+  @override
+  String get absenceRunStarted => 'بدأت رحلة هذا الصباح بالفعل. اتصل بالسائق.';
+
+  @override
+  String get absenceSkippedChip => 'لن يركب';
+
+  @override
+  String get absencePickDays => 'اختر الأيام';
+
+  @override
+  String get absenceUndo => 'إعادته إلى الحافلة';
+
+  @override
+  String absenceRangeTooLong(int count) {
+    return 'اختر $count يوماً كحد أقصى في المرة الواحدة.';
+  }
+
+  @override
+  String absencePartlyBooked(int booked, int total) {
+    return 'تم حجز $booked من $total صباحاً.';
+  }
+
+  @override
+  String absenceMorningOnly(String name) {
+    return 'الرحلات الصباحية فقط. إذا تغيّرت الخطة، يمكن للسائق اصطحاب $name على أي حال.';
+  }
+
+  @override
+  String absenceMorningsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count صباح',
+      many: '$count صباحاً',
+      few: '$count صباحات',
+      two: 'صباحان',
+      one: 'صباح واحد',
+      zero: 'لا صباحات',
+    );
+    return '$_temp0';
+  }
 }

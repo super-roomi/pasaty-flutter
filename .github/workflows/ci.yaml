@@ -1,0 +1,148 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze --fatal-infos
+
+      - name: Test
+        run: flutter test
+
+      # The whole background-location design rests on there being exactly one
+      # subscription to the OS position stream. geolocator caches the stream it
+      # built first and silently discards the settings of every later caller,
+      # so a second `getPositionStream` anywhere means one of the two callers
+      # is running with configuration it never asked for — which is how the run
+      # reporter ended up tracking without a background indicator.
+      - name: Only LocationStream may open the position stream
+        run: |
+          if grep -rn "getPositionStream" --include="*.dart" lib/ \
+            | grep -v "^lib/services/location_stream.dart:"; then
+            echo "::error::getPositionStream outside LocationStream — see the class doc for why."
+            exit 1
+          fi
+
+      # These Info.plist keys are the difference between a run that reports for
+      # 45 minutes and one that stops at the lock screen. They are easy to lose
+      # to a plist regeneration and impossible to notice without a device.
+      - name: Require the iOS background-location keys
+        run: |
+          set -euo pipefail
+          plist=ios/Runner/Info.plist
+          for key in \
+            NSLocationWhenInUseUsageDescription \
+            NSLocationTemporaryUsageDescriptionDictionary \
+            UIBackgroundModes; do
+            grep -q "<key>$key</key>" "$plist" \
+              || { echo "::error::$plist is missing $key"; exit 1; }
+          done
+          python3 -c '
+          import plistlib, sys
+          plist = plistlib.load(open(sys.argv[1], "rb"))
+          if "location" not in plist.get("UIBackgroundModes", []):
+              sys.exit("::error::UIBackgroundModes must contain location")
+          if "RunTracking" not in plist.get(
+                  "NSLocationTemporaryUsageDescriptionDictionary", {}):
+              sys.exit("::error::missing the RunTracking purpose key")
+          ' "$plist"
+
+      # Belt-and-braces alongside test/compliance_test.dart: these catch a
+      # placeholder identifier or a cleartext dev URL even if someone deletes
+      # or skips the Dart tests.
+      - name: Block placeholder application IDs
+        run: |
+          if grep -rq "com\.example" \
+            android/app/build.gradle.kts \
+            ios/Runner.xcodeproj/project.pbxproj \
+            lib/; then
+            echo "::error::com.example.* identifier found — Play rejects these at upload."
+            exit 1
+          fi
+
+      - name: Block loopback URLs outside debug fallback
+        run: |
+          if grep -rqE "https?://(127\.0\.0\.1|10\.0\.2\.2|localhost)" \
+            --include="*.dart" lib/ \
+            --exclude="api_config.dart"; then
+            echo "::error::Hardcoded loopback URL outside ApiConfig."
+            exit 1
+          fi
+
+      # ApiConfig.baseUrl throws at RUNTIME when no production host is set, so
+      # `flutter build appbundle --release` happily produces an artifact that
+      # looks shippable and dies at the first request. Turn that into a build
+      # failure: either ApiConfig._production is filled in, or the release is
+      # built with an explicit --dart-define.
+      - name: Require a production API URL for release builds
+        id: apiurl
+        env:
+          API_BASE_URL: ${{ vars.API_BASE_URL }}
+        run: |
+          set -euo pipefail
+          compiled_in=$(grep -cE "_production = '[^']+'" lib/services/api_config.dart || true)
+          if [ "$compiled_in" -eq 0 ] && [ -z "${API_BASE_URL:-}" ]; then
+            echo "::error::No production API URL. Set ApiConfig._production to the https:// host, or define the API_BASE_URL repository variable."
+            exit 1
+          fi
+          if [ -n "${API_BASE_URL:-}" ]; then
+            case "$API_BASE_URL" in
+              https://*) ;;
+              *) echo "::error::API_BASE_URL must be https:// (got $API_BASE_URL)"; exit 1 ;;
+            esac
+            echo "define=--dart-define=API_BASE_URL=$API_BASE_URL" >> "$GITHUB_OUTPUT"
+          else
+            echo "define=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build release AAB
+        run: flutter build appbundle --release ${{ steps.apiurl.outputs.define }}
+
+  # The location work is iOS-specific and none of it is exercised by the
+  # Linux job: plugins there resolve through Swift Package Manager, and a
+  # broken Info.plist, entitlement or plugin link only shows up here.
+  ios:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+
+      - name: Build iOS (unsigned)
+        env:
+          API_BASE_URL: ${{ vars.API_BASE_URL }}
+        run: |
+          set -euo pipefail
+          define=""
+          if [ -n "${API_BASE_URL:-}" ]; then
+            define="--dart-define=API_BASE_URL=$API_BASE_URL"
+          fi
+          flutter build ios --no-codesign $define
+
+      - name: Assert the built app kept its background mode
+        run: |
+          set -euo pipefail
+          app=build/ios/iphoneos/Runner.app
+          /usr/libexec/PlistBuddy -c "Print :UIBackgroundModes:0" "$app/Info.plist" \
+            | grep -qx location \
+            || { echo "::error::built app lost the location background mode"; exit 1; }

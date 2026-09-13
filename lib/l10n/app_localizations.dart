@@ -98,18 +98,6 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
-  /// No description provided for @rimaAhmed.
-  ///
-  /// In en, this message translates to:
-  /// **'Rima Ahmed'**
-  String get rimaAhmed;
-
-  /// No description provided for @mohammedAhmed.
-  ///
-  /// In en, this message translates to:
-  /// **'Mohammed Ahmed'**
-  String get mohammedAhmed;
-
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
@@ -133,36 +121,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'07XX XXX XXXX'**
   String get phoneNumberHint;
-
-  /// No description provided for @role.
-  ///
-  /// In en, this message translates to:
-  /// **'Role'**
-  String get role;
-
-  /// No description provided for @selectRole.
-  ///
-  /// In en, this message translates to:
-  /// **'Select Role'**
-  String get selectRole;
-
-  /// No description provided for @driverRole.
-  ///
-  /// In en, this message translates to:
-  /// **'Driver'**
-  String get driverRole;
-
-  /// No description provided for @parentRole.
-  ///
-  /// In en, this message translates to:
-  /// **'Parent'**
-  String get parentRole;
-
-  /// No description provided for @staffRole.
-  ///
-  /// In en, this message translates to:
-  /// **'Staff'**
-  String get staffRole;
 
   /// No description provided for @logIn.
   ///
@@ -209,14 +167,8 @@ abstract class AppLocalizations {
   /// No description provided for @connectionError.
   ///
   /// In en, this message translates to:
-  /// **'Could not connect to the server. Please try again.'**
+  /// **'Couldn\'t connect to the server. Check your internet connection.'**
   String get connectionError;
-
-  /// No description provided for @loginFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Login failed. Please try again.'**
-  String get loginFailed;
 
   /// No description provided for @unsupportedRole.
   ///
@@ -224,17 +176,155 @@ abstract class AppLocalizations {
   /// **'This account type is not supported in the app'**
   String get unsupportedRole;
 
+  /// No description provided for @greetingMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning'**
+  String get greetingMorning;
+
+  /// No description provided for @greetingAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good afternoon'**
+  String get greetingAfternoon;
+
+  /// No description provided for @greetingEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Good evening'**
+  String get greetingEvening;
+
+  /// No description provided for @todayAtAGlance.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get todayAtAGlance;
+
+  /// No description provided for @runPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Not yet'**
+  String get runPending;
+
+  /// No description provided for @nextRunIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Starts in {time}'**
+  String nextRunIn(String time);
+
+  /// No description provided for @hoursMinutesShort.
+  ///
+  /// In en, this message translates to:
+  /// **'{h}h {m}m'**
+  String hoursMinutesShort(int h, int m);
+
+  /// No description provided for @minutesShort.
+  ///
+  /// In en, this message translates to:
+  /// **'{m}m'**
+  String minutesShort(int m);
+
+  /// No description provided for @noRunsToday.
+  ///
+  /// In en, this message translates to:
+  /// **'No runs recorded today yet'**
+  String get noRunsToday;
+
+  /// No description provided for @errorUnexpectedResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'The server sent an unexpected response. Please try again.'**
+  String get errorUnexpectedResponse;
+
+  /// No description provided for @errorSessionExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session has expired. Please sign in again.'**
+  String get errorSessionExpired;
+
+  /// No description provided for @errorNotAllowed.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not have permission to do that.'**
+  String get errorNotAllowed;
+
+  /// No description provided for @errorNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'We could not find what you were looking for.'**
+  String get errorNotFound;
+
+  /// No description provided for @errorConflict.
+  ///
+  /// In en, this message translates to:
+  /// **'That is not possible right now. Refresh and try again.'**
+  String get errorConflict;
+
+  /// No description provided for @errorServer.
+  ///
+  /// In en, this message translates to:
+  /// **'The server ran into a problem. Please try again shortly.'**
+  String get errorServer;
+
+  /// No description provided for @errorUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get errorUnknown;
+
+  /// No description provided for @signInSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to follow your child\'s school run.'**
+  String get signInSubtitle;
+
+  /// No description provided for @enterPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your phone number'**
+  String get enterPhoneNumber;
+
+  /// No description provided for @enterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get enterPassword;
+
+  /// No description provided for @showPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Show password'**
+  String get showPassword;
+
+  /// No description provided for @hidePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide password'**
+  String get hidePassword;
+
+  /// No description provided for @accountsManagedBySchool.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts are created for you by Masar Alburhan. Contact us if you cannot sign in.'**
+  String get accountsManagedBySchool;
+
+  /// No description provided for @signingIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Signing in…'**
+  String get signingIn;
+
   /// No description provided for @status.
   ///
   /// In en, this message translates to:
   /// **'Status'**
   String get status;
 
-  /// No description provided for @payments.
+  /// No description provided for @liveUpdatesPaused.
   ///
   /// In en, this message translates to:
-  /// **'Payments'**
-  String get payments;
+  /// **'Live updates paused — this may be out of date'**
+  String get liveUpdatesPaused;
 
   /// No description provided for @profile.
   ///
@@ -278,17 +368,47 @@ abstract class AppLocalizations {
   /// **'Manage Personal Information'**
   String get managePersonalInformation;
 
-  /// No description provided for @grade.
+  /// No description provided for @privacyPolicy.
   ///
   /// In en, this message translates to:
-  /// **'Grade'**
-  String get grade;
+  /// **'Privacy Policy'**
+  String get privacyPolicy;
 
-  /// No description provided for @fourthGrade.
+  /// No description provided for @privacyPolicyDescription.
   ///
   /// In en, this message translates to:
-  /// **'4th Grade'**
-  String get fourthGrade;
+  /// **'How we collect, use, and protect your data'**
+  String get privacyPolicyDescription;
+
+  /// No description provided for @couldNotOpenLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open the link'**
+  String get couldNotOpenLink;
+
+  /// No description provided for @deleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteAccount;
+
+  /// No description provided for @deleteAccountDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Permanently remove your account and data'**
+  String get deleteAccountDescription;
+
+  /// No description provided for @deleteAccountDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete your account?'**
+  String get deleteAccountDialogTitle;
+
+  /// No description provided for @deleteAccountDialogMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This permanently removes your account and the data linked to it. It cannot be undone.'**
+  String get deleteAccountDialogMessage;
 
   /// No description provided for @busRoute.
   ///
@@ -302,107 +422,203 @@ abstract class AppLocalizations {
   /// **'Bus ID'**
   String get busId;
 
-  /// No description provided for @payBusFeesWithQi.
+  /// No description provided for @notAssigned.
   ///
   /// In en, this message translates to:
-  /// **'Pay your bus fees with Qi'**
-  String get payBusFeesWithQi;
+  /// **'Not assigned'**
+  String get notAssigned;
 
-  /// No description provided for @noActiveTrips.
+  /// No description provided for @tripProgress.
   ///
   /// In en, this message translates to:
-  /// **'No Active Trips'**
-  String get noActiveTrips;
+  /// **'Trip progress'**
+  String get tripProgress;
+
+  /// No description provided for @etaBusArriving.
+  ///
+  /// In en, this message translates to:
+  /// **'Bus arriving now'**
+  String get etaBusArriving;
+
+  /// No description provided for @etaHomeArriving.
+  ///
+  /// In en, this message translates to:
+  /// **'Arriving home now'**
+  String get etaHomeArriving;
+
+  /// No description provided for @etaWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for update'**
+  String get etaWaiting;
+
+  /// No description provided for @stepHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get stepHome;
+
+  /// No description provided for @stepOnBus.
+  ///
+  /// In en, this message translates to:
+  /// **'On the bus'**
+  String get stepOnBus;
+
+  /// No description provided for @stepSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get stepSchool;
+
+  /// No description provided for @atHome.
+  ///
+  /// In en, this message translates to:
+  /// **'At home'**
+  String get atHome;
+
+  /// No description provided for @onBus.
+  ///
+  /// In en, this message translates to:
+  /// **'On bus'**
+  String get onBus;
+
+  /// No description provided for @inSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'In school'**
+  String get inSchool;
+
+  /// No description provided for @undo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get undo;
+
+  /// No description provided for @markedAbsent.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} marked absent'**
+  String markedAbsent(String name);
+
+  /// No description provided for @pastTrips.
+  ///
+  /// In en, this message translates to:
+  /// **'Past Trips'**
+  String get pastTrips;
+
+  /// No description provided for @noPastTrips.
+  ///
+  /// In en, this message translates to:
+  /// **'No trips recorded in this period'**
+  String get noPastTrips;
+
+  /// No description provided for @historyIncomplete.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} days could not be loaded — pull to refresh to try again'**
+  String historyIncomplete(int count);
+
+  /// No description provided for @present.
+  ///
+  /// In en, this message translates to:
+  /// **'Present'**
+  String get present;
+
+  /// No description provided for @noRunRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'No run recorded'**
+  String get noRunRecorded;
+
+  /// No description provided for @tripDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip Details'**
+  String get tripDetails;
+
+  /// No description provided for @parentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Parent'**
+  String get parentLabel;
+
+  /// No description provided for @pickDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a date'**
+  String get pickDate;
+
+  /// No description provided for @loadEarlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Load earlier days'**
+  String get loadEarlier;
+
+  /// No description provided for @noTripOnDate.
+  ///
+  /// In en, this message translates to:
+  /// **'No trip was recorded on this date'**
+  String get noTripOnDate;
+
+  /// No description provided for @allHome.
+  ///
+  /// In en, this message translates to:
+  /// **'All home'**
+  String get allHome;
 
   /// No description provided for @noActiveTripsMessage.
   ///
   /// In en, this message translates to:
-  /// **'The bus is currently resting at the depot. We\'ll notify you as soon as the next route begins.'**
+  /// **'There is no trip running right now. Live trip progress will appear here once the driver starts the route.'**
   String get noActiveTripsMessage;
 
-  /// No description provided for @boardingStatus.
+  /// No description provided for @studentStatus.
   ///
   /// In en, this message translates to:
-  /// **'Boarding Status'**
-  String get boardingStatus;
+  /// **'Student Status'**
+  String get studentStatus;
 
-  /// No description provided for @boarded.
+  /// No description provided for @account.
   ///
   /// In en, this message translates to:
-  /// **'Boarded'**
-  String get boarded;
+  /// **'Account'**
+  String get account;
 
-  /// No description provided for @contactDriver.
+  /// No description provided for @support.
   ///
   /// In en, this message translates to:
-  /// **'Contact Driver'**
-  String get contactDriver;
+  /// **'Support'**
+  String get support;
 
-  /// No description provided for @contactDriverDescription.
+  /// No description provided for @contactUs.
   ///
   /// In en, this message translates to:
-  /// **'Worried about delays? Checking on Rima and Mohammed?'**
-  String get contactDriverDescription;
+  /// **'Contact us'**
+  String get contactUs;
 
-  /// No description provided for @callSamer.
+  /// No description provided for @contactUsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Call Samer'**
-  String get callSamer;
+  /// **'Questions about the trip? Message us on WhatsApp.'**
+  String get contactUsDescription;
 
-  /// No description provided for @currentStatus.
+  /// No description provided for @contactViaWhatsapp.
   ///
   /// In en, this message translates to:
-  /// **'Current Status'**
-  String get currentStatus;
+  /// **'Contact us via WhatsApp'**
+  String get contactViaWhatsapp;
 
-  /// No description provided for @arrivingSoon.
+  /// No description provided for @couldNotOpenWhatsapp.
   ///
   /// In en, this message translates to:
-  /// **'Arriving Soon'**
-  String get arrivingSoon;
-
-  /// No description provided for @timeLeft.
-  ///
-  /// In en, this message translates to:
-  /// **'Time Left'**
-  String get timeLeft;
-
-  /// No description provided for @aboutSixMinutesTillArrival.
-  ///
-  /// In en, this message translates to:
-  /// **'About 6 mins till arrival'**
-  String get aboutSixMinutesTillArrival;
-
-  /// No description provided for @test.
-  ///
-  /// In en, this message translates to:
-  /// **'Test'**
-  String get test;
-
-  /// No description provided for @activeDeliverySession.
-  ///
-  /// In en, this message translates to:
-  /// **'Active Delivery Session'**
-  String get activeDeliverySession;
-
-  /// No description provided for @endSession.
-  ///
-  /// In en, this message translates to:
-  /// **'End Session'**
-  String get endSession;
+  /// **'Could not open WhatsApp'**
+  String get couldNotOpenWhatsapp;
 
   /// No description provided for @endSessionDialogTitle.
   ///
   /// In en, this message translates to:
   /// **'Are you sure?'**
   String get endSessionDialogTitle;
-
-  /// No description provided for @endSessionDialogMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Please confirm you want to end your session.'**
-  String get endSessionDialogMessage;
 
   /// No description provided for @cancel.
   ///
@@ -416,53 +632,11 @@ abstract class AppLocalizations {
   /// **'OK'**
   String get ok;
 
-  /// No description provided for @busNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Bus #{number}'**
-  String busNumber(String number);
-
-  /// No description provided for @totalStops.
-  ///
-  /// In en, this message translates to:
-  /// **'Total Stops'**
-  String get totalStops;
-
-  /// No description provided for @totalStopsCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{count}'**
-  String totalStopsCount(int count);
-
-  /// No description provided for @approxDuration.
-  ///
-  /// In en, this message translates to:
-  /// **'Approx. Duration'**
-  String get approxDuration;
-
-  /// No description provided for @durationMinutes.
-  ///
-  /// In en, this message translates to:
-  /// **'{minutes} minutes'**
-  String durationMinutes(int minutes);
-
   /// No description provided for @startSession.
   ///
   /// In en, this message translates to:
   /// **'Start Session'**
   String get startSession;
-
-  /// No description provided for @readyToGo.
-  ///
-  /// In en, this message translates to:
-  /// **'Ready to Go?'**
-  String get readyToGo;
-
-  /// No description provided for @confirmStudentsOnBoard.
-  ///
-  /// In en, this message translates to:
-  /// **'Please confirm that all present students are on board.'**
-  String get confirmStudentsOnBoard;
 
   /// No description provided for @broadcastUpdates.
   ///
@@ -515,7 +689,7 @@ abstract class AppLocalizations {
   /// No description provided for @runWindowsInfo.
   ///
   /// In en, this message translates to:
-  /// **'Morning run: 6:00 – 9:00 AM\nAfternoon run: 1:00 – 4:00 PM'**
+  /// **'Morning run: 6:00 - 9:00 AM\nAfternoon run: 1:00 - 4:00 PM'**
   String get runWindowsInfo;
 
   /// No description provided for @attendanceTitle.
@@ -527,7 +701,7 @@ abstract class AppLocalizations {
   /// No description provided for @attendanceHint.
   ///
   /// In en, this message translates to:
-  /// **'Tap a student when they board the bus — swipe left to mark them absent.'**
+  /// **'Tap a student when they board the bus. Swipe left to mark them absent.'**
   String get attendanceHint;
 
   /// No description provided for @startDropoffs.
@@ -583,6 +757,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back to attendance'**
   String get backToAttendance;
+
+  /// No description provided for @routeMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Route map'**
+  String get routeMap;
+
+  /// No description provided for @centreOnMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Centre on me'**
+  String get centreOnMe;
+
+  /// No description provided for @fitRoute.
+  ///
+  /// In en, this message translates to:
+  /// **'Fit route'**
+  String get fitRoute;
+
+  /// No description provided for @mapNotConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'Map is not configured for this build'**
+  String get mapNotConfigured;
+
+  /// No description provided for @noRouteGeometry.
+  ///
+  /// In en, this message translates to:
+  /// **'This route has no map data yet'**
+  String get noRouteGeometry;
+
+  /// No description provided for @trackingNotificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Run in progress'**
+  String get trackingNotificationTitle;
+
+  /// No description provided for @trackingNotificationText.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing the bus location until the run ends'**
+  String get trackingNotificationText;
+
+  /// No description provided for @locationDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Location services are off'**
+  String get locationDisabled;
+
+  /// No description provided for @locationDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission denied'**
+  String get locationDenied;
+
+  /// No description provided for @locationUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Location unavailable'**
+  String get locationUnavailable;
+
+  /// No description provided for @locationNotReporting.
+  ///
+  /// In en, this message translates to:
+  /// **'Location is not reaching the server. Check your connection — the school cannot see the bus.'**
+  String get locationNotReporting;
+
+  /// No description provided for @locationDisclosureTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Location sharing during the run'**
+  String get locationDisclosureTitle;
+
+  /// No description provided for @locationDisclosureMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'While this run is active, Masar Alburhan collects and sends your precise location to our servers so we can monitor the bus. Reporting continues while the app is in the background or the screen is locked, and stops when the run ends.'**
+  String get locationDisclosureMessage;
+
+  /// No description provided for @continueLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueLabel;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @resumeRun.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume run'**
+  String get resumeRun;
+
+  /// No description provided for @runInProgressNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'A run is in progress'**
+  String get runInProgressNotice;
 
   /// No description provided for @myRoute.
   ///
@@ -698,29 +974,317 @@ abstract class AppLocalizations {
   /// **'Dropped off'**
   String get statusDroppedOff;
 
-  /// No description provided for @waitingForDriver.
-  ///
-  /// In en, this message translates to:
-  /// **'Waiting for the driver to start the run'**
-  String get waitingForDriver;
-
   /// No description provided for @noStudentsLinked.
   ///
   /// In en, this message translates to:
   /// **'No students are linked to your account'**
   String get noStudentsLinked;
 
-  /// No description provided for @actionFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Action failed'**
-  String get actionFailed;
-
   /// No description provided for @retry.
   ///
   /// In en, this message translates to:
   /// **'Retry'**
   String get retry;
+
+  /// No description provided for @etaMinutesUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'min'**
+  String get etaMinutesUnit;
+
+  /// No description provided for @etaUntilPickup.
+  ///
+  /// In en, this message translates to:
+  /// **'until pickup'**
+  String get etaUntilPickup;
+
+  /// No description provided for @etaUntilHome.
+  ///
+  /// In en, this message translates to:
+  /// **'until home'**
+  String get etaUntilHome;
+
+  /// No description provided for @etaArrivesBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Arrives by {time}'**
+  String etaArrivesBy(String time);
+
+  /// No description provided for @etaKm.
+  ///
+  /// In en, this message translates to:
+  /// **'{km} km'**
+  String etaKm(String km);
+
+  /// No description provided for @etaMeters.
+  ///
+  /// In en, this message translates to:
+  /// **'{m} m away'**
+  String etaMeters(int m);
+
+  /// No description provided for @etaStale.
+  ///
+  /// In en, this message translates to:
+  /// **'Last known {m} min, not updating'**
+  String etaStale(int m);
+
+  /// No description provided for @allAtSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'All at school'**
+  String get allAtSchool;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @noNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'No notifications yet'**
+  String get noNotifications;
+
+  /// No description provided for @clearAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all'**
+  String get clearAll;
+
+  /// No description provided for @justNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Just now'**
+  String get justNow;
+
+  /// No description provided for @minutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min ago'**
+  String minutesAgo(int count);
+
+  /// No description provided for @hoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} h ago'**
+  String hoursAgo(int count);
+
+  /// No description provided for @daysAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} d ago'**
+  String daysAgo(int count);
+
+  /// No description provided for @openSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Settings'**
+  String get openSettings;
+
+  /// No description provided for @locationBlockedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission is turned off'**
+  String get locationBlockedTitle;
+
+  /// No description provided for @locationBlockedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Masar Alburhan needs your location to report the bus position while a run is active. Turn on location access for this app in Settings, then start the run again.'**
+  String get locationBlockedMessage;
+
+  /// No description provided for @locationReducedAccuracy.
+  ///
+  /// In en, this message translates to:
+  /// **'Precise Location is off, so your position is too imprecise to report and the bus is not visible. Turn on Precise Location for this app in Settings.'**
+  String get locationReducedAccuracy;
+
+  /// No description provided for @notRidingToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Not riding today'**
+  String get notRidingToday;
+
+  /// No description provided for @driverNotRiding.
+  ///
+  /// In en, this message translates to:
+  /// **'Not riding today'**
+  String get driverNotRiding;
+
+  /// No description provided for @driverNotRidingNote.
+  ///
+  /// In en, this message translates to:
+  /// **'A parent took {name} off this morning\'s run. Do not wait at this stop.'**
+  String driverNotRidingNote(String name);
+
+  /// No description provided for @driverSkipStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip this stop'**
+  String get driverSkipStop;
+
+  /// No description provided for @driverBoardAnyway.
+  ///
+  /// In en, this message translates to:
+  /// **'They turned up — board'**
+  String get driverBoardAnyway;
+
+  /// No description provided for @absencePickMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Which morning?'**
+  String get absencePickMorning;
+
+  /// No description provided for @absenceDayToday.
+  ///
+  /// In en, this message translates to:
+  /// **'This morning'**
+  String get absenceDayToday;
+
+  /// No description provided for @absenceDayTomorrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Tomorrow'**
+  String get absenceDayTomorrow;
+
+  /// No description provided for @absenceTodayPassed.
+  ///
+  /// In en, this message translates to:
+  /// **'This morning\'s run is over'**
+  String get absenceTodayPassed;
+
+  /// No description provided for @absenceBookedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Booked — {name} will not be collected on {day}.'**
+  String absenceBookedOn(String name, String day);
+
+  /// No description provided for @absenceConfirmDayMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'The bus will not stop for {name} on {day}.'**
+  String absenceConfirmDayMessage(String name, String day);
+
+  /// No description provided for @absenceBookedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Booked'**
+  String get absenceBookedLabel;
+
+  /// No description provided for @planAhead.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan ahead'**
+  String get planAhead;
+
+  /// No description provided for @manageAbsence.
+  ///
+  /// In en, this message translates to:
+  /// **'Bus attendance'**
+  String get manageAbsence;
+
+  /// No description provided for @absenceConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Not riding today?'**
+  String get absenceConfirmTitle;
+
+  /// No description provided for @absenceConfirmAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, skip today'**
+  String get absenceConfirmAction;
+
+  /// No description provided for @absenceRangeConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip these mornings?'**
+  String get absenceRangeConfirmTitle;
+
+  /// No description provided for @absenceRangeConfirmMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'The bus will not stop for {name} on the days you picked.'**
+  String absenceRangeConfirmMessage(String name);
+
+  /// No description provided for @absenceBooked.
+  ///
+  /// In en, this message translates to:
+  /// **'Booked — {name} will not be collected.'**
+  String absenceBooked(String name);
+
+  /// No description provided for @absenceBookedLive.
+  ///
+  /// In en, this message translates to:
+  /// **'Done — the driver has been told.'**
+  String get absenceBookedLive;
+
+  /// No description provided for @absenceCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is back on the bus.'**
+  String absenceCancelled(String name);
+
+  /// No description provided for @absenceAlreadyBoarded.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is already on the bus. Call the driver if you need them taken off.'**
+  String absenceAlreadyBoarded(String name);
+
+  /// No description provided for @absenceRunFinished.
+  ///
+  /// In en, this message translates to:
+  /// **'This morning\'s run has finished.'**
+  String get absenceRunFinished;
+
+  /// No description provided for @absenceRunStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'This morning\'s run has already started. Call the driver.'**
+  String get absenceRunStarted;
+
+  /// No description provided for @absenceSkippedChip.
+  ///
+  /// In en, this message translates to:
+  /// **'Not riding'**
+  String get absenceSkippedChip;
+
+  /// No description provided for @absencePickDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose days'**
+  String get absencePickDays;
+
+  /// No description provided for @absenceUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Put back on the bus'**
+  String get absenceUndo;
+
+  /// No description provided for @absenceRangeTooLong.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick at most {count} days at a time.'**
+  String absenceRangeTooLong(int count);
+
+  /// No description provided for @absencePartlyBooked.
+  ///
+  /// In en, this message translates to:
+  /// **'{booked} of {total} mornings booked.'**
+  String absencePartlyBooked(int booked, int total);
+
+  /// No description provided for @absenceMorningOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning runs only. If plans change, the driver can still pick {name} up.'**
+  String absenceMorningOnly(String name);
+
+  /// No description provided for @absenceMorningsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 morning} other{{count} mornings}}'**
+  String absenceMorningsCount(int count);
 }
 
 class _AppLocalizationsDelegate

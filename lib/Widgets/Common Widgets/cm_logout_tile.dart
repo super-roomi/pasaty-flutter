@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show HapticFeedback;
 import 'package:mockup/Colors/app_colors.dart';
 import 'package:mockup/Pages/Common/cm_login_page.dart';
 import 'package:mockup/services/auth_service.dart';
@@ -24,6 +25,7 @@ class CmLogoutTile extends StatelessWidget {
   }
 
   void _confirmLogout(BuildContext context, AppLocalizations l10n) {
+    HapticFeedback.selectionClick();
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
@@ -36,6 +38,7 @@ class CmLogoutTile extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
+              HapticFeedback.mediumImpact();
               Navigator.pop(dialogContext);
               _logout(context);
             },
@@ -53,48 +56,66 @@ class CmLogoutTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
-    return GestureDetector(
-      onTap: () => _confirmLogout(context, l10n),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey, width: 1),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 20.0,
-            ),
-            child: Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(right: 14.0),
-                  child: Icon(
-                    Icons.logout,
-                    size: 26,
-                    color: AppColors.dangerRed,
-                  ),
+    // InkWell, not GestureDetector: gives a press ripple and, just as
+    // importantly, reports itself as a button to screen readers.
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () => _confirmLogout(context, l10n),
+          borderRadius: BorderRadius.circular(AppRadius.card),
+          child: Semantics(
+            button: true,
+            label: '${l10n.logOut}. ${l10n.signOutOfYourAccount}',
+            excludeSemantics: true,
+            child: Container(
+              decoration: BoxDecoration(
+                border: AppBorders.card,
+                borderRadius: BorderRadius.circular(AppRadius.card),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                  vertical: 18.0,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                // `spacing` follows the reading direction; the previous
+                // EdgeInsets.only(right:) put the gap on the wrong side in
+                // Arabic and jammed the icon against the label.
+                child: Row(
+                  spacing: 14,
                   children: [
-                    Text(
-                      l10n.logOut,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.dangerRed,
-                      ),
+                    const Icon(
+                      Icons.logout,
+                      size: 26,
+                      color: AppColors.dangerRed,
                     ),
-                    Text(
-                      l10n.signOutOfYourAccount,
-                      style: const TextStyle(height: 0.8),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: 2,
+                        children: [
+                          Text(
+                            l10n.logOut,
+                            style: const TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.dangerRed,
+                            ),
+                          ),
+                          Text(
+                            l10n.signOutOfYourAccount,
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: AppColors.mutedText,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              ],
+              ),
             ),
           ),
         ),

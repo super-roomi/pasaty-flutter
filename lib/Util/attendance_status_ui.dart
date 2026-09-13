@@ -20,10 +20,10 @@ String attendanceStatusLabel(BuildContext context, String status) {
 
 Color attendanceStatusColor(String status) {
   return switch (status) {
-    AttendanceStatus.boarded => const Color(0xFFBEFFDC),
-    AttendanceStatus.arrived => const Color(0xFFBDE0FF),
-    AttendanceStatus.droppedOff => const Color(0xFFBDE0FF),
-    AttendanceStatus.absent => AppColors.lightAlertRed,
-    _ => const Color(0xFFE9E7EC),
+    AttendanceStatus.boarded => AppColors.successTint,
+    AttendanceStatus.arrived => AppColors.infoTint,
+    AttendanceStatus.droppedOff => AppColors.infoTint,
+    AttendanceStatus.absent => AppColors.dangerTint,
+    _ => AppColors.neutralTint,
   };
 }

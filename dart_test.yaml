@@ -1,0 +1,11 @@
+# Tests tagged `integration` drive real network I/O against a helper server
+# that has to be started by hand (see the header comment in each of them), so
+# they cannot pass in a plain `flutter test` run or in CI. They were still
+# being collected by default, which left the suite permanently red and taught
+# everyone to ignore it.
+#
+# Run them deliberately:
+#   flutter test --tags integration --dart-define=API_BASE_URL=http://127.0.0.1:4599
+tags:
+  integration:
+    skip: "needs a local helper server; run with --tags integration"

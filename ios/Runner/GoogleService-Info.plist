@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBqXhlT5gPNgCiMj3smgrkVOY_Kd9vKQIY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>601614256782</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>iq.masaralburhan.app</string>
+	<key>PROJECT_ID</key>
+	<string>pasaty-b6671</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pasaty-b6671.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:601614256782:ios:c4a1f151fc7c39baaa17df</string>
+</dict>
+</plist>

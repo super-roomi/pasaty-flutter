@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -5,9 +8,41 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+// Firebase Cloud Messaging.
+//
+// Applied conditionally rather than in the `plugins` block above: the
+// google-services plugin fails the whole build when google-services.json is
+// absent, and that file is per-Firebase-project configuration that is not in
+// the repository. Without it the app still builds and runs — Firebase simply
+// fails to initialise and PushService degrades to "no push", which it is
+// written to do. Drop the file in android/app/ and push starts working with
+// no other change.
+val googleServicesConfig = file("google-services.json")
+if (googleServicesConfig.exists()) {
+    apply(plugin = "com.google.gms.google-services")
+} else {
+    logger.warn(
+        "google-services.json not found in android/app — building without " +
+            "Firebase. Push notifications will be inactive on Android."
+    )
+}
+
+// Release signing credentials live in android/key.properties, which is
+// gitignored — the upload keystore must never be committed. When the file is
+// absent (fresh clone, CI without secrets) the release build falls back to the
+// debug key so `flutter run --release` still works locally; that fallback is
+// blocked for real uploads by the `assertReleaseSigning` check below.
+val keystoreProperties = Properties().apply {
+    val f = rootProject.file("key.properties")
+    if (f.exists()) load(FileInputStream(f))
+}
+val hasReleaseKeystore = keystoreProperties.getProperty("storeFile") != null
+
 android {
-    namespace = "com.example.mockup"
-    compileSdk = flutter.compileSdkVersion
+    namespace = "iq.masaralburhan.app"
+    // flutter_secure_storage compiles against SDK 37; staying on
+    // flutter.compileSdkVersion (36) warns now and fails on newer AGP.
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -20,21 +55,51 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.mockup"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        // Permanent once the first build is uploaded to Play — it cannot be
+        // changed afterwards without publishing a brand new listing.
+        applicationId = "iq.masaralburhan.app"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        if (hasReleaseKeystore) {
+            create("release") {
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = if (hasReleaseKeystore) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
+        }
+    }
+}
+
+// Play rejects debug-signed artifacts. Fail the bundle task loudly rather than
+// letting a debug-signed AAB get as far as an upload attempt.
+tasks.matching { it.name == "bundleRelease" }.configureEach {
+    doFirst {
+        check(hasReleaseKeystore) {
+            "Release signing is not configured. Create android/key.properties " +
+                "with storeFile/storePassword/keyAlias/keyPassword before " +
+                "building an upload bundle."
         }
     }
 }
