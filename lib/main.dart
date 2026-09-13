@@ -17,6 +17,30 @@ import 'Colors/app_colors.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  // Android 15+ draws every app edge-to-edge whether it asks to or not, and on
+  // SDK 36 — which this app targets — the opt-out no longer exists. Declaring
+  // it here instead of inheriting it means older Android behaves the same way,
+  // so the layout is exercised on every device rather than only on new ones.
+  //
+  // Deliberately not MainActivity.enableEdgeToEdge(): that is the Android View
+  // path, and in a Flutter app the framework owns window insets. Doing both
+  // leaves two owners fighting over the same window flags.
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+
+  // Transparent bars so the app's own background runs under them. Dark icons
+  // because every screen sits on a light ground; an AppBar that needs
+  // something else overrides this for its own route.
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark, // Android
+      statusBarBrightness: Brightness.light, // iOS
+      systemNavigationBarColor: Colors.transparent,
+      systemNavigationBarIconBrightness: Brightness.dark,
+      systemNavigationBarDividerColor: Colors.transparent,
+    ),
+  );
   final savedLocale = await LocalePrefs.load();
   // Rehydrate any saved session before the first frame, so a user whose app
   // was killed in the background comes back to their own screen rather than

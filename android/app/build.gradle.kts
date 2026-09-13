@@ -50,10 +50,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
-    }
-
     defaultConfig {
         // Permanent once the first build is uploaded to Play — it cannot be
         // changed afterwards without publishing a brand new listing.
@@ -101,6 +97,15 @@ tasks.matching { it.name == "bundleRelease" }.configureEach {
                 "with storeFile/storePassword/keyAlias/keyPassword before " +
                 "building an upload bundle."
         }
+    }
+}
+
+// Top-level rather than android { kotlinOptions { } }: that DSL is deprecated
+// to an error under AGP 9 / Kotlin 2.3. This is the shape Flutter's own AGP 9
+// template uses.
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
 }
 
