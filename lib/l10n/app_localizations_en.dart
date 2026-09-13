@@ -344,7 +344,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String pickupRemaining(int count) {
-    return '$count students to pick up';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count students to pick up',
+      one: '1 student to pick up',
+      zero: 'No students to pick up',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -355,7 +362,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String dropoffRemaining(int count) {
-    return '$count students still on the bus';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count students still on the bus',
+      one: '1 student still on the bus',
+      zero: 'No students still on the bus',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -559,7 +573,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Precise Location is off, so your position is too imprecise to report and the bus is not visible. Turn on Precise Location for this app in Settings.';
 
   @override
-  String get notRidingToday => 'Not riding today';
+  String get absenceNotBookedLabel => 'Not booked';
 
   @override
   String get driverNotRiding => 'Not riding today';
@@ -607,10 +621,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get manageAbsence => 'Bus attendance';
 
   @override
-  String get absenceConfirmTitle => 'Not riding today?';
+  String get absenceConfirmTitle => 'Skip the bus?';
 
   @override
-  String get absenceConfirmAction => 'Yes, skip today';
+  String get absenceConfirmAction => 'Yes, skip';
 
   @override
   String get absenceRangeConfirmTitle => 'Skip these mornings?';

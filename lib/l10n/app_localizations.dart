@@ -719,7 +719,7 @@ abstract class AppLocalizations {
   /// No description provided for @pickupRemaining.
   ///
   /// In en, this message translates to:
-  /// **'{count} students to pick up'**
+  /// **'{count, plural, =0{No students to pick up} =1{1 student to pick up} other{{count} students to pick up}}'**
   String pickupRemaining(int count);
 
   /// No description provided for @allPickedUp.
@@ -737,7 +737,7 @@ abstract class AppLocalizations {
   /// No description provided for @dropoffRemaining.
   ///
   /// In en, this message translates to:
-  /// **'{count} students still on the bus'**
+  /// **'{count, plural, =0{No students still on the bus} =1{1 student still on the bus} other{{count} students still on the bus}}'**
   String dropoffRemaining(int count);
 
   /// No description provided for @upNext.
@@ -1100,11 +1100,11 @@ abstract class AppLocalizations {
   /// **'Precise Location is off, so your position is too imprecise to report and the bus is not visible. Turn on Precise Location for this app in Settings.'**
   String get locationReducedAccuracy;
 
-  /// No description provided for @notRidingToday.
+  /// No description provided for @absenceNotBookedLabel.
   ///
   /// In en, this message translates to:
-  /// **'Not riding today'**
-  String get notRidingToday;
+  /// **'Not booked'**
+  String get absenceNotBookedLabel;
 
   /// No description provided for @driverNotRiding.
   ///
@@ -1187,13 +1187,13 @@ abstract class AppLocalizations {
   /// No description provided for @absenceConfirmTitle.
   ///
   /// In en, this message translates to:
-  /// **'Not riding today?'**
+  /// **'Skip the bus?'**
   String get absenceConfirmTitle;
 
   /// No description provided for @absenceConfirmAction.
   ///
   /// In en, this message translates to:
-  /// **'Yes, skip today'**
+  /// **'Yes, skip'**
   String get absenceConfirmAction;
 
   /// No description provided for @absenceRangeConfirmTitle.

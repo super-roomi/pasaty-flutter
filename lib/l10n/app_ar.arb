@@ -141,7 +141,7 @@
   "attendanceHint": "اضغط على الطالب عند صعوده إلى الباص، أو اسحب لليمين لتسجيله غائبًا.",
   "startDropoffs": "بدء التوصيل",
   "nextPickup": "الصعود التالي",
-  "pickupRemaining": "{count} طلاب بانتظار الصعود",
+  "pickupRemaining": "{count, plural, =0{لا يوجد طلاب للصعود} =1{طالب واحد بانتظار الصعود} =2{طالبان بانتظار الصعود} other{{count} طلاب بانتظار الصعود}}",
   "@pickupRemaining": {
     "placeholders": {
       "count": {
@@ -151,7 +151,7 @@
   },
   "allPickedUp": "تم صعود جميع الطلاب",
   "nextDropoff": "التوصيل التالي",
-  "dropoffRemaining": "{count} طلاب ما زالوا في الباص",
+  "dropoffRemaining": "{count, plural, =0{لا يوجد طلاب في الباص} =1{طالب واحد ما زال في الباص} =2{طالبان ما زالا في الباص} other{{count} طلاب ما زالوا في الباص}}",
   "@dropoffRemaining": {
     "placeholders": {
       "count": {
@@ -247,8 +247,7 @@
   "locationBlockedTitle": "إذن الموقع مُعطَّل",
   "locationBlockedMessage": "يحتاج مسار البرهان إلى موقعك للإبلاغ عن مكان الحافلة أثناء الرحلة. فعِّل إذن الموقع لهذا التطبيق من الإعدادات، ثم ابدأ الرحلة مرة أخرى.",
   "locationReducedAccuracy": "خاصية الموقع الدقيق مُعطَّلة، لذا موقعك غير دقيق بما يكفي للإبلاغ عنه ولا تظهر الحافلة. فعِّل الموقع الدقيق لهذا التطبيق من الإعدادات.",
-
-  "notRidingToday": "لن يركب اليوم",
+  "absenceNotBookedLabel": "غير محجوز",
   "driverNotRiding": "لن يركب اليوم",
   "driverNotRidingNote": "أحد الوالدين ألغى ركوب {name} في رحلة هذا الصباح. لا تنتظر عند هذه المحطة.",
   "driverSkipStop": "تخطَّ هذه المحطة",
@@ -262,8 +261,8 @@
   "absenceBookedLabel": "محجوز",
   "planAhead": "جدولة مسبقة",
   "manageAbsence": "ركوب الحافلة",
-  "absenceConfirmTitle": "لن يركب اليوم؟",
-  "absenceConfirmAction": "نعم، تخطَّ اليوم",
+  "absenceConfirmTitle": "تخطّي الحافلة؟",
+  "absenceConfirmAction": "نعم، تخطِّ",
   "absenceRangeConfirmTitle": "تخطي هذه الأيام؟",
   "absenceRangeConfirmMessage": "لن تتوقف الحافلة لـ {name} في الأيام التي اخترتها.",
   "absenceBooked": "تم الحجز — لن يتم اصطحاب {name}.",

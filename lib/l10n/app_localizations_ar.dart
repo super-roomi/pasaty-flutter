@@ -340,7 +340,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String pickupRemaining(int count) {
-    return '$count طلاب بانتظار الصعود';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count طلاب بانتظار الصعود',
+      two: 'طالبان بانتظار الصعود',
+      one: 'طالب واحد بانتظار الصعود',
+      zero: 'لا يوجد طلاب للصعود',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -351,7 +359,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String dropoffRemaining(int count) {
-    return '$count طلاب ما زالوا في الباص';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count طلاب ما زالوا في الباص',
+      two: 'طالبان ما زالا في الباص',
+      one: 'طالب واحد ما زال في الباص',
+      zero: 'لا يوجد طلاب في الباص',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -555,7 +571,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'خاصية الموقع الدقيق مُعطَّلة، لذا موقعك غير دقيق بما يكفي للإبلاغ عنه ولا تظهر الحافلة. فعِّل الموقع الدقيق لهذا التطبيق من الإعدادات.';
 
   @override
-  String get notRidingToday => 'لن يركب اليوم';
+  String get absenceNotBookedLabel => 'غير محجوز';
 
   @override
   String get driverNotRiding => 'لن يركب اليوم';
@@ -603,10 +619,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get manageAbsence => 'ركوب الحافلة';
 
   @override
-  String get absenceConfirmTitle => 'لن يركب اليوم؟';
+  String get absenceConfirmTitle => 'تخطّي الحافلة؟';
 
   @override
-  String get absenceConfirmAction => 'نعم، تخطَّ اليوم';
+  String get absenceConfirmAction => 'نعم، تخطِّ';
 
   @override
   String get absenceRangeConfirmTitle => 'تخطي هذه الأيام؟';

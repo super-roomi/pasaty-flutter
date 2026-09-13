@@ -494,7 +494,10 @@ class _PrAbsenceSheetState extends State<PrAbsenceSheet> {
       button: selectable,
       enabled: selectable,
       toggled: booked,
-      label: '$label. ${booked ? l10n.absenceBookedLabel : l10n.notRidingToday}',
+      // Describes the toggle's state for this specific day, so it must not
+      // name a day of its own — `label` already did that.
+      label:
+          '$label. ${booked ? l10n.absenceBookedLabel : l10n.absenceNotBookedLabel}',
       excludeSemantics: true,
       child: Material(
         color: booked ? AppColors.warningTint : AppColors.surfaceMuted,

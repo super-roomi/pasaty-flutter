@@ -141,7 +141,7 @@
   "attendanceHint": "Tap a student when they board the bus. Swipe left to mark them absent.",
   "startDropoffs": "Start drop-offs",
   "nextPickup": "Next pickup",
-  "pickupRemaining": "{count} students to pick up",
+  "pickupRemaining": "{count, plural, =0{No students to pick up} =1{1 student to pick up} other{{count} students to pick up}}",
   "@pickupRemaining": {
     "placeholders": {
       "count": {
@@ -151,7 +151,7 @@
   },
   "allPickedUp": "All students have been picked up",
   "nextDropoff": "Next drop-off",
-  "dropoffRemaining": "{count} students still on the bus",
+  "dropoffRemaining": "{count, plural, =0{No students still on the bus} =1{1 student still on the bus} other{{count} students still on the bus}}",
   "@dropoffRemaining": {
     "placeholders": {
       "count": {
@@ -268,12 +268,15 @@
   "locationBlockedTitle": "Location permission is turned off",
   "locationBlockedMessage": "Masar Alburhan needs your location to report the bus position while a run is active. Turn on location access for this app in Settings, then start the run again.",
   "locationReducedAccuracy": "Precise Location is off, so your position is too imprecise to report and the bus is not visible. Turn on Precise Location for this app in Settings.",
-
-  "notRidingToday": "Not riding today",
+  "absenceNotBookedLabel": "Not booked",
   "driverNotRiding": "Not riding today",
   "driverNotRidingNote": "A parent took {name} off this morning's run. Do not wait at this stop.",
   "@driverNotRidingNote": {
-    "placeholders": { "name": { "type": "String" } }
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "driverSkipStop": "Skip this stop",
   "driverBoardAnyway": "They turned up — board",
@@ -284,39 +287,63 @@
   "absenceBookedOn": "Booked — {name} will not be collected on {day}.",
   "@absenceBookedOn": {
     "placeholders": {
-      "name": { "type": "String" },
-      "day": { "type": "String" }
+      "name": {
+        "type": "String"
+      },
+      "day": {
+        "type": "String"
+      }
     }
   },
   "absenceConfirmDayMessage": "The bus will not stop for {name} on {day}.",
   "@absenceConfirmDayMessage": {
     "placeholders": {
-      "name": { "type": "String" },
-      "day": { "type": "String" }
+      "name": {
+        "type": "String"
+      },
+      "day": {
+        "type": "String"
+      }
     }
   },
   "absenceBookedLabel": "Booked",
   "planAhead": "Plan ahead",
   "manageAbsence": "Bus attendance",
-  "absenceConfirmTitle": "Not riding today?",
-  "absenceConfirmAction": "Yes, skip today",
+  "absenceConfirmTitle": "Skip the bus?",
+  "absenceConfirmAction": "Yes, skip",
   "absenceRangeConfirmTitle": "Skip these mornings?",
   "absenceRangeConfirmMessage": "The bus will not stop for {name} on the days you picked.",
   "@absenceRangeConfirmMessage": {
-    "placeholders": { "name": { "type": "String" } }
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "absenceBooked": "Booked — {name} will not be collected.",
   "@absenceBooked": {
-    "placeholders": { "name": { "type": "String" } }
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "absenceBookedLive": "Done — the driver has been told.",
   "absenceCancelled": "{name} is back on the bus.",
   "@absenceCancelled": {
-    "placeholders": { "name": { "type": "String" } }
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "absenceAlreadyBoarded": "{name} is already on the bus. Call the driver if you need them taken off.",
   "@absenceAlreadyBoarded": {
-    "placeholders": { "name": { "type": "String" } }
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "absenceRunFinished": "This morning's run has finished.",
   "absenceRunStarted": "This morning's run has already started. Call the driver.",
@@ -325,21 +352,37 @@
   "absenceUndo": "Put back on the bus",
   "absenceRangeTooLong": "Pick at most {count} days at a time.",
   "@absenceRangeTooLong": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "absencePartlyBooked": "{booked} of {total} mornings booked.",
   "@absencePartlyBooked": {
     "placeholders": {
-      "booked": { "type": "int" },
-      "total": { "type": "int" }
+      "booked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "absenceMorningOnly": "Morning runs only. If plans change, the driver can still pick {name} up.",
   "@absenceMorningOnly": {
-    "placeholders": { "name": { "type": "String" } }
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "absenceMorningsCount": "{count, plural, =1{1 morning} other{{count} mornings}}",
   "@absenceMorningsCount": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

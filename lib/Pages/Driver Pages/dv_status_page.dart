@@ -528,11 +528,17 @@ class _StatusPageState extends State<StatusPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(l10n.cancel, style: const TextStyle(color: Colors.red)),
+            child: Text(l10n.cancel),
           ),
+          // Red marks the irreversible choice, not the way out of it. These
+          // were the wrong way round, which is how a driver taps the red one
+          // to back out and finalizes the run instead.
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text(l10n.ok),
+            child: Text(
+              l10n.ok,
+              style: const TextStyle(color: AppColors.dangerRed),
+            ),
           ),
         ],
       ),
