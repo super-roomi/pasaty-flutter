@@ -16,6 +16,12 @@ analyzer:
     # tests, which are written against a different mockito version and
     # report ~170 errors that have nothing to do with this app.
     - build/**
+    - android/**
+    - ios/**
+    - web/**
+    - windows/**
+    - macos/**
+    - linux/**
 
 linter:
   # The lint rules applied to this project can be customized in the

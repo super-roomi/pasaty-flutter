@@ -38,14 +38,41 @@ class RouteWaypoint {
   }
 }
 
+/// A GeoJSON LineString's `coordinates` as map points.
+///
+/// GeoJSON is [longitude, latitude]; LatLng is (latitude, longitude), so the
+/// pair has to be swapped. Both the morning and the afternoon line go through
+/// here so the swap cannot be got right in one and wrong in the other — a
+/// swapped pair does not throw, it just draws the route somewhere else on
+/// Earth. Anything that is not a LineString (`null`, or a field an older
+/// server never sent) yields an empty list.
+List<LatLng> _lineFromGeoJson(Object? geo) {
+  final coords = geo is Map<String, dynamic> ? geo['coordinates'] : null;
+  return <LatLng>[
+    if (coords is List)
+      for (final c in coords)
+        if (c is List && c.length >= 2)
+          LatLng((c[1] as num).toDouble(), (c[0] as num).toDouble()),
+  ];
+}
+
 /// A driver's route: the drawn line plus its stops.
 class DriverRouteMap {
   final int routeId;
   final String name;
 
-  /// The generated driving line. Empty when the admin has not run route
-  /// generation yet — the map then shows stops only, with no path drawn.
+  /// The generated driving line for the morning run, start → school. Empty
+  /// when the admin has not run route generation yet — the map then shows
+  /// stops only, with no path drawn.
   final List<LatLng> line;
+
+  /// The afternoon run's own line, school → start.
+  ///
+  /// Empty until an admin regenerates the route: the server only started
+  /// drawing the afternoon separately once roads turned out not to be
+  /// symmetric — one-way streets and turn restrictions mean the way back is
+  /// often a different road.
+  final List<LatLng> afternoonLine;
 
   final List<RouteWaypoint> waypoints;
 
@@ -53,27 +80,28 @@ class DriverRouteMap {
     required this.routeId,
     required this.name,
     required this.line,
+    required this.afternoonLine,
     required this.waypoints,
   });
 
-  bool get hasLine => line.length > 1;
+  /// The line actually driven during this phase.
+  ///
+  /// [afternoonLine] already runs school → start, so it is never reversed.
+  /// With no afternoon line the morning one stands in, which is exactly what
+  /// the app drew before: a polyline renders identically whichever way round
+  /// its points run, so the fallback needs no reversal — only the road it
+  /// follows can be wrong, which is the whole reason for the separate line.
+  List<LatLng> lineFor({required bool afternoon}) =>
+      afternoon && afternoonLine.length > 1 ? afternoonLine : line;
 
   /// Everything that needs to be visible, for fitting the camera.
-  List<LatLng> get allPoints => [...line, ...waypoints.map((w) => w.position)];
+  List<LatLng> pointsFor({required bool afternoon}) => [
+    ...lineFor(afternoon: afternoon),
+    ...waypoints.map((w) => w.position),
+  ];
 
   factory DriverRouteMap.fromJson(Map<String, dynamic> json) {
     final route = json['route'] as Map<String, dynamic>;
-
-    // routes.geo is a GeoJSON LineString. GeoJSON is [longitude, latitude];
-    // LatLng is (latitude, longitude), so the pair has to be swapped.
-    final geo = route['geo'];
-    final coords = geo is Map<String, dynamic> ? geo['coordinates'] : null;
-    final line = <LatLng>[
-      if (coords is List)
-        for (final c in coords)
-          if (c is List && c.length >= 2)
-            LatLng((c[1] as num).toDouble(), (c[0] as num).toDouble()),
-    ];
 
     final waypoints =
         (json['waypoints'] as List? ?? [])
@@ -87,7 +115,8 @@ class DriverRouteMap {
     return DriverRouteMap(
       routeId: route['id'] as int,
       name: (route['name'] ?? '') as String,
-      line: line,
+      line: _lineFromGeoJson(route['geo']),
+      afternoonLine: _lineFromGeoJson(route['afternoon_geo']),
       waypoints: waypoints,
     );
   }

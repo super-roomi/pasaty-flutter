@@ -206,7 +206,7 @@ class _DvRouteMapState extends State<DvRouteMap> {
       _followMe();
       return;
     }
-    final points = _route?.allPoints;
+    final points = _route?.pointsFor(afternoon: widget.afternoon);
     if (points == null || points.isEmpty || _fitted) return;
     // Deferred: the map is not laid out until after this frame.
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -322,7 +322,12 @@ class _DvRouteMapState extends State<DvRouteMap> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    if (route.waypoints.isEmpty && !route.hasLine) {
+    // The afternoon drives its own road path where the server has drawn one,
+    // so which line to show depends on the phase, not just on the route.
+    final line = route.lineFor(afternoon: widget.afternoon);
+    final points = route.pointsFor(afternoon: widget.afternoon);
+
+    if (route.waypoints.isEmpty && line.length < 2) {
       return _message(icon: Icons.map_outlined, text: l10n.noRouteGeometry);
     }
 
@@ -331,9 +336,7 @@ class _DvRouteMapState extends State<DvRouteMap> {
         FlutterMap(
           mapController: _map,
           options: MapOptions(
-            initialCenter: route.allPoints.isNotEmpty
-                ? route.allPoints.first
-                : const LatLng(0, 0),
+            initialCenter: points.isNotEmpty ? points.first : const LatLng(0, 0),
             initialZoom: 14,
             onMapReady: () {
               _mapReady = true;
@@ -353,11 +356,11 @@ class _DvRouteMapState extends State<DvRouteMap> {
           ),
           children: [
             _tileLayer(),
-            if (route.hasLine)
+            if (line.length > 1)
               PolylineLayer(
                 polylines: [
                   Polyline(
-                    points: route.line,
+                    points: line,
                     strokeWidth: 5,
                     color: AppColors.deepNavy.withValues(alpha: 0.85),
                   ),
